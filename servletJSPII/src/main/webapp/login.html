@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+<h1>login.html</h1>
+    <form action="hello" method="post">
+        <input type='text' name='id' value='hong'>
+        <input type="text" name="name" value="홍길동">
+        <input type="submit" value="Send"> 
+    </form>
+    
+    <script>
+    var size = [window.width,window.height];  //public variable
+
+    $(window).resize(function(){
+      window.resizeTo(size[0],size[1]);
+    });
+    </script>
+</body>
+
+</html>
