@@ -1,9 +1,14 @@
 package com.dev.common;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URLDecoder;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,7 +26,27 @@ public class DAO {
 			conn = ds.getConnection();
 
 		} catch (NamingException | SQLException e) {
-			e.printStackTrace();
+
+			Properties prop = new Properties();
+			String path = null;
+			path = "src/com/dev/database.properties";
+			System.out.println(path);
+
+			try {
+				path = URLDecoder.decode(path, "UTF-8");
+				prop.load(new FileReader(path));
+				String url = prop.getProperty("url");
+				String id = prop.getProperty("user");
+				String pass = prop.getProperty("passwd");
+				Class.forName(prop.getProperty("driver"));
+
+				conn = DriverManager.getConnection(url, id, pass);
+				System.out.println("connected.");
+
+			} catch (ClassNotFoundException | SQLException | IOException e1) {
+				e1.printStackTrace();
+			}
+
 		}
 		return conn;
 

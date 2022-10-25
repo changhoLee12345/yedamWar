@@ -9,8 +9,8 @@ import com.dev.vo.MemberVO;
 public class MemberService {
 
 	private static MemberService service = new MemberService();
-//	MemberDAO dao = MemberDAO.getInstance();
-	MemberMybatisDAO dao = MemberMybatisDAO.getInstance();
+	MemberDAO dao = MemberDAO.getInstance();
+//	MemberMybatisDAO dao = MemberMybatisDAO.getInstance();
 
 	private MemberService() {
 
