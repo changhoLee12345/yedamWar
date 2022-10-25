@@ -14,7 +14,8 @@ create table test_board (
 	writer varchar2(100),
 	content varchar2(500),
 	write_date date,
-	visit_cnt number
+	visit_cnt number,
+	image varchar2(500)
 );
 alter table test_board add constraint pk_board primary key(seq);
 drop sequence board_seq;
