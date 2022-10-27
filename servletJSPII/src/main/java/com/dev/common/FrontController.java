@@ -33,6 +33,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
+//		getServletConfig().getInitParameter("charset");
 		charset = config.getInitParameter("charset");
 
 		list = new HashMap<String, Controller>();
@@ -46,12 +47,10 @@ public class FrontController extends HttpServlet {
 		list.put("/memberJoinForm.do", new MemberJoinFormController());
 		list.put("/memberJoin.do", new MemberJoinController());
 		list.put("/replyList.do", new ReplyListController());
-		
-		
+
 		list.put("/spec.do", new SpecialController());
 		list.put("/table.do", new TilesTableController());
 		list.put("/cart.do", new CartController());
-		
 
 	}
 
