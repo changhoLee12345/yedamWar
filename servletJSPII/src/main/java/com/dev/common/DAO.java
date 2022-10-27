@@ -29,7 +29,7 @@ public class DAO {
 
 			Properties prop = new Properties();
 			String path = null;
-			path = "src/com/dev/database.properties";
+			path = "C:/Temp/database.properties";
 			System.out.println(path);
 
 			try {
