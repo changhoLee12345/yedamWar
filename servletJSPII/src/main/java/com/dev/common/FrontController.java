@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +17,7 @@ import com.dev.controller.MemberJoinController;
 import com.dev.controller.MemberJoinFormController;
 import com.dev.controller.MemberJsonController;
 import com.dev.controller.MemberListController;
+import com.dev.controller.MemberLoginFormController;
 import com.dev.controller.MemberSearchController;
 import com.dev.controller.MemberUpdateController;
 import com.dev.controller.ReplyListController;
@@ -46,6 +46,7 @@ public class FrontController extends HttpServlet {
 		list.put("/memberJson.do", new MemberJsonController());
 		list.put("/memberJoinForm.do", new MemberJoinFormController());
 		list.put("/memberJoin.do", new MemberJoinController());
+		list.put("/memberLoginForm.do", new MemberLoginFormController());
 
 		list.put("/replyList.do", new ReplyListController());
 
