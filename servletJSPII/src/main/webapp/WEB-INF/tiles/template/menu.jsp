@@ -8,19 +8,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 		<ul class="navbar-nav">
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberInsert.tiles">회원정보생성</a> </li>
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberSearch.tiles">회원정보검색</a></li>
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberUpdate.tiles">회원정보수정</a></li>
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberDelete.tiles">회원정보삭제</a></li>
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/memberList.do">모든회원정보</a></li>
-
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/replyList.do">댓글테스트</a></li>
-
 			<c:if test="${not empty id }">
 				<li class="nav-item"><a class="nav-link" href="memberLoginOut.do">로그아웃</a></li>
 			</c:if>
@@ -29,7 +16,12 @@
 				<li class="nav-item"><a class="nav-link" href="memberLoginForm.do">로그인</a></li>
 				<li class="nav-item"><a class="nav-link" href="memberJoinForm.do">회원가입</a></li>
 			</c:if>
-
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/replyList.do">댓글테스트</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberInsert.tiles">회원정보생성</a> </li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberSearch.tiles">회원정보검색</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberUpdate.tiles">회원정보수정</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/member/memberDelete.tiles">회원정보삭제</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.servletContext.contextPath }/memberList.do">모든회원정보</a></li>
 			<c:choose>
 				<c:when test="${empty id }">
 					<li class="nav-item"><a class="nav-link" href="#" style="color: yellow;">(Guest)</a></li>

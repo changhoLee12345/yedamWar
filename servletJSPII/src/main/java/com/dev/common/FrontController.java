@@ -46,6 +46,7 @@ public class FrontController extends HttpServlet {
 		list.put("/memberJson.do", new MemberJsonController());
 		list.put("/memberJoinForm.do", new MemberJoinFormController());
 		list.put("/memberJoin.do", new MemberJoinController());
+
 		list.put("/replyList.do", new ReplyListController());
 
 		list.put("/spec.do", new SpecialController());

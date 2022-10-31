@@ -20,19 +20,23 @@ public class DAO {
 	public PreparedStatement psmt;
 
 	public Connection connect() {
+
 		try {
+
 			InitialContext ic = new InitialContext();
 			DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/myoracle");
 			conn = ds.getConnection();
 
-		} catch (NamingException | SQLException e) {
+			System.out.println("connected.");
 
-			Properties prop = new Properties();
-			String path = null;
-			path = "C:/Temp/database.properties";
-			System.out.println(path);
+		} catch (Exception e) {
 
 			try {
+				Properties prop = new Properties();
+				String path = null;
+				path = this.getClass().getResource("../database.properties").getPath();
+				System.out.println(path);
+
 				path = URLDecoder.decode(path, "UTF-8");
 				prop.load(new FileReader(path));
 				String url = prop.getProperty("url");
@@ -41,15 +45,15 @@ public class DAO {
 				Class.forName(prop.getProperty("driver"));
 
 				conn = DriverManager.getConnection(url, id, pass);
-				System.out.println("connected.");
 
-			} catch (ClassNotFoundException | SQLException | IOException e1) {
+			} catch (Exception e1) {
+
 				e1.printStackTrace();
 			}
 
 		}
-		return conn;
 
+		return conn;
 	}
 
 	public void disconnect() {

@@ -12,6 +12,7 @@ public class BoardVO {
 	private String content;
 	private String writer;
 	private Date createDate;
+	private int clickCnt;
 
 	private List<ReplyVO> replyList;
 }

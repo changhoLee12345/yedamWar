@@ -21,7 +21,7 @@ public class MemberDAO extends DAO {
 	// 리스트
 	public List<MemberVO> memberList() {
 		conn = connect();
-		String sql = "select id, name, passwd, mail from member order by 1";
+		String sql = "select id, name, passwd, email from member order by 1";
 		List<MemberVO> list = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -29,7 +29,7 @@ public class MemberDAO extends DAO {
 			while (rs.next()) {
 				MemberVO member = new MemberVO();
 				member.setId(rs.getString("id"));
-				member.setMail(rs.getString("mail"));
+				member.setMail(rs.getString("email"));
 				member.setName(rs.getString("name"));
 				member.setPasswd(rs.getString("passwd"));
 				list.add(member);

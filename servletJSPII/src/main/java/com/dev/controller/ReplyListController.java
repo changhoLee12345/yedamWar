@@ -18,14 +18,10 @@ public class ReplyListController implements Controller {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+
 		BoardService service = BoardService.getInstance();
 		List<BoardVO> list = service.getBoardReplyList("user1");
 		request.setAttribute("boardReplyList", list);
-		for (BoardVO board : list) {
-			for (ReplyVO reply : board.getReplyList()) {
-				System.out.println(reply.toString());
-			}
-		}
 
 		HttpUtil.forward(request, response, "board/boardList.tiles");
 
