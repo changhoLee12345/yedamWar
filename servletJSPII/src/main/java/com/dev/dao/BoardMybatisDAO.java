@@ -21,6 +21,7 @@ public class BoardMybatisDAO {
 	}
 
 	public static BoardMybatisDAO getInstance() {
+		System.out.println("getinstance");
 		return instance;
 	}
 

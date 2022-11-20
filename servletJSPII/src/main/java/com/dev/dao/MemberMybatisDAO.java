@@ -21,6 +21,7 @@ public class MemberMybatisDAO {
 	}
 
 	public static MemberMybatisDAO getInstance() {
+		System.out.println("getinstance");
 		return instance;
 	}
 

@@ -3,15 +3,15 @@ package com.dev.service;
 import java.util.List;
 import java.util.Map;
 
-import com.dev.dao.BoardDAO;
+import com.dev.dao.BoardMybatisDAO;
 import com.dev.vo.BoardVO;
 import com.dev.vo.ReplyVO;
 
 public class BoardService {
 	private static BoardService instance = new BoardService();
 
-//	BoardMybatisDAO dao = BoardMybatisDAO.getInstance();
-	BoardDAO dao = new BoardDAO();
+	BoardMybatisDAO dao = BoardMybatisDAO.getInstance();
+//	BoardDAO dao = new BoardDAO();
 
 	private BoardService() {
 
