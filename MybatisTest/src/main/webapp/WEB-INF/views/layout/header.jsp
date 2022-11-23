@@ -3,16 +3,19 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="css/menu.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body>
 	<nav id="topMenu">
 		<ul>
-			<li><a class="menuLink" href="main.do">Home</a></li>	
-			<li><a class="menuLink" href="ajaxPage.do">Book</a></li>				
+			<li><a class="menuLink" href="main.do">Home</a></li>
+			<li><a class="menuLink" href="ajaxPage.do">jQuery연습</a></li>
+			<li><a class="menuLink" href="bookList.do">Book</a></li>
 			<li><a class="menuLink" href="noticeForm.do">Content</a></li>
 			<c:if test="${respsibility eq 'admin' }">
 				<li><a class="menuLink" href="memberList.do">Member</a></li>
@@ -31,4 +34,5 @@
 		</ul>
 	</nav>
 </body>
+
 </html>

@@ -1,6 +1,11 @@
 /**
  *  ajax for jquery
  */
+import {
+    korformat,
+    deformat
+} from './module.js';
+
 $(function () {
     // 페이지 로딩.
     // 리스트 출력.
@@ -55,7 +60,7 @@ function makeTr(book = {
         $('<td />').text(book.bookTitle),
         $('<td />').text(book.bookAuthor),
         $('<td />').text(book.bookPress),
-        $('<td />').text(book.bookPrice),
+        $('<td />').text(korformat(book.bookPrice)),
         // button
         $('<td />').append($('<button />').text('수정').on('click', book, modifyForm))
     )
