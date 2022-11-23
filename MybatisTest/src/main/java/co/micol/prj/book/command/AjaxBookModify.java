@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import co.micol.prj.book.service.BookService;
+import co.micol.prj.book.service.impl.BookServiceImpl;
 import co.micol.prj.book.vo.BookVO;
 import co.micol.prj.common.Command;
 
@@ -27,6 +29,9 @@ public class AjaxBookModify implements Command {
 		vo.setBookPrice(Integer.parseInt(price));
 
 		System.out.println(vo);
+
+		BookService service = new BookServiceImpl();
+		service.bookUpdate(vo);
 
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;

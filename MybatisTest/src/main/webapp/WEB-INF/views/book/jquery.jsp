@@ -14,7 +14,7 @@
     }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="./js/ajaxJquery.js"></script>
+<script type="module" src="./js/ajaxJquery.js"></script>
 
 <div id="header">
     <form action="" name="jfrm">

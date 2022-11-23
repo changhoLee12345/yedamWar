@@ -47,6 +47,7 @@ public class FrontController extends HttpServlet {
 	// 요청한 것을 실행하는 명령을 모아 두는 곳
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
+
 		map.put("/bookList.do", new BookList()); // 책목록보기
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
@@ -61,6 +62,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bookInsertForm.do", new bookInsertForm()); // 도서입력 화면
 		map.put("/bookInsert.do", new bookInsert()); // 도서 등록
 
+		// jquery를 사용해보기 위해 만든 컨트롤. 2022.11.23
 		map.put("/ajaxPage.do", new AjaxJquery()); // ajax페이지.
 		map.put("/ajaxBookList.do", new AjaxBookList()); // ajax목록
 		map.put("/ajaxBookAdd.do", new AjaxBookAdd()); // ajax입력
