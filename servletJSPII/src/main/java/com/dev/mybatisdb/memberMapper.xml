@@ -28,7 +28,7 @@
 		UPDATE member
 		SET name=#{name}
 		   ,passwd=#{passwd}
-		   ,mail=#{mail}
+		   ,email=#{mail}
 		WHERE id=#{id}
 		]]>
 	</update>
@@ -44,12 +44,12 @@
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="passwd" column="passwd" />
-		<result property="mail" column="mail" />
+		<result property="mail" column="email" />
 	</resultMap>
 
 	<select id="getMemberMap" resultMap="memberMap" parameterType="string">
 		<![CDATA[
-		select id, name, passwd, mail
+		select id, name, passwd, email
 		from member
 		where id = #{id}
 		]]>
