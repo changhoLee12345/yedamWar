@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;

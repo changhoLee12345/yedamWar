@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
 import java.io.IOException;
 
@@ -7,18 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
+import com.dev.common.HttpUtil;
 import com.dev.service.MemberService;
 
-public class MemberLogin implements Controller {
+public class MemberDeleteController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		String id = request.getParameter("mid");
-		String pw = request.getParameter("passwd");
+		String id = request.getParameter("id");
 
 		MemberService service = MemberService.getInstance();
+		service.memberDelete(id);
 
+		HttpUtil.forward(request, response, "memberResult/memberDeleteOutput.jsp");
 	}
 
 }

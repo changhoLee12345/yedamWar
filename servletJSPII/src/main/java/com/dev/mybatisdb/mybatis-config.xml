@@ -6,6 +6,11 @@
 
 	<properties resource="com/dev/mybatisdb/database.properties" />
 
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
 	<typeAliases>
 		<typeAlias type="com.dev.vo.MemberVO" alias="member"></typeAlias>
 		<typeAlias type="com.dev.vo.BoardVO" alias="board"></typeAlias>
@@ -24,8 +29,12 @@
 		</environment>
 	</environments>
 
-	<mappers>
+<!-- 	<mappers>
 		<mapper resource="com/dev/mybatisdb/memberMapper.xml" />
 		<mapper resource="com/dev/mybatisdb/boardMapper.xml" />
+	</mappers>
+ -->
+	<mappers>
+		<package name="com.dev.mybatisdb" />
 	</mappers>
 </configuration>

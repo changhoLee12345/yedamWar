@@ -27,10 +27,10 @@ public class MemberMybatisDAO {
 
 	// id, pw 조회
 	public MemberVO login(MemberVO vo) {
-		SqlSession session = sessionFactory.openSession();
-		MemberVO member = session.selectOne("com.dev.mybatisdb.memberMapper.login", vo);
-		session.close();
-		return member;
+		try (SqlSession session = sessionFactory.openSession()) {
+			MemberVO member = session.selectOne("com.dev.mybatisdb.memberMapper.login", vo);
+			return member;
+		}
 	}
 
 	// 멤버리스트.

@@ -52,11 +52,11 @@ public class BoardDAO extends DAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				BoardVO vo = new BoardVO();
-				vo.setBno(rs.getInt("board_no"));
+				vo.setBoardNo(rs.getInt("board_no"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContent(rs.getString("content"));
 				vo.setWriter(rs.getString("writer"));
-				vo.setCreateDate(rs.getDate("write_date"));
+				vo.setWriteDate(rs.getDate("write_date"));
 				vo.setClickCnt(rs.getInt("click_cnt"));
 
 				boardList.add(vo);

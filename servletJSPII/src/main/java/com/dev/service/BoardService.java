@@ -41,7 +41,7 @@ public class BoardService {
 	public List<BoardVO> getBoardReplyList(String writer) {
 		List<BoardVO> boardList = getBoardList(writer);
 		for (BoardVO board : boardList) {
-			board.setReplyList(getReplyList(board.getBno()));
+			board.setReplyList(getReplyList(board.getBoardNo()));
 		}
 		return boardList;
 	}
