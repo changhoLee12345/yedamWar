@@ -17,6 +17,7 @@ import com.dev.controller.MemberJoinController;
 import com.dev.controller.MemberJoinFormController;
 import com.dev.controller.MemberJsonController;
 import com.dev.controller.MemberListController;
+import com.dev.controller.MemberLogin;
 import com.dev.controller.MemberLoginFormController;
 import com.dev.controller.MemberSearchController;
 import com.dev.controller.MemberUpdateController;
@@ -38,15 +39,18 @@ public class FrontController extends HttpServlet {
 
 		list = new HashMap<String, Controller>();
 		list.put("/main.do", new MainController());
+
+		list.put("/memberJoinForm.do", new MemberJoinFormController());
+		list.put("/memberJoin.do", new MemberJoinController());
+		list.put("/memberLoginForm.do", new MemberLoginFormController());
+		list.put("/memberLogin.do", new MemberLogin());
+
 		list.put("/memberDelete.do", new MemberDeleteController());
 		list.put("/memberInsert.do", new MemberInsertController());
 		list.put("/memberList.do", new MemberListController());
 		list.put("/memberSearch.do", new MemberSearchController());
 		list.put("/memberUpdate.do", new MemberUpdateController());
 		list.put("/memberJson.do", new MemberJsonController());
-		list.put("/memberJoinForm.do", new MemberJoinFormController());
-		list.put("/memberJoin.do", new MemberJoinController());
-		list.put("/memberLoginForm.do", new MemberLoginFormController());
 
 		list.put("/replyList.do", new ReplyListController());
 

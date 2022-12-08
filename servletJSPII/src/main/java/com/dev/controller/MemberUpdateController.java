@@ -28,7 +28,7 @@ public class MemberUpdateController implements Controller {
 		member.setId(id);
 		member.setPasswd(passwd);
 		member.setName(name);
-		member.setMail(mail);
+		member.setEmail(mail);
 		
 		MemberService service = MemberService.getInstance();
 		service.memberUpdate(member);

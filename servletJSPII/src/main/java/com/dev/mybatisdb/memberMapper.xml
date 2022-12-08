@@ -4,6 +4,12 @@
 
 <mapper namespace="com.dev.mybatisdb.memberMapper">
 
+	<select id="login" parameterType="string" resultType="member">
+		<![CDATA[
+		select * from member where id = ${id} and passwd = ${pw}
+		]]
+	</select>
+
 	<select id="getMember" parameterType="string" resultType="member">
 		<![CDATA[
 		SELECT * FROM member WHERE id = #{id}
@@ -19,7 +25,7 @@
 	<insert id="insertMember" parameterType="member">
 		<![CDATA[
 		INSERT INTO member
-		VALUES (#{id},#{name},#{passwd},#{mail})
+		VALUES (#{id},#{name},#{passwd},#{email})
 		]]>
 	</insert>
 
@@ -28,7 +34,7 @@
 		UPDATE member
 		SET name=#{name}
 		   ,passwd=#{passwd}
-		   ,email=#{mail}
+		   ,email=#{email}
 		WHERE id=#{id}
 		]]>
 	</update>
@@ -44,7 +50,7 @@
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="passwd" column="passwd" />
-		<result property="mail" column="email" />
+		<result property="email" column="email" />
 	</resultMap>
 
 	<select id="getMemberMap" resultMap="memberMap" parameterType="string">

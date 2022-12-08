@@ -30,7 +30,7 @@ public class MemberInsertController implements Controller {
 		member.setId(id);
 		member.setName(name);
 		member.setPasswd(passwd);
-		member.setMail(mail);
+		member.setEmail(mail);
 
 		MemberService service = MemberService.getInstance();
 		service.memberInsert(member);

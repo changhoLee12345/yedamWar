@@ -7,6 +7,6 @@ public class MemberVO {
 	private String id;
 	private String passwd;
 	private String name;
-	private String mail;
+	private String email;
 
 }
