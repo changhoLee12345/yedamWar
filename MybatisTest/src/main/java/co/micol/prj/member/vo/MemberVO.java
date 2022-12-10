@@ -19,5 +19,5 @@ public class MemberVO {
 	private String ofileName;
 	
 	@JsonFormat(pattern = "yyyy-mm-dd", locale = "Asia/Seoul")
-	private Date date;
+	private Date cdate;
 }
