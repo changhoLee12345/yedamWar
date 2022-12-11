@@ -13,11 +13,15 @@ public class MemberService {
 	MemberMybatisDAO dao = MemberMybatisDAO.getInstance();
 
 	private MemberService() {
-
 	}
 
 	public static MemberService getInstance() {
 		return service;
+	}
+
+	// login
+	public MemberVO login(MemberVO vo) {
+		return dao.login(vo);
 	}
 
 	// 리스트

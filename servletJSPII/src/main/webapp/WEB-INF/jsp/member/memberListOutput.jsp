@@ -24,7 +24,7 @@
                     <tr>
                         <td>${item.id }</td>
                         <td>${item.name }</td>
-                        <td>${item.mail }</td>
+                        <td>${item.email }</td>
                         <td>${item.passwd }</td>
                     </tr>
                 </c:forEach>

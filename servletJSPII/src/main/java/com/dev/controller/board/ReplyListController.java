@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.board;
 
 import java.io.IOException;
 import java.util.List;

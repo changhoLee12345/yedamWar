@@ -25,6 +25,14 @@ public class MemberMybatisDAO {
 		return instance;
 	}
 
+	// id, pw 조회
+	public MemberVO login(MemberVO vo) {
+		try (SqlSession session = sessionFactory.openSession()) {
+			MemberVO member = session.selectOne("com.dev.mybatisdb.memberMapper.login", vo);
+			return member;
+		}
+	}
+
 	// 멤버리스트.
 	public List<MemberVO> memberList() {
 		SqlSession session = sessionFactory.openSession();

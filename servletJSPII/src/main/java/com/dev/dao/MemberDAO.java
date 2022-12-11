@@ -29,7 +29,7 @@ public class MemberDAO extends DAO {
 			while (rs.next()) {
 				MemberVO member = new MemberVO();
 				member.setId(rs.getString("id"));
-				member.setMail(rs.getString("email"));
+				member.setEmail(rs.getString("email"));
 				member.setName(rs.getString("name"));
 				member.setPasswd(rs.getString("passwd"));
 				list.add(member);
@@ -55,7 +55,7 @@ public class MemberDAO extends DAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				member.setId(rs.getString("id"));
-				member.setMail(rs.getString("mail"));
+				member.setEmail(rs.getString("mail"));
 				member.setName(rs.getString("name"));
 				member.setPasswd(rs.getString("passwd"));
 
@@ -78,7 +78,7 @@ public class MemberDAO extends DAO {
 			psmt.setString(1, member.getId());
 			psmt.setString(2, member.getName());
 			psmt.setString(3, member.getPasswd());
-			psmt.setString(4, member.getMail());
+			psmt.setString(4, member.getEmail());
 
 			int r = psmt.executeUpdate();
 			System.out.println(r + " 건 입력.");
@@ -98,7 +98,7 @@ public class MemberDAO extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member.getPasswd());
 			psmt.setString(2, member.getName());
-			psmt.setString(3, member.getMail());
+			psmt.setString(3, member.getEmail());
 			psmt.setString(4, member.getId());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 변경.");

@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.board;
 
 import java.io.IOException;
 
@@ -7,15 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
-import com.dev.common.HttpUtil;
+import com.dev.service.BoardServiceImpl;
 
-public class MemberLoginFormController implements Controller {
+public class BoardController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpUtil.forward(request, response, "main/loginForm.tiles");
-		
+		String bno = request.getParameter("bno");
+		BoardServiceImpl service = new BoardServiceImpl();
+		System.out.println(service.getBoard(Integer.parseInt(bno)));
 	}
 
 }

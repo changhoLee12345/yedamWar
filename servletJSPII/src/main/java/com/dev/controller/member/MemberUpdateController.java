@@ -1,8 +1,5 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,32 +8,34 @@ import com.dev.common.HttpUtil;
 import com.dev.service.MemberService;
 import com.dev.vo.MemberVO;
 
-public class MemberInsertController implements Controller {
+public class MemberUpdateController implements Controller {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
-
+		
 		if (id.isEmpty() || passwd.isEmpty() || name.isEmpty() || mail.isEmpty()) {
 			request.setAttribute("error", "모든 항목입력하세요!");
-			HttpUtil.forward(request, response, "member/memberInsert.tiles");
+			HttpUtil.forward(request, response, "memberView/memberUpdate.jsp");
 			return;
 		}
-
+		
 		MemberVO member = new MemberVO();
 		member.setId(id);
-		member.setName(name);
 		member.setPasswd(passwd);
-		member.setMail(mail);
-
+		member.setName(name);
+		member.setEmail(mail);
+		
 		MemberService service = MemberService.getInstance();
-		service.memberInsert(member);
-
+		service.memberUpdate(member);
+		
 		request.setAttribute("id", id);
-		HttpUtil.forward(request, response, "member/memberInsertOutput.tiles");
+		HttpUtil.forward(request, response, "memberResult/memberUpdateOutput.jsp");
+		
 	}
 
 }

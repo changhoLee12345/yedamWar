@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +32,7 @@ public class MemberJsonController implements Controller {
 			obj.put("id", vo.getId());
 			obj.put("name", vo.getName());
 			obj.put("ps", vo.getPasswd());
-			obj.put("mail", vo.getMail());
+			obj.put("mail", vo.getEmail());
 
 			ary.add(obj);
 

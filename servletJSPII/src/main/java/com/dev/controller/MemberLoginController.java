@@ -7,15 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
-import com.dev.common.HttpUtil;
+import com.dev.service.MemberService;
 
-public class MemberLoginFormController implements Controller {
+public class MemberLoginController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpUtil.forward(request, response, "main/loginForm.tiles");
-		
+		String id = request.getParameter("mid");
+		String pw = request.getParameter("passwd");
+
+		MemberService service = MemberService.getInstance();
+
 	}
 
 }
