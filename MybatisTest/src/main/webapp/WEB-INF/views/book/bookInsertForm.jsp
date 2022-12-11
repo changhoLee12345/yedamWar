@@ -77,13 +77,51 @@
 	<form id="bookFrm" action="bookInsert.do" method="post">
 		bookCode: <input type="text" name="bookCode" value="이것이"><br>
 		bookTitle: <input type="text" name="bookTitle" id="bookTitle" value="자바다"><br>
+		File: <input type="file" id="file1" name="file1"><br>
 		<input type="submit" value="book submit"><br>
 	</form>
 
 	<script>
+		console.log("first")
+		setTimeout(function () {
+			console.log("second")
+
+		}, 0)
+		console.log("third")
+
+
 		bookFrm.addEventListener('submit', function (e) {
 			e.preventDefault();
+			var url = "bookInsert.do";
 
+			formDataFunc(url);
+		})
+
+		function formDataFunc(url) {
+			const formData = new FormData();
+
+			formData.append("bookCode", "Groucho");
+			formData.append("bookPrice", 123456); // number 123456 is immediately converted to a string "123456"
+
+			// HTML file input, chosen by user
+			var fileInputElement = document.getElementById('file1');
+			formData.append("userfile", fileInputElement.files[0]);
+
+			// JavaScript file-like object
+			const content = '<q id="a"><span id="b">hey!</span></q>'; // the body of the new file…
+			const blob = new Blob([content], {
+				type: "text/xml"
+			});
+
+			formData.append("webmasterfile", blob);
+
+			const request = new XMLHttpRequest();
+			request.open("POST", url);
+			request.send(formData);
+
+		}
+
+		function fetchJson() {
 			let frmData = new FormData(this);
 			var url = 'bookInsert.do';
 
@@ -104,7 +142,7 @@
 				}).then(result => result.json())
 				.then(result => console.log(result))
 				.catch(err => console.log(err))
-		})
+		}
 
 		document.getElementById('frm').addEventListener('submit', function (e) {
 			e.preventDefault();
