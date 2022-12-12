@@ -89,7 +89,6 @@
 		}, 0)
 		console.log("third")
 
-
 		bookFrm.addEventListener('submit', function (e) {
 			e.preventDefault();
 			var url = "bookInsert.do";
@@ -97,6 +96,7 @@
 			formDataFunc(url);
 		})
 
+		// FormData를 사용해서 업로드처리.
 		function formDataFunc(url) {
 			const formData = new FormData();
 
@@ -121,6 +121,7 @@
 
 		}
 
+		// FormData로는 json으로 업로드 안됨. 그래서 {}로 만들어서 stringify하도록.
 		function fetchJson() {
 			let frmData = new FormData(this);
 			var url = 'bookInsert.do';
@@ -152,6 +153,7 @@
 
 		})
 
+		// json 업로드.
 		function jsonUpload(url) {
 			fetch(url, {
 					method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -170,6 +172,7 @@
 				.catch(err => console.log(err))
 		}
 
+		// FormData로 업로드.
 		function fileUpload(url) {
 			const formData = new FormData();
 			const fileField = document.querySelector('input[type="file"]');
@@ -191,6 +194,7 @@
 
 		}
 
+		// multipart업로드.
 		function multiUpload(url) {
 			const formData = new FormData();
 			const photos = document.querySelectorAll('input[type="file"][multiple]');
