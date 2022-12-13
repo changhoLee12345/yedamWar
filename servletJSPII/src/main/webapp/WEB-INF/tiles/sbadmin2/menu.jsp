@@ -102,7 +102,7 @@
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="${pageContext.request.servletContext.contextPath }/table.do">
-            <i class="fas fa-fw fa-table"></i> 
+            <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li>
 
