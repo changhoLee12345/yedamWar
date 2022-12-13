@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.notice.mapper.NoticeMapper">
+	<select id="noticeList" resultType="co.micol.prj.notice.vo.NoticeVO">
+		SELECT * FROM MEMBERs
+		<if test="author == 'all'">WHERE 1 = 1</if>
+		<if test="author != 'all'">WHERE RESPOSIBILITY = #{author}</if>
+	</select>
+	
+	<select id="noticeSelect" resultType="co.micol.prj.notice.vo.NoticeVO">
+		SELECT * FROM MEMBERs
+		WHERE ID = #{id}
+	</select>
+	
+	<insert id="noticeInsert">
+		INSERT INTO MEMBERs
+		VALUES(#{id},#{passwd},#{name},#{email},'user',#{pfileName},#{ofileName})
+	</insert>
+	
+	<delete id="noticeDelete">
+	
+	</delete>
+	
+	<update id="noticeUpdate">
+	
+	</update>
+	
+</mapper>
