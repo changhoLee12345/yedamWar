@@ -49,16 +49,19 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
 		map.put("/bookList.do", new BookList()); // 책목록보기
+
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
-		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/memberJoinForm.do", new MemberJoinForm()); // 회원가입 폼 호출
-		map.put("/ajaxIdCheck.do", new AjaxIdCheck());// ajax를 이용한 아이디 중복체크
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
+		map.put("/memberList.do", new MemberList()); // 멤버목록보기
+
+		map.put("/logout.do", new Logout()); // 로그아웃
+		map.put("/ajaxIdCheck.do", new AjaxIdCheck());// ajax를 이용한 아이디 중복체크
 		map.put("/noticeForm.do", new NoticeForm()); // 글쓰기 폼
 		map.put("/myInfo.do", new MyInfo()); // 내 정보보기
-		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/ajaxMemberAuthorSelect.do", new ajaxMemberAuthorSelect()); // 유저권한별 리스트
+
 		map.put("/bookInsertForm.do", new bookInsertForm()); // 도서입력 화면
 		map.put("/bookInsert.do", new bookInsert()); // 도서 등록
 
