@@ -103,8 +103,18 @@
 			})
 			.catch(err => console.log(err))
 
+		// 등록버튼.
+		document.getElementById('frm').addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			var url = 'bookInsert.do';
+			justFormDataSubmit(url);
+
+		})
+
 		// 저장버튼 이벤트.
 		bookFrm.addEventListener('submit', function (e) {
+			console.log('ajax call')
 			e.preventDefault();
 			var url = "bookInsert.do";
 
@@ -136,6 +146,19 @@
 					console.log(result);
 					document.querySelector('#book_' + result.bookCode).remove();
 				})
+				.catch(err => console.log(err))
+		}
+
+		function justFormDataSubmit(url) {
+			let frm = document.getElementById('frm');
+			const formData = new FormData(frm);
+
+			fetch(url, {
+					method: 'post',
+					body: formData
+				})
+				.then(result => result.json())
+				.then(data => console.log(data))
 				.catch(err => console.log(err))
 		}
 
@@ -194,14 +217,6 @@
 				.then(result => console.log(result))
 				.catch(err => console.log(err))
 		}
-
-		document.getElementById('frm').addEventListener('submit', function (e) {
-			e.preventDefault();
-
-			var url = 'bookInsert.do';
-			multiUpload(url);
-
-		})
 
 		// json 전송.
 		function jsonUpload(url) {
