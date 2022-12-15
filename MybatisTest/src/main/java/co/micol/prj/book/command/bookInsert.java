@@ -79,6 +79,7 @@ public class bookInsert implements Command {
 				return "ajax:" + body;
 			}
 
+			// Multipart 처리하는 것.
 			MultipartRequest multi = new MultipartRequest(request, savePath, 1024 * 1024 * 100, "utf-8",
 					new DefaultFileRenamePolicy());
 
@@ -94,6 +95,7 @@ public class bookInsert implements Command {
 			bookVO.setBookPress(bookPress);
 			bookVO.setBookPrice(Integer.valueOf(bookPrice));
 
+			// {bookCode:?, bookTitle:?, bookAuthor:?, bookPress:?, bookPrice:?, fileList: {file1:?, file2:?, file3:?}}
 			map.put("bookCode", bookCode);
 			map.put("bookTitle", bookTitle);
 			map.put("bookAuthor", bookAuthor);
@@ -109,7 +111,7 @@ public class bookInsert implements Command {
 
 			while (fileNames.hasMoreElements()) {
 				String file = (String) fileNames.nextElement();
-				System.out.println(file);
+
 				if (multi.getOriginalFileName(file) == null) { // file객체에 파일이 존재하지 않으면 다음객체 읽음
 					continue;
 				}

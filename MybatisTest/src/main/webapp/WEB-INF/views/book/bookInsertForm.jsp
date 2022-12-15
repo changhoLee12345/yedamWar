@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<script src="js/custTable.js"></script>
 </head>
 
 <body>
@@ -77,18 +78,32 @@
 	<form id="bookFrm" action="bookInsert.do" method="post">
 		bookCode: <input type="text" name="bookCode" value="이것이"><br>
 		bookTitle: <input type="text" name="bookTitle" id="bookTitle" value="자바다"><br>
-		File: <input type="file" id="file1" name="file1"><br>
+		File: <input type="file" id="file4" name="file4"><br>
 		<input type="submit" value="book submit"><br>
 	</form>
 
+	<div id="bookList"></div>
+
 	<script>
-		console.log("first")
-		setTimeout(function () {
-			console.log("second")
+		// 초기데이터 출력.
+		fetch('ajaxBookList.do')
+			.then(result => result.json())
+			.then(bookList => {
+				console.log(bookList)
+				Table.initData = bookList;
+				Table.showField = ['bookCode', 'bookAuthor', 'bookTitle', 'bookPress', 'bookPrice'];
+				Table.addField = {
+					col1: ['button', '삭제'],
+					col3: ['input', 'checkbox']
+				};
+				let myTable = Table.generateTable();
+				console.log(myTable);
+				document.getElementById('bookList').append(myTable);
+				postList();
+			})
+			.catch(err => console.log(err))
 
-		}, 0)
-		console.log("third")
-
+		// 저장버튼 이벤트.
 		bookFrm.addEventListener('submit', function (e) {
 			e.preventDefault();
 			var url = "bookInsert.do";
@@ -96,35 +111,69 @@
 			formDataFunc(url);
 		})
 
+		// 화면에 목록출력 후 이벤트 등록.
+		function postList() {
+			document.querySelectorAll('#bookList tbody tr').forEach(tr => {
+				console.log(tr.querySelector('button'));
+				tr.setAttribute('id', 'book_' + tr.querySelector('td').innerText);
+				tr.querySelector('button').addEventListener('click', delFnc)
+			})
+		}
+
+		function delFnc() {
+			console.log('delFnc')
+			let trId = this.parentElement.parentElement.id;
+			fetch('ajaxBookDel.do', {
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					body: "id=" + trId.substring(5)
+				})
+				.then(result => result.json())
+				.then(result => {
+					console.log(result);
+					document.querySelector('#book_' + result.bookCode).remove();
+				})
+				.catch(err => console.log(err))
+		}
+
 		// FormData를 사용해서 업로드처리.
 		function formDataFunc(url) {
 			const formData = new FormData();
 
-			formData.append("bookCode", "Groucho");
+			formData.append("bookCode", "Groucho3");
 			formData.append("bookPrice", 123456); // number 123456 is immediately converted to a string "123456"
 
-			// HTML file input, chosen by user
-			var fileInputElement = document.getElementById('file1');
-			formData.append("userfile", fileInputElement.files[0]);
 
 			// JavaScript file-like object
 			const content = '<q id="a"><span id="b">hey!</span></q>'; // the body of the new file…
 			const blob = new Blob([content], {
 				type: "text/xml"
 			});
-
 			formData.append("webmasterfile", blob);
+
+			// HTML file input, chosen by user
+			var fileInputElement = document.getElementById('file4');
+			formData.append("userfile", fileInputElement.files[0]);
+			console.log(fileInputElement.files)
 
 			const request = new XMLHttpRequest();
 			request.open("POST", url);
 			request.send(formData);
+			request.onload = function () {
+				let data = JSON.parse(request.response)
+				console.log(data)
+				document.querySelector('#bookList tbody').append(Table.addRow(data));
+
+				postList();
+			}
 
 		}
 
 		// FormData로는 json으로 업로드 안됨. 그래서 {}로 만들어서 stringify하도록.
-		function fetchJson() {
+		function fetchJson(url) {
 			let frmData = new FormData(this);
-			var url = 'bookInsert.do';
 
 			frmData.append("title", "이것이자바다")
 			frmData.append("press", "자바출판사")
