@@ -120,6 +120,7 @@
 			})
 		}
 
+		// key:val 형식으로 전송.
 		function delFnc() {
 			console.log('delFnc')
 			let trId = this.parentElement.parentElement.id;
@@ -138,7 +139,7 @@
 				.catch(err => console.log(err))
 		}
 
-		// FormData를 사용해서 업로드처리.
+		// FormData를 사용해서 업로드처리. XMLHttpRequest 사용해서 업로드.
 		function formDataFunc(url) {
 			const formData = new FormData();
 
@@ -202,7 +203,7 @@
 
 		})
 
-		// json 업로드.
+		// json 전송.
 		function jsonUpload(url) {
 			fetch(url, {
 					method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -217,11 +218,11 @@
 					referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 					body: JSON.stringify(data) // body data type must match "Content-Type" header
 				}).then(result => result.json())
-				.then(result => console.log(resuot))
+				.then(result => console.log(result))
 				.catch(err => console.log(err))
 		}
 
-		// FormData로 업로드.
+		// FormData로 multipart 업로드.
 		function fileUpload(url) {
 			const formData = new FormData();
 			const fileField = document.querySelector('input[type="file"]');
@@ -243,7 +244,7 @@
 
 		}
 
-		// multipart업로드.
+		// multipart 업로드 multiple 용.
 		function multiUpload(url) {
 			const formData = new FormData();
 			const photos = document.querySelectorAll('input[type="file"][multiple]');
