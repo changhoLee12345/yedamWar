@@ -3,15 +3,28 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title> <tiles:getAsString name="title"/> </title>
+	<meta charset="UTF-8">
+	<title>
+		<tiles:getAsString name="title" />
+	</title>
+	<link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body>
-<div align="center">
-	<div><tiles:insertAttribute name="header"/> </div>
-	<div><tiles:insertAttribute name="body" /> </div><hr>
-	<div><tiles:insertAttribute name="footer" /> </div>
-</div>
+	<div align="center">
+		<div>
+			<tiles:insertAttribute name="header" />
+		</div>
+		<div>
+			<tiles:insertAttribute name="body" />
+		</div>
+		<hr>
+		<div>
+			<tiles:insertAttribute name="footer" />
+		</div>
+	</div>
 </body>
+
 </html>
