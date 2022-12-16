@@ -14,14 +14,14 @@
 
 <body>
 	<div align="center">
-		<div>
+		<div class="top">
 			<tiles:insertAttribute name="header" />
 		</div>
-		<div>
+		<div class="content">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<hr>
-		<div>
+		<div class="footer">
 			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
