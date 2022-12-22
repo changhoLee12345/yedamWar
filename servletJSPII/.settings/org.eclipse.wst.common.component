@@ -79,7 +79,16 @@
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                 
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
+                
+>>>>>>> branch 'main' of https://github.com/changhoLee12345/yedamWar.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+>>>>>>> branch 'main' of https://github.com/changhoLee12345/yedamWar.git
                                                                                                                                                                 
         
         
