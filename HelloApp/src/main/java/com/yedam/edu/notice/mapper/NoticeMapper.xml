@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.edu.notice.mapper.NoticeMapper">
+
+	<select id="noticeList" resultType="NoticeVO">
+		select * from tbl_notice order by 1 desc
+	</select>
+	
+	<select id="searchNoticeCnt" resultType="int">
+		select count(1) from tbl_notice
+		<where>
+			<choose>
+				<when test="searchCondition == 'writer'">
+					notice_writer like '%'||#{keyWord}||'%'
+				</when>
+				<when test="searchCondition == 'title'">
+				    notice_title like '%'||#{keyWord}||'%'
+				</when>
+				<otherwise>
+					notice_subject like '%'||#{keyWord}||'%'
+				</otherwise>
+			</choose>
+		</where>		
+	</select>
+
+	<select id="searchNoticeList" resultType="NoticeVO" parameterType="NoticeVO">
+		select b.* from
+		(select rownum rn, a.* from
+			(select * from tbl_notice
+			<where>
+				<choose>
+					<when test="searchCondition == 'writer'">
+						notice_writer like '%'||#{keyWord}||'%'
+					</when>
+					<when test="searchCondition == 'title'">
+					    notice_title like '%'||#{keyWord}||'%'
+					</when>
+					<otherwise>
+						notice_subject like '%'||#{keyWord}||'%'
+					</otherwise>
+				</choose>
+			</where>
+			order by notice_id) a 
+		) b
+		where b.rn between (#{cri.pageNum}*#{cri.cntPerPage}-(#{cri.cntPerPage}-1)) and (#{cri.pageNum}*#{cri.cntPerPage})
+	</select>
+
+	<select id="searchNotice" resultType="noticeVO" parameterType="int">
+		select * from tbl_notice
+		where notice_id = #{id}
+	</select>
+
+	<insert id="insertNotice">
+		<selectKey keyProperty="noticeId" resultType="int" order="BEFORE">
+			select notice_seq.nextval from dual
+		</selectKey>
+		insert into tbl_notice (notice_id, notice_writer, notice_title, notice_subject, notice_date)
+		values (#{noticeId}, #{noticeWriter}, #{noticeTitle}, #{noticeSubject}, sysdate)	
+	</insert>
+	
+	<update id="updateNotice">
+		update tbl_notice
+		set notice_writer = #{noticeWriter}
+		<if test="noticeTitle != null">
+			, notice_title = #{noticeTitle}
+		</if>
+		<if test="noticeSubject != null">
+			, notice_subject = #{noticeSubject}
+		</if>
+		where notice_id = #{noticeId}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from tbl_notice where notice_id = ${id}            
+	</delete>
+	
+	<select id="noticePagingCnt" resultType="int">
+		select count(1) as "cnt" from tbl_notice
+		where 1 = 1
+		<if test="noticeWriter != null">
+			and notice_writer like '%'||#{noticeWriter}||'%'
+		</if>
+		<if test="noticeTitle != null">
+			and notice_title like '%'||#{noticeTitle}||'%'
+		</if>
+		<if test="noticeSubject != null">
+			and notice_subject like '%'||#{noticeSubject}||'%'
+		</if>
+	</select>
+	
+	<select id="noticeListPaging" resultType="com.yedam.edu.notice.vo.NoticeVO">
+	<![CDATA[
+		select b.notice_id as "noticeId"
+		     , b.notice_writer as "noticeWriter"
+		     , b.notice_title as "noticeTitle"
+		     , b.notice_date as "noticeDate"
+		     , b.notice_subject as "noticeSubject"
+		     , b.hit_count as "hitCount"
+		     , b.attach_file as "attachFile"
+		     , b.attach_dir as "attachDir"
+		from
+		(
+		    select rownum rn, a.* from 
+		    (select n.* 
+		     from tbl_notice n
+		     where 1 = 1
+			 and notice_writer like '%'||#{noticeWriter}||'%'
+			 and notice_title like '%'||#{noticeTitle}||'%'
+			 and notice_subject like '%'||#{noticeSubject}||'%'
+		     order by 1) a
+		    where rownum <= (#{cri.pageNum} * #{cri.cntPerPage})
+		) b
+		where b.rn >= (#{cri.pageNum} * #{cri.cntPerPage} - 9)
+	]]>
+	</select>
+	
+</mapper>
