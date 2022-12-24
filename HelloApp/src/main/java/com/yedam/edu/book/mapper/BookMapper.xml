@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.edu.book.mapper.BookMapper">
+
+	<select id="selectBooks" resultType="BookVO">
+		select * from book_info
+		where 1 = 1
+		<if test="bookCode != null">
+			and book_code like #{bookCode}||'%'
+		</if>
+		<if test="bookTitle != null">
+			and book_title like '%'||#{bookTitle}||'%'
+		</if>
+	</select>
+
+	<select id="selectBookList">
+		select * from book_info
+		<where>
+			<choose>
+				<when test="bookTitle != null">
+					book_title like '%'||#{bookTitle}||'%'
+				</when>
+				<when test="bookAuthor">
+				    book_author like '%'||#{bookAuthor}||'%'
+				</when>
+				<otherwise>
+				
+				</otherwise>
+			</choose>
+
+		</where>
+	</select>
+
+	<select id="selectBook" resultType="BookVO">
+		select * from book_info 
+		where book_code = #{bookCode}
+	</select>
+
+	<select id="selectColumn" resultType="BookVO">
+		select * from book_info
+		where ${column} = #{value}
+	</select>
+
+</mapper>
