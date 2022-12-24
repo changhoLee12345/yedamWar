@@ -22,6 +22,8 @@
             <input type="submit" value="검색">
         </div>
     </form>
+    
+    <a href="bookList.do">Tiles</a>
 </body>
 
 </html>

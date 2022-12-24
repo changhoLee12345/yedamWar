@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="myapp.homepage" template="/WEB-INF/layout/template.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="sidebar" value="/WEB-INF/layout/sidebar.jsp" />
+		<put-attribute name="top" value="/WEB-INF/layout/top.jsp" />
+		<put-attribute name="content" value="/WEB-INF/layout/content.jsp" />
+	</definition>
+	<definition name="WILDCARD:*/*" extends="myapp.homepage">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

@@ -18,7 +18,7 @@ public class BookList implements Command {
 		BookService service = new BookServiceImpl();
 		service.selectBooks(null);
 
-		return null;
+		return "book/bookList.tiles";
 	}
 
 }

@@ -67,6 +67,7 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI(); // 요청한 uri를 구함
 		String contextPath = request.getContextPath(); // 루트를 구함,context path
 		String page = uri.substring(contextPath.length()); // 실제 수행할 요청을 구함
+		System.out.println("====> " + page);
 
 		Command command = map.get(page); // init 메소드에서 수행할 명령을 가져온다.
 		String viewPage = command.exec(request, response); // 명령을 수행하고 결과를 돌려받음
