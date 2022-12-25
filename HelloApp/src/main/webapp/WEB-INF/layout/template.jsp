@@ -27,7 +27,7 @@
             <tiles:insertAttribute name="top"></tiles:insertAttribute>
 
             <!-- Page content-->
-            <tiles:insertAttribute name="content"></tiles:insertAttribute>
+            <tiles:insertAttribute name="body"></tiles:insertAttribute>
 
         </div>
     </div>

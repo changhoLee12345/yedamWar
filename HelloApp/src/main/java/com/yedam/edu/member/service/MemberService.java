@@ -6,4 +6,5 @@ import com.yedam.edu.member.vo.MemberVO;
 
 public interface MemberService {
 	public List<MemberVO> memberList();
+	public MemberVO loginCheck(MemberVO vo);
 }

@@ -15,7 +15,13 @@ import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.common.Command;
 import com.yedam.edu.main.MainCommand;
+import com.yedam.edu.member.command.MemberJoin;
+import com.yedam.edu.member.command.MemberJoinForm;
 import com.yedam.edu.member.command.MemberList;
+import com.yedam.edu.member.command.MemberLogin;
+import com.yedam.edu.member.command.MemberLoginForm;
+import com.yedam.edu.notice.command.NoticeList;
+import com.yedam.edu.notice.command.NoticeSearch;
 
 /**
  * 모든요청을 받아들이는 컨트롤러
@@ -35,11 +41,14 @@ public class FrontController extends HttpServlet {
 
 		map.put("/bookList.do", new BookList()); // 책목록보기
 		map.put("/searchBook.do", new SearchBook());
+
+		map.put("/noticeList.do", new NoticeList());
+		map.put("/getNotice.do", new NoticeSearch());
 //
-//		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
-//		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
-//		map.put("/memberJoinForm.do", new MemberJoinForm()); // 회원가입 폼 호출
-//		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
+		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
+		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
+		map.put("/memberJoinForm.do", new MemberJoinForm()); // 회원가입 폼 호출
+		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 //
 //		map.put("/logout.do", new Logout()); // 로그아웃

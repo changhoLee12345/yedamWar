@@ -26,6 +26,30 @@ public class MemberDAO {
 		return instance;
 	}
 
+	public void disconnect() {
+		try {
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			if (rs != null)
+				rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			if (psmt != null)
+				psmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public List<MemberVO> memberList() {
 		List<MemberVO> list = new ArrayList<>();
 		sql = "select * from member ";
@@ -40,7 +64,30 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			disconnect();
 		}
 		return list;
 	};
+
+	public MemberVO loginCheck(MemberVO vo) {
+		sql = "select * from members where id=? and passwd=?";
+		conn = DAO.connect();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPasswd());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				return vo;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return null;
+	}
 }

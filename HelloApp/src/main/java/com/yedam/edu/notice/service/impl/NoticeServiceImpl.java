@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.yedam.edu.common.Criteria;
 import com.yedam.edu.common.DataSource;
+import com.yedam.edu.common.PageDTO;
 import com.yedam.edu.notice.mapper.NoticeMapper;
 import com.yedam.edu.notice.service.NoticeService;
 import com.yedam.edu.notice.vo.NoticeVO;

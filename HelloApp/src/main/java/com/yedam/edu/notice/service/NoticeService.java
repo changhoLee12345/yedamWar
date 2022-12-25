@@ -2,6 +2,8 @@ package com.yedam.edu.notice.service;
 
 import java.util.List;
 
+import com.yedam.edu.common.Criteria;
+import com.yedam.edu.common.PageDTO;
 import com.yedam.edu.notice.vo.NoticeVO;
 
 public interface NoticeService {
@@ -24,4 +26,5 @@ public interface NoticeService {
 	public int noticePagingCnt(NoticeVO vo);
 
 	public List<NoticeVO> noticeListPaging(NoticeVO vo);
+
 }
