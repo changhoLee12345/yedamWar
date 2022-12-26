@@ -7,17 +7,17 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Criteria {
+public class Criteria extends SearchVO {
 	private int pageNum;
-	private int cntPerPage;
+	private int amount;
 
 	public Criteria() {
 		this.pageNum = 1;
-		this.cntPerPage = 10;
+		this.amount = 10;
 	}
 
-	public Criteria(int pageNum, int cntPerPage) {
+	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
-		this.cntPerPage = cntPerPage;
+		this.amount = amount;
 	}
 }

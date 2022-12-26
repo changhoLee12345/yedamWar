@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <form action="updateNotice.do" method="post">
+	<input type="hidden" name="pageNum" value="${criInfo.pageNum }">
+	<input type="hidden" name="amount" value="${criInfo.amount }">
+	<input type="hidden" name="searchCondition" value="${criInfo.searchCondition }">
+	<input type="hidden" name="keyword" value="${criInfo.keyWord }">
     <table class="table">
         <tr>
             <th>게시글번호</th>

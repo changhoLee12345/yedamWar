@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class NoticeVO extends SearchVO {
+public class NoticeVO {
 	private int noticeId;
 	private String noticeWriter;
 	private String noticeTitle;
@@ -21,6 +21,6 @@ public class NoticeVO extends SearchVO {
 	private int hitCount;
 	private String attachFile;
 	private String attachDir;
-	
-	private Criteria cri;
+
+//	private Criteria cri;
 }

@@ -8,7 +8,7 @@
 		select * from tbl_notice order by 1 desc
 	</select>
 	
-	<select id="searchNoticeCnt" resultType="int">
+	<select id="searchNoticePagingCnt" resultType="int" parameterType="com.yedam.edu.common.Criteria">
 		select count(1) from tbl_notice
 		<where>
 			<choose>
@@ -25,7 +25,7 @@
 		</where>		
 	</select>
 
-	<select id="searchNoticeList" resultType="NoticeVO" parameterType="NoticeVO">
+	<select id="searchNoticePagingList" resultType="NoticeVO" parameterType="com.yedam.edu.common.Criteria">
 		select b.* from
 		(select rownum rn, a.* from
 			(select * from tbl_notice
@@ -44,7 +44,7 @@
 			</where>
 			order by notice_id) a 
 		) b
-		where b.rn between (#{cri.pageNum}*#{cri.cntPerPage}-(#{cri.cntPerPage}-1)) and (#{cri.pageNum}*#{cri.cntPerPage})
+		where b.rn between (#{pageNum}*#{amount}-(#{amount}-1)) and (#{pageNum}*#{amount})
 	</select>
 
 	<select id="searchNotice" resultType="noticeVO" parameterType="int">

@@ -22,6 +22,7 @@ import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
 import com.yedam.edu.notice.command.NoticeList;
 import com.yedam.edu.notice.command.NoticeSearch;
+import com.yedam.edu.notice.command.UpdateNotice;
 
 /**
  * 모든요청을 받아들이는 컨트롤러
@@ -44,6 +45,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("/noticeList.do", new NoticeList());
 		map.put("/getNotice.do", new NoticeSearch());
+		map.put("/updateNotice.do", new UpdateNotice());
 //
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리

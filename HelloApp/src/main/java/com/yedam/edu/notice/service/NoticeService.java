@@ -4,15 +4,16 @@ import java.util.List;
 
 import com.yedam.edu.common.Criteria;
 import com.yedam.edu.common.PageDTO;
+import com.yedam.edu.common.SearchVO;
 import com.yedam.edu.notice.vo.NoticeVO;
 
 public interface NoticeService {
 
 	public List<NoticeVO> noticeList();
 
-	public int searchNoticeCnt(NoticeVO vo);
+	public int searchNoticePagingCnt(Criteria cri);
 
-	public List<NoticeVO> searchNoticeList(NoticeVO vo); // 조건데이터.
+	public List<NoticeVO> searchNoticePagingList(Criteria cri); // 조건데이터.
 
 	public NoticeVO searchNotice(int id);
 

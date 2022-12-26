@@ -31,6 +31,17 @@
 	}
 </style>
 <h3>Notice List</h3>
+<p>${criInfo }</p>
+<form action="noticeList.do">
+	<select name="searchCondition">
+		<option value="">::select::</option>
+		<option value="writer" ${criInfo.searchCondition=='writer'?'selected':'' }>작성자</option>
+		<option value="title" ${criInfo.searchCondition=='title'?'selected':'' }>제목</option>
+		<option value="subject" ${criInfo.searchCondition=='subject'?'selected':'' }>내용</option>
+	</select>
+	<input type="text" name="keyword" value="${criInfo.keyWord }">
+	<input type="submit" value="조회">
+</form>
 <table class="table">
 	<thead>
 		<tr>
@@ -45,7 +56,10 @@
 	<tbody>
 		<c:forEach var="notice" items="${list }">
 			<tr>
-				<td><a href="getNotice.do?num=${notice.noticeId }">${notice.noticeId }</a></td>
+				<td><a href="getNotice.do?num=${notice.noticeId }&searchCondition=${criInfo.searchCondition }&keyword=${criInfo.keyWord }&pageNum=${criInfo.pageNum }&amount=${criInfo.amount }">
+						${notice.noticeId}
+					</a>
+				</td>
 				<td>${notice.noticeWriter }</td>
 				<td>${notice.noticeTitle }</td>
 				<td>${notice.noticeSubject }</td>
@@ -59,19 +73,19 @@
 	<div class="pagination">
 
 		<c:if test="${pageInfo.prev }">
-			<a href="noticeList.do?page=${pageInfo.startPage-1 }">&laquo;</a>
+			<a href="noticeList.do?pageNum=${pageInfo.startPage-1 }&searchCondition=${criInfo.searchCondition }&keyword=${criInfo.keyWord }&amount=${criInfo.amount }">&laquo;</a>
 		</c:if>
 		<c:forEach var="item" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
 			<c:choose>
 				<c:when test="${pageInfo.cri.pageNum == item }">
-					<a class="active" href="noticeList.do?page=${item }">${item }</a> </c:when>
+					<a class="active" href="noticeList.do?pageNum=${item }&searchCondition=${criInfo.searchCondition }&keyword=${criInfo.keyWord }&amount=${criInfo.amount }">${item }</a> </c:when>
 				<c:otherwise>
-					<a href="noticeList.do?page=${item }">${item }</a>
+					<a href="noticeList.do?pageNum=${item }&searchCondition=${criInfo.searchCondition }&keyword=${criInfo.keyWord }&amount=${criInfo.amount }">${item }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		<c:if test="${pageInfo.next }">
-			<a href="noticeList.do?page=${pageInfo.endPage+1 }">&raquo;</a>
+			<a href="noticeList.do?pageNum=${pageInfo.endPage+1 }&searchCondition=${criInfo.searchCondition }&keyword=${criInfo.keyWord }&amount=${criInfo.amount }">&raquo;</a>
 		</c:if>
 	</div>
 </div>
