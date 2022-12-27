@@ -6,13 +6,14 @@
 
 	<select id="selectBooks" resultType="BookVO">
 		select * from book_info
-		where 1 = 1
-		<if test="bookCode != null">
-			and book_code like #{bookCode}||'%'
-		</if>
-		<if test="bookTitle != null">
-			and book_title like '%'||#{bookTitle}||'%'
-		</if>
+		<where>
+			<if test="bookCode != null">
+				book_code like '%'||#{bookCode}||'%'
+			</if>
+			<if test="bookTitle != null">
+				and book_title like '%'||#{bookTitle}||'%'
+			</if>
+		</where>
 	</select>
 
 	<select id="selectBookList">
@@ -42,5 +43,10 @@
 		select * from book_info
 		where ${column} = #{value}
 	</select>
+	
+	<insert id="insertBook">
+		insert into book_info (book_code, book_title, book_author, book_press, book_price)
+		values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice})
+	</insert>
 
 </mapper>

@@ -1,19 +1,19 @@
 package com.yedam.edu;
 
-import java.util.List;
-
-import com.yedam.edu.common.Criteria;
-import com.yedam.edu.common.PageDTO;
-import com.yedam.edu.notice.service.NoticeService;
-import com.yedam.edu.notice.service.impl.NoticeServiceImpl;
-import com.yedam.edu.notice.vo.NoticeVO;
-
 public class MainApp {
 
 	public static void main(String[] args) {
 
 		System.out.println("start");
-
+		String num = "2,000,000,000,000";
+		num=num.replace(",", "");
+		System.out.println(num);
+//		int idx = 0;
+//		while (idx != -1) {
+//			idx = num.indexOf(",");
+//			num = num.replace(",", "");
+//			System.out.println(num);
+//		}
 		System.out.println("end");
 	}
 

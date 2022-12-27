@@ -2,15 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<form action="updateNotice.do" method="post">
+<form name="myFrm" action="updateNotice.do" method="get">
 	<input type="hidden" name="pageNum" value="${criInfo.pageNum }">
 	<input type="hidden" name="amount" value="${criInfo.amount }">
 	<input type="hidden" name="searchCondition" value="${criInfo.searchCondition }">
 	<input type="hidden" name="keyword" value="${criInfo.keyWord }">
+	<input type="hidden" name="num" value="${vo.noticeId }">
     <table class="table">
         <tr>
             <th>게시글번호</th>
-            <td><input class="col-sm-5" type="text" disabled name="num" value="${vo.noticeId }"></td>
+            <td><input class="col-sm-5" type="text" disabled value="${vo.noticeId }"></td>
         </tr>
         <tr>
             <th>작성자</th>
@@ -26,7 +27,14 @@
         </tr>
         <tr>
             <td align="center"><input class="btn btn-primary" type="submit" value="수정"></td>
-            <td align="center"><input class="btn btn-danger" type="button" value="삭제"></td>
+            <td align="center"><input class="btn btn-danger" type="button" value="삭제" onclick="delFunc()"></td>
         </tr>
     </table>
 </form>
+<script>
+	function delFunc() {
+		myFrm.action = "deleteNotice.do";
+		myFrm.submit();
+	}
+
+</script>

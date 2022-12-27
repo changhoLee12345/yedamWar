@@ -38,6 +38,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public int updateNotice(NoticeVO vo) {
+		System.out.println(vo);
 		return mapper.updateNotice(vo);
 	}
 

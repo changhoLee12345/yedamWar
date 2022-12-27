@@ -5,13 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.edu.common.Command;
 
-public class SearchBook implements Command {
+public class AddBookForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		return null;
+		return "book/addBookForm.tiles";
 	}
 
 }

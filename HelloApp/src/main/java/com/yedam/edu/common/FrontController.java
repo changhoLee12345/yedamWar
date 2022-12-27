@@ -1,4 +1,4 @@
-package com.yedam.edu.web;
+package com.yedam.edu.common;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,15 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.edu.book.command.AddBook;
+import com.yedam.edu.book.command.AddBookForm;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.SearchBook;
-import com.yedam.edu.common.Command;
+import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.main.MainCommand;
 import com.yedam.edu.member.command.MemberJoin;
 import com.yedam.edu.member.command.MemberJoinForm;
 import com.yedam.edu.member.command.MemberList;
 import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
+import com.yedam.edu.notice.command.DeleteNotice;
 import com.yedam.edu.notice.command.NoticeList;
 import com.yedam.edu.notice.command.NoticeSearch;
 import com.yedam.edu.notice.command.UpdateNotice;
@@ -41,11 +44,15 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
 		map.put("/bookList.do", new BookList()); // 책목록보기
+		map.put("/searchBookForm.do", new SearchBookForm());
 		map.put("/searchBook.do", new SearchBook());
+		map.put("/addBookForm.do", new AddBookForm());
+		map.put("/addBook.do", new AddBook());
 
 		map.put("/noticeList.do", new NoticeList());
 		map.put("/getNotice.do", new NoticeSearch());
 		map.put("/updateNotice.do", new UpdateNotice());
+		map.put("/deleteNotice.do", new DeleteNotice());
 //
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
@@ -95,6 +102,7 @@ public class FrontController extends HttpServlet {
 			if (!viewPage.endsWith(".tiles")) {
 				viewPage = "/WEB-INF/views/" + viewPage + ".jsp"; // 타일즈를 안태움
 			}
+			// tiles처리하는 곳.
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);
 

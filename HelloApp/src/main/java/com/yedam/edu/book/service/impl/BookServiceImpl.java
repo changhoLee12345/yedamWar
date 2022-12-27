@@ -28,4 +28,9 @@ public class BookServiceImpl implements BookService {
 		return mapper.selectBooks(vo);
 	}
 
+	@Override
+	public int addBook(BookVO vo) {
+		return mapper.insertBook(vo);
+	}
+
 }

@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th>글내용</th>
-            <td><textarea type="text" name="subject"></textarea></td>
+            <td><textarea name="subject"></textarea></td>
         </tr>
         <tr>
             <td><input type="submit" value="등록"></td>
