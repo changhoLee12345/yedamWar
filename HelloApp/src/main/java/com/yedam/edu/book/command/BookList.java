@@ -1,10 +1,13 @@
 package com.yedam.edu.book.command;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.edu.book.service.BookService;
 import com.yedam.edu.book.service.impl.BookServiceImpl;
+import com.yedam.edu.book.vo.BookVO;
 import com.yedam.edu.common.Command;
 
 public class BookList implements Command {
@@ -14,7 +17,7 @@ public class BookList implements Command {
 		// TODO Auto-generated method stub
 //		String condition = request.getParameter("searchCondition");
 //		String key = request.getParameter("searchKey");
-		
+
 		String code = request.getParameter("code");
 		String author = request.getParameter("author");
 		String title = request.getParameter("title");
@@ -22,8 +25,11 @@ public class BookList implements Command {
 		String price1 = request.getParameter("price1");
 		String price2 = request.getParameter("price2");
 
+		BookVO vo = new BookVO();
+
 		BookService service = new BookServiceImpl();
-		service.selectBooks(null);
+		List<BookVO> list = service.selectBooks(vo);
+		request.setAttribute("bookList", list);
 
 		return "book/bookList.tiles";
 	}
