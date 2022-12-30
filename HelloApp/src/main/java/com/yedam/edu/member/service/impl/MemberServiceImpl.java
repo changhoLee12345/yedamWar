@@ -8,6 +8,7 @@ import com.yedam.edu.member.vo.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
 
+	// jdbc  활용.
 	MemberDAO dao = MemberDAO.getInstance();
 
 	@Override
