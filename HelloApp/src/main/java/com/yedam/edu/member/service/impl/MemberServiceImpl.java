@@ -22,4 +22,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.loginCheck(vo);
 	}
 
+	@Override
+	public MemberVO searchMember(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

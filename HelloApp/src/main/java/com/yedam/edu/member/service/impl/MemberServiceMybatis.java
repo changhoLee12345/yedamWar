@@ -24,4 +24,9 @@ public class MemberServiceMybatis implements MemberService {
 		return dao.loginCheck(vo);
 	}
 
+	@Override
+	public MemberVO searchMember(String id) {
+		return dao.searchMember(id);
+	}
+
 }

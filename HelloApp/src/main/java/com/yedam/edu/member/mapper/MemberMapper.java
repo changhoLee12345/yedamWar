@@ -8,4 +8,5 @@ public interface MemberMapper {
 
 	public List<MemberVO> memberList();
 	public MemberVO loginCheck(MemberVO vo);
+	public MemberVO searchMember(String id);
 }

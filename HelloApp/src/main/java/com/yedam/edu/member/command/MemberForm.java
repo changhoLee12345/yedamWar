@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.edu.common.Command;
+import com.yedam.edu.member.service.MemberService;
+import com.yedam.edu.member.service.impl.MemberServiceMybatis;
+import com.yedam.edu.member.vo.MemberVO;
 
 public class MemberForm implements Command {
 
@@ -12,7 +15,12 @@ public class MemberForm implements Command {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
 
-		return null;
+		MemberService service = new MemberServiceMybatis();
+		MemberVO vo = service.searchMember(id);
+
+		request.setAttribute("member", vo);
+
+		return "member/memberForm.tiles";
 	}
 
 }
