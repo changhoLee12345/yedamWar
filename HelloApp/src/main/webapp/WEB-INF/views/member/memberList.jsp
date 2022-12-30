@@ -15,7 +15,7 @@
 	<tbody>
 		<c:forEach var="member" items="${members }">
 		<tr>
-			<td>${member.id }</td>
+			<td><a href="memberForm.do?id=${member.id }">${member.id }</a></td>
 			<td>${member.name }</td>
 			<td>${member.email }</td>
 			<td>${member.responsibility }</td>
