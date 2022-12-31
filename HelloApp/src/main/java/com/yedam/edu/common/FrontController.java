@@ -16,6 +16,7 @@ import com.yedam.edu.book.command.AddBookForm;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
+import com.yedam.edu.main.CreateCenterInfo;
 import com.yedam.edu.main.MainCommand;
 import com.yedam.edu.member.command.MemberForm;
 import com.yedam.edu.member.command.MemberJoin;
@@ -61,6 +62,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
+		
+		map.put("/createCenterInfo.do", new CreateCenterInfo());
 //
 //		map.put("/logout.do", new Logout()); // 로그아웃
 //		map.put("/ajaxIdCheck.do", new AjaxIdCheck());// ajax를 이용한 아이디 중복체크
