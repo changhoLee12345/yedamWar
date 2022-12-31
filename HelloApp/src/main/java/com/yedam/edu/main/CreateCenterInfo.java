@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 import com.yedam.edu.common.Command;
 import com.yedam.edu.member.service.MemberService;
+import com.yedam.edu.member.service.impl.MemberServiceImpl;
 import com.yedam.edu.member.service.impl.MemberServiceMybatis;
 
 public class CreateCenterInfo implements Command {
@@ -29,6 +30,7 @@ public class CreateCenterInfo implements Command {
 			ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) obj;
 
 			MemberService service = new MemberServiceMybatis();
+			service = new MemberServiceImpl();
 			for (Map<String, Object> map : list) {
 				Set<String> set = map.keySet();
 				for (String key : set)

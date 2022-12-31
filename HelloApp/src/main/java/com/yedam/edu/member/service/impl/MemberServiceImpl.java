@@ -9,7 +9,7 @@ import com.yedam.edu.member.vo.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
 
-	// jdbc  활용.
+	// jdbc 활용.
 	MemberDAO dao = MemberDAO.getInstance();
 
 	@Override
@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int insertCenterInfo(List<Map<String, Object>> list) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.insertCenterInfo(list);
 	}
 
 }
