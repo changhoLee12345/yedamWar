@@ -16,4 +16,11 @@
 		select * from member where id=#{id}
 	</select>
 	
+	<update id="insertCenterInfo" parameterType="java.util.Map">
+		<foreach collection="list" item="i" open="insert all" close="select * from dual" separator=" ">
+			into center_info (id, center_name, sido, sigungu, zip_code, address, phone_number)
+			values (#{i.id}, #{i.centerName}, #{i.sido}, #{i.sigungu}, #{i.zipCode}, #{i.address}, #{i.phoneNumber} )
+		</foreach>
+	</update>
+	
 </mapper>

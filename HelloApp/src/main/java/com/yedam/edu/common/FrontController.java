@@ -96,7 +96,7 @@ public class FrontController extends HttpServlet {
 		String viewPage = command.exec(request, response); // 명령을 수행하고 결과를 돌려받음
 
 		// viewResolve 파트
-		if (!viewPage.endsWith(".do") && viewPage != null) {
+		if (viewPage != null && !viewPage.endsWith(".do")) {
 			// ajax 처리
 			if (viewPage.startsWith("ajax:")) {
 				response.setContentType("text/html; charset=UTF-8");

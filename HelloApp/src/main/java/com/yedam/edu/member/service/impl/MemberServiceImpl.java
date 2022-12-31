@@ -1,6 +1,7 @@
 package com.yedam.edu.member.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yedam.edu.member.dao.MemberDAO;
 import com.yedam.edu.member.service.MemberService;
@@ -26,6 +27,12 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO searchMember(String id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int insertCenterInfo(List<Map<String, Object>> list) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

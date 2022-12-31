@@ -1,6 +1,7 @@
 package com.yedam.edu.member.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -27,6 +28,11 @@ public class MemberServiceMybatis implements MemberService {
 	@Override
 	public MemberVO searchMember(String id) {
 		return dao.searchMember(id);
+	}
+
+	@Override
+	public int insertCenterInfo(List<Map<String, Object>> list) {
+		return dao.insertCenterInfo(list);
 	}
 
 }
