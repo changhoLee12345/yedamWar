@@ -33,7 +33,8 @@
 	</environments>
 
 	<mappers>
-		<mapper class="com.yedam.edu.book.mapper.BookMapper" />
+		<!-- <mapper class="com.yedam.edu.book.mapper.BookMapper" /> -->
+		<mapper resource="com/yedam/edu/book/mapper/BookMapper.xml" />
 		<mapper class="com.yedam.edu.member.mapper.MemberMapper" />
 		<mapper class="com.yedam.edu.notice.mapper.NoticeMapper" />
 	</mappers>
