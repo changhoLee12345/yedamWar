@@ -109,10 +109,25 @@
 		    select rownum rn, a.* from 
 		    (select n.* 
 		     from tbl_notice n
+	]]>
+	<where>
+	  <choose>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	  </choose>
+	</where>
 		     where 1 = 1
 			 and notice_writer like '%'||#{noticeWriter}||'%'
 			 and notice_title like '%'||#{noticeTitle}||'%'
 			 and notice_subject like '%'||#{noticeSubject}||'%'
+	<![CDATA[
 		     order by 1) a
 		    where rownum <= (#{cri.pageNum} * #{cri.cntPerPage})
 		) b
