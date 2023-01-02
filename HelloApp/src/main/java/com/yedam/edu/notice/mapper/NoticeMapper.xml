@@ -60,20 +60,24 @@
 		values (#{noticeId}, #{noticeWriter}, #{noticeTitle}, #{noticeSubject}, sysdate)	
 	</insert>
 	
-	<update id="updateNotice">
+	<update id="updateNotice" parameterType="NoticeVO">
 		update tbl_notice
-		set notice_writer = #{noticeWriter}
-		<if test="noticeTitle != null">
-			, notice_title = #{noticeTitle}
-		</if>
-		<if test="noticeSubject != null">
-			, notice_subject = #{noticeSubject}
-		</if>
+		<set>
+			<if test="noticeWriter != null">
+				notice_writer = #{noticeWriter},
+			</if>
+			<if test="noticeTitle != null">
+				notice_title = #{noticeTitle},
+			</if>
+			<if test="noticeSubject != null">
+				notice_subject = #{noticeSubject}
+			</if>
+		</set>
 		where notice_id = #{noticeId}
 	</update>
 	
 	<delete id="deleteNotice">
-		delete from tbl_notice where notice_id = ${id}            
+		delete from tbl_notice where notice_id = ${id}
 	</delete>
 	
 	<select id="noticePagingCnt" resultType="int">
@@ -105,10 +109,25 @@
 		    select rownum rn, a.* from 
 		    (select n.* 
 		     from tbl_notice n
+	]]>
+	<where>
+	  <choose>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	    <when test="">
+	      notice_writer like '%'||#{noticeWriter}||'%'
+	    </when>
+	  </choose>
+	</where>
 		     where 1 = 1
 			 and notice_writer like '%'||#{noticeWriter}||'%'
 			 and notice_title like '%'||#{noticeTitle}||'%'
 			 and notice_subject like '%'||#{noticeSubject}||'%'
+	<![CDATA[
 		     order by 1) a
 		    where rownum <= (#{cri.pageNum} * #{cri.cntPerPage})
 		) b

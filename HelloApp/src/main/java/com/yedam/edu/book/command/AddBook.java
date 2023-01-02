@@ -1,7 +1,5 @@
 package com.yedam.edu.book.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,28 +8,29 @@ import com.yedam.edu.book.service.impl.BookServiceImpl;
 import com.yedam.edu.book.vo.BookVO;
 import com.yedam.edu.common.Command;
 
-public class BookList implements Command {
+public class AddBook implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-//		String condition = request.getParameter("searchCondition");
-//		String key = request.getParameter("searchKey");
-
 		String code = request.getParameter("code");
 		String author = request.getParameter("author");
 		String title = request.getParameter("title");
 		String press = request.getParameter("press");
-		String price1 = request.getParameter("price1");
-		String price2 = request.getParameter("price2");
+		String price = request.getParameter("price");
+		price = price.replace(",", "");
 
 		BookVO vo = new BookVO();
+		vo.setBookAuthor(author);
+		vo.setBookCode(code);
+		vo.setBookPress(press);
+		vo.setBookPrice(Integer.parseInt(price));
+		vo.setBookTitle(title);
 
 		BookService service = new BookServiceImpl();
-		List<BookVO> list = service.selectBooks(vo);
-		request.setAttribute("bookList", list);
+		service.addBook(vo);
 
-		return "book/bookList.tiles";
+		return "bookList.do";
 	}
 
 }

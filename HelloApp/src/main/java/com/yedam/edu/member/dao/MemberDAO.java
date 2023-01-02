@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.yedam.edu.common.DAO;
 import com.yedam.edu.member.vo.MemberVO;
@@ -48,6 +49,26 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 
+	}
+
+	public int insertCenterInfo(List<Map<String, Object>> list) {
+		String sql = "insert all ";
+		for (Map<String, Object> map : list) {
+			sql += " into center_info(id, center_name, phone_number) values (" //
+					+ map.get("id") + ",'" + map.get("centerName") + "', '" + map.get("phoneNumber") + "')";
+		}
+		sql += " select * from dual";
+		conn = DAO.connect();
+		try {
+			psmt = conn.prepareStatement(sql);
+			int result = psmt.executeUpdate();
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return 0;
 	}
 
 	public List<MemberVO> memberList() {

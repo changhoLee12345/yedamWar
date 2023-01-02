@@ -3,18 +3,20 @@ package com.yedam.edu.member.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import com.yedam.edu.member.dao.MemberDAO;
+import org.apache.ibatis.session.SqlSession;
+
+import com.yedam.edu.common.DataSource;
+import com.yedam.edu.member.mapper.MemberMapper;
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.vo.MemberVO;
 
-public class MemberServiceImpl implements MemberService {
-
-	// jdbc 활용.
-	MemberDAO dao = MemberDAO.getInstance();
+public class MemberServiceMybatis implements MemberService {
+	// mybatis 활용.
+	SqlSession session = DataSource.getInstance().openSession(true);
+	MemberMapper dao = session.getMapper(MemberMapper.class);
 
 	@Override
 	public List<MemberVO> memberList() {
-		// 회원목록 반환.
 		return dao.memberList();
 	}
 
@@ -25,13 +27,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO searchMember(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.searchMember(id);
 	}
 
 	@Override
 	public int insertCenterInfo(List<Map<String, Object>> list) {
-		// TODO Auto-generated method stub
 		return dao.insertCenterInfo(list);
 	}
 

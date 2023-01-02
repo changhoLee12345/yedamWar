@@ -1,25 +1,15 @@
 package com.yedam.edu.member.mapper;
 
 import java.util.List;
+import java.util.Map;
 
-import com.yedam.edu.common.Criteria;
-import com.yedam.edu.notice.vo.NoticeVO;
+import com.yedam.edu.member.vo.MemberVO;
 
 public interface MemberMapper {
-	public List<NoticeVO> noticeList(); // 전체데이터.
 
-	public List<NoticeVO> searchNoticeList(NoticeVO vo); // 조건데이터.
-
-	public NoticeVO searchNotice(int id);
-
-	public int insertNotice(NoticeVO vo);
-
-	public int updateNotice(NoticeVO vo);
-
-	public int deleteNotice(int id);
-
-	// paging.
-	public int noticePagingCnt(NoticeVO vo);
-
-	public List<NoticeVO> noticeListPaging(NoticeVO vo);
+	public List<MemberVO> memberList();
+	public MemberVO loginCheck(MemberVO vo);
+	public MemberVO searchMember(String id);
+	
+	public int insertCenterInfo(List<Map<String, Object>> list);
 }
