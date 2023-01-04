@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.edu.book.command.AddBook;
 import com.yedam.edu.book.command.AddBookForm;
 import com.yedam.edu.book.command.BookList;
+import com.yedam.edu.book.command.BookListVue;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.main.CreateCenterInfo;
@@ -50,6 +51,7 @@ public class FrontController extends HttpServlet {
 		map.put("/searchBook.do", new SearchBook());
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
+		map.put("/bookListVue.do", new BookListVue());
 
 		map.put("/noticeList.do", new NoticeList());
 		map.put("/getNotice.do", new NoticeSearch());
@@ -62,7 +64,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
-		
+
 		map.put("/createCenterInfo.do", new CreateCenterInfo());
 //
 //		map.put("/logout.do", new Logout()); // 로그아웃

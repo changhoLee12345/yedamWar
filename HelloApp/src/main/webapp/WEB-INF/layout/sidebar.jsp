@@ -25,6 +25,7 @@
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="searchBookForm.do">도서검색</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="addBookForm.do">도서등록</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="bookList.do">도서목록</a>
+		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="bookListVue.do">도서(Vue)</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do">공지사항</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberJoinForm.do">회원등록</a>
