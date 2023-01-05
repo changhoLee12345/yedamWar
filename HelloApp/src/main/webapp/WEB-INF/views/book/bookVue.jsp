@@ -46,8 +46,8 @@
         </tr>
         <tr>
           <td align="center" colspan="2">
-            <button class='btn' v-on:click="addBook()">등록</button>
-            <button class='btn' v-on:click="delSelectedBook()">선택삭제</button>
+            <button class='btn btn-primary' v-on:click="addBook()">등록</button>
+            <button class='btn btn-danger' v-on:click="delSelectedBook()">선택삭제</button>
           </td>
         </tr>
       </table>
