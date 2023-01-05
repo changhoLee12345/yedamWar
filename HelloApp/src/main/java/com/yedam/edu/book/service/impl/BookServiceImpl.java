@@ -37,4 +37,13 @@ public class BookServiceImpl implements BookService {
 //		return mapper.insertBook(vo);
 	}
 
+	@Override
+	public List<BookVO> bookList() {
+		return session.selectList("com.yedam.edu.book.mapper.BookMapper.bookList");
+	}
+
+	@Override
+	public int deleteBook(String bcode) {
+		return session.delete("com.yedam.edu.book.mapper.BookMapper.deleteBook", bcode);
+	}
 }

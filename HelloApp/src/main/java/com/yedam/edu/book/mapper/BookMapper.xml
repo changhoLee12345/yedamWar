@@ -48,5 +48,14 @@
 		insert into book_info (book_code, book_title, book_author, book_press, book_price)
 		values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice})
 	</insert>
+	
+	<select id="bookList" resultType="BookVO">
+	  select * from book_info
+	  order by book_code
+	</select>
+	
+	<delete id="deleteBook" parameterType="string">
+	  delete from book_info where book_code = #{bcode}
+	</delete>
 
 </mapper>

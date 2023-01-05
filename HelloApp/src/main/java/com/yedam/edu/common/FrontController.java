@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.edu.book.command.AddBook;
 import com.yedam.edu.book.command.AddBookForm;
+import com.yedam.edu.book.command.BookDelJson;
 import com.yedam.edu.book.command.BookList;
+import com.yedam.edu.book.command.BookListJson;
 import com.yedam.edu.book.command.BookListVue;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
@@ -51,7 +53,10 @@ public class FrontController extends HttpServlet {
 		map.put("/searchBook.do", new SearchBook());
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
+		// json
 		map.put("/bookListVue.do", new BookListVue());
+		map.put("/bookListJson.do", new BookListJson());
+		map.put("/deleteBookJson.do", new BookDelJson());
 
 		map.put("/noticeList.do", new NoticeList());
 		map.put("/getNotice.do", new NoticeSearch());
