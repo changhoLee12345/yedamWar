@@ -15,4 +15,5 @@ public interface BookService {
 	// json data
 	public List<BookVO> bookList();
 	public int deleteBook(String bcode);
+	public int insertBook(BookVO vo);
 }

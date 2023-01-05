@@ -46,4 +46,10 @@ public class BookServiceImpl implements BookService {
 	public int deleteBook(String bcode) {
 		return session.delete("com.yedam.edu.book.mapper.BookMapper.deleteBook", bcode);
 	}
+
+	@Override
+	public int insertBook(BookVO vo) {
+		System.out.println(vo);
+		return session.insert("com.yedam.edu.book.mapper.BookMapper.insertBook", vo);
+	}
 }
