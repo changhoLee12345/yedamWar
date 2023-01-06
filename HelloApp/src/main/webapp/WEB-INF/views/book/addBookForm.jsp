@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+	  CKEDITOR.replace('desc', {
+		  filebrowserUploadUrl: '${pageContext.request.contextPath}/bookUpload.do'
+	  })
+  })
+</script>
 <div class="container">
 	<h3>도서등록화면(addBookForm.jsp)</h3>
 	<form action="addBook.do" method="post">
@@ -23,6 +31,10 @@
 			<tr>
 				<th>가격</th>
 				<td><input class="col-sm-6" type="text" name="price" value="20,000"></td>
+			</tr>
+			<tr>
+				<th>설명</th>
+				<td><textarea class="col-sm-6" name="desc"></textarea></td>
 			</tr>
 			<tr>
 				<td align="center" colspan=2>

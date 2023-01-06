@@ -15,4 +15,5 @@ public class BookVO extends SearchVO {
 	private String bookAuthor;
 	private String bookPress;
 	private int bookPrice;
+	private String bookDesc;
 }

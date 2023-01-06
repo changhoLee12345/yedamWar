@@ -18,6 +18,7 @@ import com.yedam.edu.book.command.BookDelJson;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.BookListJson;
 import com.yedam.edu.book.command.BookListVue;
+import com.yedam.edu.book.command.BookUpload;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.main.CreateCenterInfo;
@@ -54,6 +55,7 @@ public class FrontController extends HttpServlet {
 		map.put("/searchBook.do", new SearchBook());
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
+		map.put("/bookUpload.do", new BookUpload());
 		// json
 		map.put("/bookListVue.do", new BookListVue());
 		map.put("/bookListJson.do", new BookListJson());
@@ -112,6 +114,7 @@ public class FrontController extends HttpServlet {
 				response.getWriter().append(viewPage.substring(5));
 				return;
 			}
+
 			// 타일즈 돌아가는곳
 			if (!viewPage.endsWith(".tiles")) {
 				viewPage = "/WEB-INF/views/" + viewPage + ".jsp"; // 타일즈를 안태움

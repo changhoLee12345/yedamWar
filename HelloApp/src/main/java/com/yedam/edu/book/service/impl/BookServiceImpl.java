@@ -14,8 +14,8 @@ public class BookServiceImpl implements BookService {
 //	BookMapper mapper = session.getMapper(BookMapper.class);
 
 	@Override
-	public BookVO selectBook(BookVO vo) {
-		return session.selectOne("com.yedam.edu.book.mapper.BookMapper.selectBook", vo);
+	public BookVO selectBook(String bookCode) {
+		return session.selectOne("com.yedam.edu.book.mapper.BookMapper.selectBook", bookCode);
 //		return mapper.selectBook(vo);
 	}
 

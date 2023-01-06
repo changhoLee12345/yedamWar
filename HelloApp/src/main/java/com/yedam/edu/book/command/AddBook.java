@@ -18,6 +18,7 @@ public class AddBook implements Command {
 		String title = request.getParameter("title");
 		String press = request.getParameter("press");
 		String price = request.getParameter("price");
+		String desc = request.getParameter("desc");
 		price = price.replace(",", "");
 
 		BookVO vo = new BookVO();
@@ -26,6 +27,7 @@ public class AddBook implements Command {
 		vo.setBookPress(press);
 		vo.setBookPrice(Integer.parseInt(price));
 		vo.setBookTitle(title);
+		vo.setBookDesc(desc);
 
 		BookService service = new BookServiceImpl();
 		service.addBook(vo);

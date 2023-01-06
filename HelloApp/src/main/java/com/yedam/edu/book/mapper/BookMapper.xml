@@ -14,6 +14,7 @@
 				and book_title like '%'||#{bookTitle}||'%'
 			</if>
 		</where>
+		order by book_code
 	</select>
 
 	<select id="selectBookList">
@@ -32,6 +33,7 @@
 			</choose>
 
 		</where>
+		order by book_code
 	</select>
 
 	<select id="selectBook" resultType="BookVO">
@@ -45,8 +47,8 @@
 	</select>
 	
 	<insert id="insertBook">
-		insert into book_info (book_code, book_title, book_author, book_press, book_price)
-		values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice})
+		insert into book_info (book_code, book_title, book_author, book_press, book_price, book_desc)
+		values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice}, #{bookDesc} )
 	</insert>
 	
 	<select id="bookList" resultType="BookVO">

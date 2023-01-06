@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.yedam.edu.book.vo.BookVO;
 
 public interface BookService {
-	public BookVO selectBook(BookVO vo);
+	public BookVO selectBook(String bookCode);
 	public BookVO selectColumn(@Param("column") String column, @Param("value") String value);
 	public List<BookVO> selectBooks(BookVO vo);
 	public int addBook(BookVO vo);
