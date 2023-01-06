@@ -4,6 +4,18 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+
+	<definition name="myapp.admin" template="/WEB-INF/layout/admin/template.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="sidebar" value="/WEB-INF/layout/admin/sidebar.jsp" />
+		<put-attribute name="top" value="/WEB-INF/layout/admin/top.jsp" />
+		<put-attribute name="body" value="/WEB-INF/layout/admin/content.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/admin/footer.jsp" />
+	</definition>
+	<definition name="WILDCARD:admin/*" extends="myapp.admin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"></put-attribute>
+	</definition>
+
 	<definition name="myapp.homepage" template="/WEB-INF/layout/template.jsp">
 		<put-attribute name="title" value="Tiles tutorial homepage" />
 		<put-attribute name="sidebar" value="/WEB-INF/layout/sidebar.jsp" />

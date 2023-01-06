@@ -5,11 +5,11 @@
 <mapper namespace="com.yedam.edu.member.mapper.MemberMapper">
 
 	<select id="memberList" resultType="MemberVO">
-	    select * from member
+	    select * from members
 	</select>
 	
 	<select id="loginCheck" parameterType="MemberVO" resultType="MemberVO">
-	    select * from member where id=#{id} and passwd=#{passwd}
+	    select * from members where id=#{id} and passwd=#{passwd}
 	</select>
 	
 	<select id="searchMember" parameterType="string" resultType="MemberVO">

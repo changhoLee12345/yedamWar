@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.yedam.edu.common.Command;
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.service.impl.MemberServiceImpl;
+import com.yedam.edu.member.service.impl.MemberServiceMybatis;
 import com.yedam.edu.member.vo.MemberVO;
 
 public class MemberLogin implements Command {
@@ -20,22 +21,30 @@ public class MemberLogin implements Command {
 		String message = "";
 		String page = "";
 
-		MemberVO vo = new MemberVO();
-		vo.setId(id);
-		vo.setPasswd(pwd);
+		MemberVO svo = new MemberVO();
+		svo.setId(id);
+		svo.setPasswd(pwd);
 
-		MemberService service = new MemberServiceImpl();
-		vo = service.loginCheck(vo);
+		MemberService service = new MemberServiceMybatis();
+		MemberVO vo = service.loginCheck(svo);
+		System.out.println(vo);
 
 		if (vo == null) {
 			message = "로그인 정보를 확인하세요.";
 			page = "member/loginForm.tiles";
+
 		} else {
 			message = vo.getName() + ", 환영합니다.";
-			page = "member/login.tiles";
 			request.setAttribute("member", vo);
-
 			session.setAttribute("id", vo.getId());
+
+			// 일반유저는 유저첫페이지로 관리자는 관리자 페이지로..
+			if (vo.getResponsibility().equals("User")) {
+				page = "member/login.tiles";
+			} else if (vo.getResponsibility().equals("Admin")) {
+				page = "admin/home.tiles";
+			}
+
 			System.out.println(vo.getId());
 		}
 		request.setAttribute("message", message);
