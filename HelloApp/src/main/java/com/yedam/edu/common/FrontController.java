@@ -114,7 +114,6 @@ public class FrontController extends HttpServlet {
 				response.getWriter().append(viewPage.substring(5));
 				return;
 			}
-
 			// 타일즈 돌아가는곳
 			if (!viewPage.endsWith(".tiles")) {
 				viewPage = "/WEB-INF/views/" + viewPage + ".jsp"; // 타일즈를 안태움

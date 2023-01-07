@@ -23,7 +23,8 @@
         </div>
     </form>
 
-    <a href="bookList.do">Tiles</a>
+    <a href="bookList.do">Tiles</a><br>
+    <a href="main.do">Main</a><br>
 
     <button id="btn">Json</button>
 
