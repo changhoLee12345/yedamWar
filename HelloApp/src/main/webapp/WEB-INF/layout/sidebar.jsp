@@ -4,7 +4,7 @@
 <div class="border-end bg-white" id="sidebar-wrapper">
 	<c:choose>
 		<c:when test="${not empty id }">
-			<div class="sidebar-heading border-bottom bg-light">${name }, ${msg }</div>
+			<div class="sidebar-heading border-bottom bg-light">${name }${message }</div>
 		</c:when>
 		<c:otherwise>
 			<div class="sidebar-heading border-bottom bg-light">손님입니다.</div>
@@ -15,7 +15,7 @@
 		<c:choose>
 			<c:when test="${not empty id }">
 				<a class="list-group-item list-group-item-action list-group-item-light p-3"
-					href="memberLoginForm.do">로그아웃</a>
+					href="memberLogout.do">로그아웃</a>
 			</c:when>
 			<c:otherwise>
 				<a class="list-group-item list-group-item-action list-group-item-light p-3"
@@ -28,7 +28,10 @@
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="bookListVue.do">도서(Vue)</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do">공지사항</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberJoinForm.do">회원등록</a>
-		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberList.do">회원목록</a>
+		<c:if test="${responsbility == 'Admin' }">
+			<a class="list-group-item list-group-item-action list-group-item-light p-3"
+				href="memberJoinForm.do">회원등록</a>
+			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberList.do">회원목록</a>
+		</c:if>
 	</div>
 </div>

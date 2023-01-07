@@ -5,7 +5,8 @@
 <form action="">
   <table class="table">
     <tr>
-      <th>아이디</th><td><input type="text" name="" value="${member.id }"></td>
+      <th>아이디</th>
+      <td><input type="text" name="" value="${member.id }"></td>
     </tr>
   </table>
 </form>

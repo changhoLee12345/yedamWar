@@ -29,6 +29,7 @@ import com.yedam.edu.member.command.MemberJoinForm;
 import com.yedam.edu.member.command.MemberList;
 import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
+import com.yedam.edu.member.command.MemberLogout;
 import com.yedam.edu.notice.command.DeleteNotice;
 import com.yedam.edu.notice.command.NoticeList;
 import com.yedam.edu.notice.command.NoticeSearch;
@@ -66,9 +67,10 @@ public class FrontController extends HttpServlet {
 		map.put("/getNotice.do", new NoticeSearch());
 		map.put("/updateNotice.do", new UpdateNotice());
 		map.put("/deleteNotice.do", new DeleteNotice());
-//
+
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
+		map.put("/memberLogout.do", new MemberLogout()); // 멤버로그인처리
 		map.put("/memberJoinForm.do", new MemberJoinForm()); // 회원가입 폼 호출
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
@@ -114,10 +116,12 @@ public class FrontController extends HttpServlet {
 				response.getWriter().append(viewPage.substring(5));
 				return;
 			}
+
 			// 타일즈 돌아가는곳
 			if (!viewPage.endsWith(".tiles")) {
 				viewPage = "/WEB-INF/views/" + viewPage + ".jsp"; // 타일즈를 안태움
 			}
+
 			// tiles처리하는 곳.
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);

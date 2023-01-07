@@ -34,21 +34,23 @@ public class MemberLogin implements Command {
 			page = "member/loginForm.tiles";
 
 		} else {
-			message = vo.getName() + ", 환영합니다.";
+			message = "님, 환영합니다.";
+
 			request.setAttribute("member", vo);
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("name", vo.getName());
+			session.setAttribute("responsbility", vo.getResponsibility());
 
 			// 일반유저는 유저첫페이지로 관리자는 관리자 페이지로..
 			if (vo.getResponsibility().equals("User")) {
-				page = "member/login.tiles";
+				page = "main/login.tiles";
 			} else if (vo.getResponsibility().equals("Admin")) {
 				page = "admin/home.tiles";
 			}
 
 			System.out.println(vo.getId());
 		}
-		request.setAttribute("message", message);
+		session.setAttribute("message", message);
 
 		return page;
 	}
