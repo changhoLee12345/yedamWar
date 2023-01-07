@@ -35,4 +35,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.insertCenterInfo(list);
 	}
 
+	@Override
+	public int insertMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

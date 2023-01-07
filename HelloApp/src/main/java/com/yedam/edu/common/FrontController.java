@@ -23,10 +23,12 @@ import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.main.CreateCenterInfo;
 import com.yedam.edu.main.MainCommand;
+import com.yedam.edu.member.command.JquerySample;
 import com.yedam.edu.member.command.MemberForm;
 import com.yedam.edu.member.command.MemberJoin;
 import com.yedam.edu.member.command.MemberJoinForm;
 import com.yedam.edu.member.command.MemberList;
+import com.yedam.edu.member.command.MemberListAjax;
 import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
 import com.yedam.edu.member.command.MemberLogout;
@@ -75,19 +77,15 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
+		
+		map.put("/memberListAjax.do", new MemberListAjax());
 
 		map.put("/createCenterInfo.do", new CreateCenterInfo());
-//
-//		map.put("/logout.do", new Logout()); // 로그아웃
-//		map.put("/ajaxIdCheck.do", new AjaxIdCheck());// ajax를 이용한 아이디 중복체크
-//		map.put("/noticeForm.do", new NoticeForm()); // 글쓰기 폼
-//		map.put("/myInfo.do", new MyInfo()); // 내 정보보기
-//		map.put("/ajaxMemberAuthorSelect.do", new ajaxMemberAuthorSelect()); // 유저권한별 리스트
-//
-//		map.put("/bookInsertForm.do", new bookInsertForm()); // 도서입력 화면
-//		map.put("/bookInsert.do", new bookInsert()); // 도서 등록
-//
-//		// jquery를 사용해보기 위해 만든 컨트롤. 2022.11.23
+		
+		// admin.
+		map.put("/jquerySample.do", new JquerySample());
+
+//		// ajax를 사용해보기 위해 만든 컨트롤. 2022.11.23
 //		map.put("/ajaxPage.do", new AjaxJquery()); // ajax페이지.
 //		map.put("/ajaxBookList.do", new AjaxBookList()); // ajax목록
 //		map.put("/ajaxBookAdd.do", new AjaxBookAdd()); // ajax입력

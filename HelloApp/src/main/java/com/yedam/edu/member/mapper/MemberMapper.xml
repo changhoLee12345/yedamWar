@@ -13,8 +13,13 @@
 	</select>
 	
 	<select id="searchMember" parameterType="string" resultType="MemberVO">
-		select * from member where id=#{id}
+		select * from members where id=#{id}
 	</select>
+	
+	<insert id="insertMember" parameterType="MemberVO">
+	    insert into members (id, passwd, name, email, responsibility, cdate)
+	    values (#{id}, #{passwd}, #{name}, #{email}, #{responsibility}, sysdate)
+	</insert>
 	
 	<update id="insertCenterInfo" parameterType="java.util.Map">
 		<foreach collection="list" item="i" open="insert all" close="select * from dual" separator=" ">

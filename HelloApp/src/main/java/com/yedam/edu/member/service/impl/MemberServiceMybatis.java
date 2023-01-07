@@ -35,4 +35,8 @@ public class MemberServiceMybatis implements MemberService {
 		return dao.insertCenterInfo(list);
 	}
 
+	@Override
+	public int insertMember(MemberVO vo) {
+		return dao.insertMember(vo);
+	}
 }
