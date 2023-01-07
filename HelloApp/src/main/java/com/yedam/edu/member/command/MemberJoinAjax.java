@@ -17,12 +17,11 @@ import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.service.impl.MemberServiceMybatis;
 import com.yedam.edu.member.vo.MemberVO;
 
-public class MemberJoin implements Command {
+public class MemberJoinAjax implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-
 		Map<String, Object> resultMap = new HashMap<>();
 		String savePath = request.getServletContext().getRealPath("/images");
 		String fileName = "";
@@ -37,7 +36,7 @@ public class MemberJoin implements Command {
 			}
 			// id, passwd, name, email, responsibility, pfilename, ofilename, cdate
 			String id = multi.getParameter("id");
-			String pw = multi.getParameter("passwd");
+			String pw = multi.getParameter("pass");
 			String name = multi.getParameter("name");
 			String email = multi.getParameter("email");
 			String responsibility = multi.getParameter("responsibility");
@@ -53,6 +52,8 @@ public class MemberJoin implements Command {
 			vo.setPhoneNumber(phone);
 			vo.setPfilename(fileName);
 			vo.setAddr(addr);
+			
+			System.out.println(vo);
 
 			MemberService service = new MemberServiceMybatis();
 			int rtn = service.insertMember(vo);
@@ -60,7 +61,7 @@ public class MemberJoin implements Command {
 			if (rtn > 0) {
 				vo = service.searchMember(vo.getId());
 				resultMap.put("retCode", "Success");
-				resultMap.put("result", vo);
+				resultMap.put("data", vo);
 
 			} else {
 				resultMap.put("retCode", "Fail");

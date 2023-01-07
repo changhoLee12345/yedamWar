@@ -10,6 +10,7 @@ public interface MemberService {
 	public MemberVO loginCheck(MemberVO vo);
 	public MemberVO searchMember(String id);
 	public int insertMember(MemberVO vo);
+	public int deleteMember(String id);
 	
 	// center info 반복등록.
 	public int insertCenterInfo(List<Map<String, Object>> list);

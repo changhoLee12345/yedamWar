@@ -41,4 +41,10 @@ public class MemberServiceImpl implements MemberService {
 		return 0;
 	}
 
+	@Override
+	public int deleteMember(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

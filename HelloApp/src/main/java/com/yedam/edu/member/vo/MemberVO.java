@@ -19,4 +19,5 @@ public class MemberVO {
 	private String ofilename;
 	private Date cdate;
 	private String phoneNumber;
+	private String addr;
 }

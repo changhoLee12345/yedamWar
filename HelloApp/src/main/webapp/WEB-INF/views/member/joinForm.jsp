@@ -4,8 +4,7 @@
 <div class="container">
   <div class="center">
     <h3>회원등록화면(joinForm.jsp)</h3>
-    <form action="" name="myFrm" method="post">
-
+    <form action="insertMember.do" name="myFrm" method="post" enctype="multipart/form-data">
       <table class="table">
         <tr>
           <th>아이디</th>
@@ -37,9 +36,13 @@
           </td>
         </tr>
         <tr>
-          <td colspan="2">
-            <input class="btn btn-primary" type="submit" value="등록"><input class="btn btn-primary" type="reset"
-              value="취소">
+          <th>이미지</th>
+          <td><input type="file" name="image"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input class="btn btn-primary" type="submit" value="등록">
+            <input class="btn btn-primary" type="reset" value="취소">
           </td>
         </tr>
       </table>
@@ -56,9 +59,10 @@
           <th>주소</th>
           <th>비밀번호</th>
           <th>권한</th>
+          <th>수정</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="list">
       </tbody>
     </table>
 
@@ -66,6 +70,39 @@
 </div>
 
 <script>
+  function makeRow(obj = {}) {
+    console.log(obj)
+    let delBtn = $('<button />').text('Mod');
+    delBtn.on('click', function () {
+      let curTr = $(this).parent().parent();
+      console.log()
+      $.ajax({
+        url: 'memberDelAjax.do',
+        data: 'id=' + obj['id'],
+        method: 'post',
+        dataType: 'json',
+        success: function (result) {
+        	console.log(result)
+          alert('success');
+          curTr.remove();
+        },
+        error: function (reject) {
+          console.log(reject)
+        }
+      })
+    })
+
+    $('#list').append($('<tr />').append(
+      $('<td />').text(obj['id']),
+      $('<td />').text(obj['name']),
+      $('<td />').text(obj['phoneNumber']),
+      $('<td />').text(obj['addr']),
+      $('<td />').text(obj['passwd']),
+      $('<td />').text(obj['responbility']),
+      $('<td />').append(delBtn)
+    ))
+  }
+
   // page loading ..
   $(document).ready(function () {
     $.ajax({
@@ -74,12 +111,43 @@
       dataType: 'json',
       success: function (result) {
         console.log(result);
+        $(result).each((idx, member) => {
+          $('#list').append(makeRow(member))
+        })
       }
     });
   })
-  let frm = $('form[name="myFrm"]')
 
-  frm.on('submit', function () {
+  let frm = $('form[name="myFrm"]')
+  frm.on('submit', multiPartFnc);
+
+  function multiPartFnc(e) {
+    e.preventDefault();
+    let myfrm = document.querySelector('form[name="myFrm"]');
+    let formData = new FormData(myfrm);
+
+    $.ajax({
+      url: 'memberJoinAjax.do',
+      type: 'post',
+      data: formData,
+      dataType: 'json',
+      contentType: false,
+      processData: false,
+      success: function (result) {
+        console.log(result);
+        if (result.retCode == 'Success') {
+          $('#list').append(makeRow(result.data));
+        } else {
+          alert('error occurred.')
+        }
+      },
+      error: function (reject) {
+        console.log(reject)
+      }
+    })
+  }
+
+  function serialDataFnc() {
     let param = frm.serialize();
     console.log(decodeURI(param))
 
@@ -90,5 +158,6 @@
       .fail(reject => {
         console.log(reject)
       })
-  })
+
+  }
 </script>

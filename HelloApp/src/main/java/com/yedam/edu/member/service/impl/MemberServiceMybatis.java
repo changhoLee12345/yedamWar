@@ -39,4 +39,9 @@ public class MemberServiceMybatis implements MemberService {
 	public int insertMember(MemberVO vo) {
 		return dao.insertMember(vo);
 	}
+
+	@Override
+	public int deleteMember(String id) {
+		return dao.deleteMember(id);
+	}
 }

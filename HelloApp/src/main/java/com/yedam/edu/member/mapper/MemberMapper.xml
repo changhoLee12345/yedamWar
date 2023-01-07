@@ -5,7 +5,7 @@
 <mapper namespace="com.yedam.edu.member.mapper.MemberMapper">
 
 	<select id="memberList" resultType="MemberVO">
-	    select * from members
+	    select * from members order by id
 	</select>
 	
 	<select id="loginCheck" parameterType="MemberVO" resultType="MemberVO">
@@ -17,9 +17,13 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="MemberVO">
-	    insert into members (id, passwd, name, email, responsibility, cdate)
-	    values (#{id}, #{passwd}, #{name}, #{email}, #{responsibility}, sysdate)
+	    insert into members (id, passwd, name, email, responsibility, cdate, pfilename, addr, phone)
+	    values (#{id}, #{passwd}, #{name}, #{email}, #{responsibility}, sysdate, #{pfilename}, #{addr}, #{phoneNumber} )
 	</insert>
+	
+	<delete id="deleteMember" parameterType="string">
+	    delete from members where id=#{id}
+	</delete>
 	
 	<update id="insertCenterInfo" parameterType="java.util.Map">
 		<foreach collection="list" item="i" open="insert all" close="select * from dual" separator=" ">

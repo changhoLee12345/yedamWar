@@ -24,8 +24,10 @@ import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.main.CreateCenterInfo;
 import com.yedam.edu.main.MainCommand;
 import com.yedam.edu.member.command.JquerySample;
+import com.yedam.edu.member.command.MemberDelAjax;
 import com.yedam.edu.member.command.MemberForm;
 import com.yedam.edu.member.command.MemberJoin;
+import com.yedam.edu.member.command.MemberJoinAjax;
 import com.yedam.edu.member.command.MemberJoinForm;
 import com.yedam.edu.member.command.MemberList;
 import com.yedam.edu.member.command.MemberListAjax;
@@ -79,6 +81,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
 		
 		map.put("/memberListAjax.do", new MemberListAjax());
+		map.put("/memberJoinAjax.do", new MemberJoinAjax()); // 회원가입
+		map.put("/memberDelAjax.do", new MemberDelAjax());
 
 		map.put("/createCenterInfo.do", new CreateCenterInfo());
 		
