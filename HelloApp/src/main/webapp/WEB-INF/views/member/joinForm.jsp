@@ -70,6 +70,7 @@
 </div>
 
 <script>
+  // 한건 생성. makeRow
   function makeRow(obj = {}) {
     console.log(obj)
     let delBtn = $('<button />').text('Mod');
@@ -82,7 +83,7 @@
         method: 'post',
         dataType: 'json',
         success: function (result) {
-        	console.log(result)
+          console.log(result)
           alert('success');
           curTr.remove();
         },
@@ -91,14 +92,14 @@
         }
       })
     })
-
+    // 목록에 추가.
     $('#list').append($('<tr />').append(
       $('<td />').text(obj['id']),
       $('<td />').text(obj['name']),
       $('<td />').text(obj['phoneNumber']),
       $('<td />').text(obj['addr']),
       $('<td />').text(obj['passwd']),
-      $('<td />').text(obj['responbility']),
+      $('<td />').text(obj['responsibility']),
       $('<td />').append(delBtn)
     ))
   }
@@ -118,9 +119,11 @@
     });
   })
 
+  // 저장 버튼.
   let frm = $('form[name="myFrm"]')
   frm.on('submit', multiPartFnc);
 
+  // 파일업로드
   function multiPartFnc(e) {
     e.preventDefault();
     let myfrm = document.querySelector('form[name="myFrm"]');
@@ -147,6 +150,7 @@
     })
   }
 
+  // 입력.
   function serialDataFnc() {
     let param = frm.serialize();
     console.log(decodeURI(param))
