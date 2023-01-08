@@ -10,7 +10,7 @@ public class MemberListJquery implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "member/memberListJquery.tiles";
+		return "jquery/memberListJquery.tiles";
 	}
 
 }
