@@ -20,6 +20,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp"></put-attribute>
 	</definition>
 
+	<definition name="WILDCARD:jquery/*" extends="myapp.admin">
+		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/layout/admin/jqueryfooter.jsp" />
+	</definition>
+
 	<definition name="myapp.homepage" template="/WEB-INF/layout/template.jsp">
 		<put-attribute name="title" value="Tiles tutorial homepage" />
 		<put-attribute name="sidebar" value="/WEB-INF/layout/sidebar.jsp" />
