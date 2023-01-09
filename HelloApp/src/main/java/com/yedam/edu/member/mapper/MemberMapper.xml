@@ -17,7 +17,7 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="MemberVO">
-	    insert into members (id, passwd, name, email, responsibility, cdate, pfilename, addr, phone)
+	    insert into members (id, passwd, name, email, responsibility, cdate, pfilename, addr, phone_number)
 	    values (#{id}, #{passwd}, #{name}, #{email}, #{responsibility}, sysdate, #{pfilename}, #{addr}, #{phoneNumber} )
 	</insert>
 	
