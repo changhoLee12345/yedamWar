@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
 <script src="https://unpkg.com/axios"></script>
+
 <div id='app'>
   <add-component></add-component>
   <list-component></list-component>
@@ -98,8 +99,14 @@
           })
           .then(resolve => resolve.json())
           .then(result => {
-            //this.bookList.push(result)
-            this.$parent.bookList.push(book)
+            console.log(result)
+            if (result.retCode == 'Success') {
+              console.log(this.$parent)
+              //this.bookLists.push(result)
+              this.$parent.bookLists.push(book)
+            } else {
+              alert('error!!')
+            }
           })
           .catch(reject => {
             alert("처리 중 에러 발생!")
@@ -112,8 +119,25 @@
 
           app.bookLists.forEach((tbook, idx) => {
             console.log(book, tbook.bookCode)
-            if (book == tbook.bookCode)
-              app.bookLists.splice(idx, 1)
+            if (book == tbook.bookCode) {
+              axios.get('deleteBookJson.do?bcode=' + book)
+                // axios({
+                //   url: 'deleteBookJson.do',
+                //   method: 'post',
+                //   data: {
+                //     bcode: book
+                //   }
+                //})
+                .then(response => {
+                  console.log(response)
+                  if (response.data.retCode == 'Success')
+                    app.bookLists.splice(idx, 1)
+                  else
+                    alert('error occurred!')
+                }).catch(reject => {
+                  console.log(reject)
+                })
+            }
           })
         })
       }
@@ -198,15 +222,24 @@
     methods: {},
     created: function () {
 
-      fetch('bookListJson.do')
-        .then(resolve => resolve.json())
-        .then(result => {
-          console.log(result);
-          result.forEach(book => {
+      // fetch('bookListJson.do')
+      //   .then(resolve => resolve.json())
+      //   .then(result => {
+      //     console.log(result);
+      //     result.forEach(book => {
+      //       this.bookLists.push(book);
+      //     })
+      //   })
+      //   .catch(err => console.log(err))
+      axios.get('bookListJson.do')
+        .then(resolve => {
+          console.log(resolve)
+          resolve.data.forEach(book => {
             this.bookLists.push(book);
           })
+        }).catch(error => {
+          console.log(error)
         })
-        .catch(err => console.log(err))
     }
   })
 

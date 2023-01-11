@@ -18,6 +18,7 @@ public class BookDelJson implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String bcode = request.getParameter("bcode");
+		System.out.println("bcode" + bcode);
 		BookService service = new BookServiceImpl();
 		int delCnt = service.deleteBook(bcode);
 
