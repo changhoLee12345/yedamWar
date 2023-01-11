@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.edu.common.Command;
 
-public class BookListVue implements Command {
+public class BookListVueForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

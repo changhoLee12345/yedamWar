@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+<script src="https://unpkg.com/axios"></script>
 <div id='app'>
   <add-component></add-component>
   <list-component></list-component>
@@ -19,6 +20,8 @@
   let counter = {
     counter: 10
   };
+
+  // add component & list component .
 
   const addComponent = {
     template: `
@@ -62,6 +65,7 @@
         pressLabel: '출 판 사',
         priceLabel: '가 격',
         counter: 10,
+        // init value.
         bookCode: 'B001',
         bookTitle: 'This is Java',
         bookAuthor: 'Kim Java',
@@ -71,7 +75,7 @@
     },
     methods: {
       addBook: function () {
-        console.log('add')
+
         if (!this.bookCode || !this.bookTitle || !this.bookAuthor || !this.bookPress || !this.bookPrice) {
           alert('required field.')
           return;
@@ -84,7 +88,7 @@
           bookPrice: this.bookPrice
         }
         let param = queryStr(book);
-        console.log(param);
+
         fetch('addBookJson.do', {
             method: 'post',
             headers: {
@@ -100,44 +104,56 @@
           .catch(reject => {
             alert("처리 중 에러 발생!")
           })
-        console.log(this.$parent.bookList)
+
       },
       delSelectedBook: function () {
-        console.log('del')
+
+        app.$children[1].deletedTarget.forEach(function (book) {
+
+          app.bookLists.forEach((tbook, idx) => {
+            console.log(book, tbook.bookCode)
+            if (book == tbook.bookCode)
+              app.bookLists.splice(idx, 1)
+          })
+        })
       }
     }
   };
 
   const listComponent = {
     template: `
-    <table class="table">
-      <thead>
-        <tr>
-          <th><input type="checkbox"></th>
-          <th>도서코드</th>
-          <th>책제목</th>
-          <th>저자</th>
-          <th>출판사</th>
-          <th>가격</th>
-          <th>삭제</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="book in bookList">
-          <td><input type="checkbox"></td>
-          <td>{{book.bookCode}}</td>
-          <td>{{book.bookTitle}}</td>
-          <td>{{book.bookAuthor}}</td>
-          <td>{{book.bookPress}}</td>
-          <td>{{book.bookPrice}}</td>
-          <td><button v-on:click="deleteBook(book.bookCode)">삭제</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>도서코드</th>
+            <th>책제목</th>
+            <th>저자</th>
+            <th>출판사</th>
+            <th>가격</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="book in bookList">
+            <td><input type="checkbox" v-bind:value="book.bookCode" v-model="deletedTarget"></td>
+            <td>{{book.bookCode}}</td>
+            <td>{{book.bookTitle}}</td>
+            <td>{{book.bookAuthor}}</td>
+            <td>{{book.bookPress}}</td>
+            <td>{{book.bookPrice}}</td>
+            <td><button v-on:click="deleteBook(book.bookCode)">삭제</button></td>
+          </tr>
+        </tbody>
+      </table>
+    {{deletedTarget}}
+    </div>
     `,
     data: function () {
       return {
-        bookList: bookAry
+        bookList: bookAry,
+        deletedTarget: []
       }
     },
     methods: {
@@ -168,11 +184,12 @@
       }
     }
   }
+
   // 인스턴스 선언 초기화.
   var app = new Vue({
     el: '#app',
     data: {
-      bookList: bookAry
+      bookLists: bookAry
     },
     components: {
       'add-component': addComponent,
@@ -180,13 +197,13 @@
     },
     methods: {},
     created: function () {
-      console.log('created');
+
       fetch('bookListJson.do')
         .then(resolve => resolve.json())
         .then(result => {
           console.log(result);
           result.forEach(book => {
-            this.bookList.push(book);
+            this.bookLists.push(book);
           })
         })
         .catch(err => console.log(err))

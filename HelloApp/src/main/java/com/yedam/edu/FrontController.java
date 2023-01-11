@@ -1,4 +1,4 @@
-package com.yedam.edu.common;
+package com.yedam.edu;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,10 +17,11 @@ import com.yedam.edu.book.command.BookAddJson;
 import com.yedam.edu.book.command.BookDelJson;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.BookListJson;
-import com.yedam.edu.book.command.BookListVue;
+import com.yedam.edu.book.command.BookListVueForm;
 import com.yedam.edu.book.command.BookUpload;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
+import com.yedam.edu.common.Command;
 import com.yedam.edu.main.CreateCenterInfo;
 import com.yedam.edu.main.MainCommand;
 import com.yedam.edu.member.command.JquerySample;
@@ -63,7 +64,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addBook.do", new AddBook());
 		map.put("/bookUpload.do", new BookUpload());
 		// json
-		map.put("/bookListVue.do", new BookListVue());
+		map.put("/bookListVueForm.do", new BookListVueForm());
 		map.put("/bookListJson.do", new BookListJson());
 		map.put("/deleteBookJson.do", new BookDelJson());
 		map.put("/addBookJson.do", new BookAddJson());
