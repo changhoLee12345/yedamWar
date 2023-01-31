@@ -20,16 +20,16 @@ public class DeleteNoticeJson implements Command {
 		String id = request.getParameter("id");
 		NoticeService service = new NoticeServiceImpl();
 		int cnt = service.deleteNotice(Integer.parseInt(id));
+
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
 
 		String json = "";
 		ObjectMapper mapper = new ObjectMapper();
 		if (cnt > 0) {
 			map.put("retCode", "Success");
-			map.put("id", id);
 		} else {
 			map.put("retCode", "Fail");
-			map.put("id", 0);
 		}
 
 		try {
