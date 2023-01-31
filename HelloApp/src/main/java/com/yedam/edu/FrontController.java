@@ -37,7 +37,10 @@ import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
 import com.yedam.edu.member.command.MemberLogout;
 import com.yedam.edu.notice.command.DeleteNotice;
+import com.yedam.edu.notice.command.DeleteNoticeJson;
 import com.yedam.edu.notice.command.NoticeList;
+import com.yedam.edu.notice.command.NoticeListJson;
+import com.yedam.edu.notice.command.NoticeListJsonForm;
 import com.yedam.edu.notice.command.NoticeSearch;
 import com.yedam.edu.notice.command.UpdateNotice;
 
@@ -70,6 +73,9 @@ public class FrontController extends HttpServlet {
 		map.put("/addBookJson.do", new BookAddJson());
 
 		map.put("/noticeList.do", new NoticeList());
+		map.put("/noticeListJsonForm.do", new NoticeListJsonForm());
+		map.put("/noticeListJson.do", new NoticeListJson());
+		map.put("/deleteNoticeJson.do", new DeleteNoticeJson());
 		map.put("/getNotice.do", new NoticeSearch());
 		map.put("/updateNotice.do", new UpdateNotice());
 		map.put("/deleteNotice.do", new DeleteNotice());
@@ -81,14 +87,14 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
-		
+
 		map.put("/memberListAjax.do", new MemberListAjax());
 		map.put("/memberJoinAjax.do", new MemberJoinAjax()); // 회원가입
 		map.put("/memberDelAjax.do", new MemberDelAjax());
 		map.put("/memberListJquery.do", new MemberListJquery());
 
 		map.put("/createCenterInfo.do", new CreateCenterInfo());
-		
+
 		// admin.
 		map.put("/jquerySample.do", new JquerySample());
 
