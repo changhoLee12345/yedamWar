@@ -27,6 +27,7 @@
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="bookList.do">도서목록</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="bookListVueForm.do">도서(Vue)</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do">공지사항</a>
+		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeListJsonForm.do">공지사항(json)</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
 		<c:if test="${responsbility == 'Admin' }">
 			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberJoinForm.do">회원등록</a>
