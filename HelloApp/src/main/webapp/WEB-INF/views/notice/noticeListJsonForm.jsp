@@ -69,9 +69,17 @@
 
         function processAfterFetch(array = []) {
             // [{id: 10, retCode: 'Success'}]
+
             array.forEach(row => {
                 deleteTr(row);
             })
+            let ids = []
+            array.forEach(id => {
+                ids.push(id.id);
+            })
+            let temp = ids.join(', ') ;
+            console.log(temp)
+            alert(temp + '을 처리했습니다.')
         }
 
         function deleteTr(row = {}) {
