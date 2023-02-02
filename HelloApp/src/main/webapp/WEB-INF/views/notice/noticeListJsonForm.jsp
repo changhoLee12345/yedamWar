@@ -77,7 +77,7 @@
             array.forEach(id => {
                 ids.push(id.id);
             })
-            let temp = ids.join(', ') ;
+            let temp = ids.join(', ');
             console.log(temp)
             alert(temp + '을 처리했습니다.')
         }
