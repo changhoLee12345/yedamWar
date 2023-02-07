@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/Javaee"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 	<display-name>servletJSPII</display-name>
 
 	<listener>
-		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener
+		</listener-class>
 	</listener>
 
 	<servlet>
 		<servlet-name>Tiles Dispatch Servlet</servlet-name>
-		<servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+		<servlet-class>org.apache.tiles.web.util.TilesDispatchServlet
+		</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tiles Dispatch Servlet</servlet-name>
