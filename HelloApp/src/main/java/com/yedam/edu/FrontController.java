@@ -117,6 +117,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("====> " + page);
 
 		Command command = map.get(page); // init 메소드에서 수행할 명령을 가져온다.
+
 		String viewPage = command.exec(request, response); // 명령을 수행하고 결과를 돌려받음
 
 		// viewResolve 파트
