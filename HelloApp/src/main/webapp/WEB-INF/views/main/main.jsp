@@ -26,7 +26,7 @@
                     method: 'post',
                     headers: {
                         'Content-Type': 'application/json'
-                     },
+                    },
                     body: jsonStr
                 })
                 .then(resolve => resolve.text())

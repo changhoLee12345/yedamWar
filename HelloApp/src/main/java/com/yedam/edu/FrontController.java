@@ -22,8 +22,9 @@ import com.yedam.edu.book.command.BookUpload;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.common.Command;
-import com.yedam.edu.main.CreateCenterInfo;
-import com.yedam.edu.main.MainCommand;
+import com.yedam.edu.main.command.AdminMain;
+import com.yedam.edu.main.command.CreateCenterInfo;
+import com.yedam.edu.main.command.MainCommand;
 import com.yedam.edu.member.command.JquerySample;
 import com.yedam.edu.member.command.MemberDelAjax;
 import com.yedam.edu.member.command.MemberForm;
@@ -60,6 +61,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
+		// 도서정보관련.
 		map.put("/bookList.do", new BookList()); // 책목록보기
 		map.put("/searchBookForm.do", new SearchBookForm());
 		map.put("/searchBook.do", new SearchBook());
@@ -72,6 +74,7 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteBookJson.do", new BookDelJson());
 		map.put("/addBookJson.do", new BookAddJson());
 
+		// 공지사항관련.
 		map.put("/noticeList.do", new NoticeList());
 		map.put("/noticeListJsonForm.do", new NoticeListJsonForm());
 		map.put("/noticeListJson.do", new NoticeListJson());
@@ -80,6 +83,7 @@ public class FrontController extends HttpServlet {
 		map.put("/updateNotice.do", new UpdateNotice());
 		map.put("/deleteNotice.do", new DeleteNotice());
 
+		// 회원관련.
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
 		map.put("/memberLogout.do", new MemberLogout()); // 멤버로그인처리
@@ -93,10 +97,13 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDelAjax.do", new MemberDelAjax());
 		map.put("/memberListJquery.do", new MemberListJquery());
 
-		map.put("/createCenterInfo.do", new CreateCenterInfo());
+		// 기타 (스트림 연습).
+		map.put("/createCenterInfo.do", new CreateCenterInfo()); // json 포맷을 활용하도록.
 
+		// 기타 (스타일연습).
 		// admin.
 		map.put("/jquerySample.do", new JquerySample());
+		map.put("/admin.do", new AdminMain());
 
 //		// ajax를 사용해보기 위해 만든 컨트롤. 2022.11.23
 //		map.put("/ajaxPage.do", new AjaxJquery()); // ajax페이지.

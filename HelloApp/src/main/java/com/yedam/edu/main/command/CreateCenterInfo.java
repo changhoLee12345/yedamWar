@@ -1,4 +1,4 @@
-package com.yedam.edu.main;
+package com.yedam.edu.main.command;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -24,8 +24,11 @@ public class CreateCenterInfo implements Command {
 			ServletInputStream sis = request.getInputStream();
 			byte[] bytes = sis.readAllBytes();
 			String json = new String(bytes);
+			System.out.println(json);
 
 			JSONParser parser = new JSONParser();
+			// string convert to object. [{"address":"????","centerName":"???"...}...]
+			// ==> ArrayList<Map<String, Object>>
 			Object obj = parser.parse(json);
 			ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) obj;
 
@@ -33,14 +36,15 @@ public class CreateCenterInfo implements Command {
 			service = new MemberServiceImpl();
 			for (Map<String, Object> map : list) {
 				Set<String> set = map.keySet();
-				for (String key : set)
-					System.out.println(key + " : " + map.get(key));
-
+				for (String key : set) {
+//					System.out.println(key + " : " + map.get(key));
+				}
 				System.out.println("=====================");
 			}
 
 			result = service.insertCenterInfo(list);
 			System.out.println(result);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -25,6 +25,18 @@
 		<put-attribute name="footer" value="/WEB-INF/layout/admin/jqueryfooter.jsp" />
 	</definition>
 
+	<definition name="myapp.notice" template="/WEB-INF/layout/member/template.jsp">
+		<put-attribute name="title" value="Notice Template" />
+		<put-attribute name="nav" value="/WEB-INF/layout/member/nav.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layout/member/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/layout/member/content.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/member/footer.jsp" />
+	</definition>
+	<definition name="WILDCARD:notice/*" extends="myapp.notice">
+		<put-attribute name="body" value="/WEB-INF/views/notice/{1}.jsp"></put-attribute>
+	</definition>
+
+
 	<definition name="myapp.homepage" template="/WEB-INF/layout/template.jsp">
 		<put-attribute name="title" value="Tiles tutorial homepage" />
 		<put-attribute name="sidebar" value="/WEB-INF/layout/sidebar.jsp" />
@@ -35,5 +47,5 @@
 	<definition name="WILDCARD:*/*" extends="myapp.homepage">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
 	</definition>
-	
+
 </tiles-definitions>
