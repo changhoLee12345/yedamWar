@@ -139,6 +139,10 @@ public class FrontController extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else {
+
+			if (viewPage == null) {
+				viewPage = "main.do";
+			}
 			response.sendRedirect(viewPage); // *.do 로 들어올때 돌아가는 곳
 
 		}
