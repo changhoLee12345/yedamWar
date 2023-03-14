@@ -37,6 +37,7 @@ import com.yedam.edu.member.command.MemberListJquery;
 import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
 import com.yedam.edu.member.command.MemberLogout;
+import com.yedam.edu.member.command.MemberMain;
 import com.yedam.edu.notice.command.DeleteNotice;
 import com.yedam.edu.notice.command.DeleteNoticeJson;
 import com.yedam.edu.notice.command.NoticeList;
@@ -91,6 +92,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
+		
+		map.put("/memberMain.do", new MemberMain());
 
 		map.put("/memberListAjax.do", new MemberListAjax());
 		map.put("/memberJoinAjax.do", new MemberJoinAjax()); // 회원가입
