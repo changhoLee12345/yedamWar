@@ -29,6 +29,8 @@
     <a href="bookList.do">Book</a>
     <p>&lt;Member menu&gt;</p>
     <a href="memberList.do">Member</a>
+    <p>&lt;Notice menu&gt;</p>
+    <a href="noticeList.do">Notice</a>
 
     <hr>
     <!-- mapper를 사용하여 반복작업 처리하는 방법. -->
