@@ -59,5 +59,15 @@
 	<delete id="deleteBook" parameterType="string">
 	  delete from book_info where book_code = #{bcode}
 	</delete>
+	
+	<update id="updateBook" parameterType="BookVO">
+      update book_info
+      set book_title=#{bookTitle}
+         ,book_author=#{bookAuthor}
+         ,book_press=#{bookPress}
+         ,book_price=#{bookPrice}
+         ,book_desc=#{bookDesc}
+      where book_code=#{bookCode}
+	</update>
 
 </mapper>

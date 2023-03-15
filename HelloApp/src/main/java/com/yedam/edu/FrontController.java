@@ -18,6 +18,7 @@ import com.yedam.edu.book.command.BookDelJson;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.BookListJson;
 import com.yedam.edu.book.command.BookListVueForm;
+import com.yedam.edu.book.command.ModifyBook;
 import com.yedam.edu.book.command.BookUpload;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
@@ -69,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
 		map.put("/bookUpload.do", new BookUpload());
+		map.put("/modifyBook.do", new ModifyBook());
 		// json
 		map.put("/bookListVueForm.do", new BookListVueForm());
 		map.put("/bookListJson.do", new BookListJson());
@@ -92,7 +94,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
-		
+
 		map.put("/memberMain.do", new MemberMain());
 
 		map.put("/memberListAjax.do", new MemberListAjax());

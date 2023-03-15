@@ -52,4 +52,9 @@ public class BookServiceImpl implements BookService {
 		System.out.println(vo);
 		return session.insert("com.yedam.edu.book.mapper.BookMapper.insertBook", vo);
 	}
+
+	@Override
+	public int modBook(BookVO vo) {
+		return session.update("com.yedam.edu.book.mapper.BookMapper.updateBook", vo);
+	}
 }
