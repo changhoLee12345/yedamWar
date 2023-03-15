@@ -16,7 +16,7 @@ public class BookUpload implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String savePath = request.getServletContext().getRealPath("/images");
+		String savePath = request.getServletContext().getRealPath("/resources/bookImages");
 		String fileName = "";
 		String fileUrl = "";
 		try {
@@ -27,7 +27,7 @@ public class BookUpload implements Command {
 				String file = (String) files.nextElement();
 				fileName = multi.getFilesystemName(file);
 			}
-			fileUrl = request.getContextPath() + "/images/" + fileName;
+			fileUrl = request.getContextPath() + "/resources/bookImages/" + fileName;
 
 		} catch (IOException e) {
 			e.printStackTrace();
