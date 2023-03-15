@@ -31,7 +31,7 @@ public class MemberLogin implements Command {
 
 		if (vo == null) {
 			message = "로그인 정보를 확인하세요.";
-			page = "member/loginForm.tiles";
+			page = "admin/loginForm.tiles";
 
 		} else {
 			message = "님, 환영합니다.";
