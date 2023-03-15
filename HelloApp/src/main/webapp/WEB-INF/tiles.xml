@@ -34,15 +34,15 @@
 		<put-attribute name="footer" value="/WEB-INF/layout/admin/jqueryfooter.jsp" />
 	</definition>
 
-	<definition name="myapp.notice" template="/WEB-INF/layout/notice/template.jsp">
+	<definition name="myapp.book" template="/WEB-INF/layout/book/template.jsp">
 		<put-attribute name="title" value="Notice Template" />
-		<put-attribute name="nav" value="/WEB-INF/layout/notice/nav.jsp" />
-		<put-attribute name="header" value="/WEB-INF/layout/notice/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/layout/notice/content.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/layout/notice/footer.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/layout/book/nav.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layout/book/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/layout/book/content.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/book/footer.jsp" />
 	</definition>
-	<definition name="WILDCARD:notice/*" extends="myapp.notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/{1}.jsp"></put-attribute>
+	<definition name="WILDCARD:book/*" extends="myapp.book">
+		<put-attribute name="body" value="/WEB-INF/views/book/{1}.jsp"></put-attribute>
 	</definition>
 
 
