@@ -78,8 +78,8 @@ public class FrontController extends HttpServlet {
 		map.put("/addBookJson.do", new BookAddJson());
 
 		// 공지사항관련.
-		map.put("/noticeList.do", new NoticeList());
-		map.put("/noticeListJsonForm.do", new NoticeListJsonForm());
+		map.put("/noticeList.do", new NoticeList()); //공지사항목록.
+		map.put("/noticeListJsonForm.do", new NoticeListJsonForm()); //공지사항등록폼(json)
 		map.put("/noticeListJson.do", new NoticeListJson());
 		map.put("/deleteNoticeJson.do", new DeleteNoticeJson());
 		map.put("/getNotice.do", new NoticeSearch());
