@@ -23,7 +23,7 @@ public class MemberJoinAjax implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		Map<String, Object> resultMap = new HashMap<>();
-		String savePath = request.getServletContext().getRealPath("/images");
+		String savePath = request.getServletContext().getRealPath("/resources/images");
 		String fileName = "";
 //		String fileUrl = "";
 		try {

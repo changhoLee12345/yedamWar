@@ -19,7 +19,7 @@ public class MemberList implements Command {
 		List<MemberVO> list = service.memberList();
 		request.setAttribute("members", list);
 
-		return "member/memberList.tiles";
+		return "admin/memberList.tiles";
 	}
 
 }
