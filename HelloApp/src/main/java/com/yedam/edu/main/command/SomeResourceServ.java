@@ -1,4 +1,4 @@
-package com.yedam.edu.common;
+package com.yedam.edu.main.command;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -5,7 +5,7 @@
 <form action="bookList.do" method="post">
 	<select name="orderBy">
 		<option value="code">도서코드순</option>
-		<option value="name">도서명순</option>
+		<option value="name">저자순</option>
 		<option value="price">금액순</option>
 	</select>
 </form>
