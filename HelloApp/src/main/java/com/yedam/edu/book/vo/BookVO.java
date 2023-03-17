@@ -16,4 +16,7 @@ public class BookVO extends SearchVO {
 	private String bookPress;
 	private int bookPrice;
 	private String bookDesc;
+
+	// query 정렬조건을 위해.
+	private String orderBy;
 }

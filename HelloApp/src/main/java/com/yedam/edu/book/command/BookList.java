@@ -24,8 +24,10 @@ public class BookList implements Command {
 		String press = request.getParameter("press");
 		String price1 = request.getParameter("price1");
 		String price2 = request.getParameter("price2");
+		String orderBy = request.getParameter("orderBy");
 
 		BookVO vo = new BookVO();
+		vo.setOrderBy(orderBy);
 
 		BookService service = new BookServiceImpl();
 		List<BookVO> list = service.selectBooks(vo);

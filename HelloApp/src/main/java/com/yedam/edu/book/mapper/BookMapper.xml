@@ -7,14 +7,29 @@
 	<select id="selectBooks" resultType="BookVO">
 		select * from book_info
 		<where>
+		    1 = 1
 			<if test="bookCode != null">
 				book_code like '%'||#{bookCode}||'%'
 			</if>
 			<if test="bookTitle != null">
 				and book_title like '%'||#{bookTitle}||'%'
 			</if>
+			<choose>
+			    <when test="orderBy == 'code'">
+			        order by book_code
+			    </when>
+			    <when test="orderBy == 'name'">
+			        order by book_author
+			    </when>
+			    <when test="orderBy == 'price'">
+			        order by book_price
+			    </when>
+				<otherwise>
+				    order by book_code
+				</otherwise>			    
+			</choose>
 		</where>
-		order by book_code
+
 	</select>
 
 	<select id="selectBookList">

@@ -6,7 +6,7 @@
   integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
 
 <script>
-  Kakao.init('03e7165cea2c22d9a74a7f000ea64d0e');
+  Kakao.init('');
 </script>
 
 <a id="kakao-login-btn" href="javascript:loginWithKakao()">
@@ -18,7 +18,7 @@
 <script>
   function loginWithKakao() {
     Kakao.Auth.authorize({
-      redirectUri: 'http://192.168.10.51:8080/HelloApp/oauth',
+      redirectUri: 'http://localhost:8080/HelloApp/oauth',
       state: 'userme',
     });
   }

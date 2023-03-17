@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -28,6 +30,7 @@
     <p id="token-result"></p>
     <button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
 
+
     <script>
         function loginWithKakao() {
             // Kakao.Auth.authorize({
@@ -42,7 +45,6 @@
 
             let url =
                 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=708649bd2a5f285a82328c026a3c29a4&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ'
-
             location.href = url;
         }
 
@@ -52,7 +54,7 @@
                 })
                 .then(function (res) {
                     alert(JSON.stringify(res));
-                    console.log(JSON.stringify(res));
+                    console.log(res);
                 })
                 .catch(function (err) {
                     alert(
@@ -66,8 +68,12 @@
 
         function displayToken() {
             var token = getCookie('authorize-access-token');
-            token = 'OeTKBFHBqB8uEwkCxmt0CdiIjrGN1zCCyVzkXUqzCiolUwAAAYbqaksQ'
-            console.log('token', token)
+
+            let tokenJson = null; //JSON.parse(document.getElementById('token').innerText);
+            if ('${token}') {
+                tokenJson = JSON.parse('${token }');
+                token = tokenJson.access_token;
+            }
 
             if (token) {
                 Kakao.Auth.setAccessToken(token);
