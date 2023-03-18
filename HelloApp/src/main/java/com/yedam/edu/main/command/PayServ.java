@@ -45,6 +45,7 @@ public class PayServ extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+
 			// 보내는 부분
 			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
 			HttpURLConnection connection = (HttpURLConnection) address.openConnection(); // 서버연결
@@ -63,6 +64,7 @@ public class PayServ extends HttpServlet {
 					+ "&approval_url=http://localhost:8080/" // 결제 성공 시
 					+ "&fail_url=http://localhost:8080/" // 결제 실패 시
 					+ "&cancel_url=http://localhost:8080/"; // 결제 취소 시
+
 			OutputStream send = connection.getOutputStream(); // 이제 뭔가를 를 줄 수 있다.
 			DataOutputStream dataSend = new DataOutputStream(send); // 이제 데이터를 줄 수 있다.
 			dataSend.writeBytes(parameter); // OutputStream은 데이터를 바이트 형식으로 주고 받기로 약속되어 있다. (형변환)
@@ -87,7 +89,7 @@ public class PayServ extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		response.getWriter().print("{\"retCode\":\"NG\"}");
+//		response.getWriter().print("{\"retCode\":\"NG\"}");
 
 	}
 
