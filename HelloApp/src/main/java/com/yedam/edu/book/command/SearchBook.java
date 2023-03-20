@@ -43,6 +43,8 @@ public class SearchBook implements Command {
 		} else {
 			vo = new BookVO();
 
+			if (code != null && !code.equals(""))
+				vo.setBookCode(code);
 			if (title != null && !title.equals(""))
 				vo.setBookTitle(title);
 			if (author != null && !author.equals(""))
@@ -58,7 +60,9 @@ public class SearchBook implements Command {
 
 			System.out.println(vo);
 
-			service.selectBooks(vo);
+			List<BookVO> list = service.selectBooks(vo);
+			request.setAttribute("bookList", list);
+
 			resultPage = "book/bookList.tiles";
 		}
 

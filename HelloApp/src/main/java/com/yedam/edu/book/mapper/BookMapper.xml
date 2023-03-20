@@ -10,7 +10,7 @@
 		<where>
 			1 = 1
 			<if test="bookCode != null">
-				book_code like '%'||#{bookCode}||'%'
+				and book_code like '%'||#{bookCode}||'%'
 			</if>
 			<if test="bookTitle != null">
 				and book_title like '%'||#{bookTitle}||'%'
