@@ -23,9 +23,18 @@
         </div>
     </form>
 
-    <a href="bookList.do">Tiles</a><br>
-    <a href="main.do">Main</a><br>
+    <p>&lt;Admin menu&gt;</p>
+    <a href="admin.do">Admin</a>
+    <p>&lt;Book menu&gt;</p>
+    <a href="bookList.do">Book</a>
+    <p>&lt;Member menu&gt;</p>
+    <a href="memberList.do">Member</a>
+    <p>&lt;Notice menu&gt;</p>
+    <a href="noticeList.do">Notice</a>
 
+    <hr>
+    <!-- mapper를 사용하여 반복작업 처리하는 방법. -->
+    <p>mapper 를 사용한 반복처리 작업</p>
     <button id="btn">Json</button>
 
     <script>
@@ -34,7 +43,8 @@
         function transferData() {
 
             const url =
-                'https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=10&serviceKey=qCwQYxNXeK%2FaB1Ngf9oNZDttjmjQ6ku1OdR6%2Fd0Jj5EIdqOxMXolplih%2BYjTqB4uxCuK636co3tf9T5%2Fr9OLvw%3D%3D';
+                'https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=30&serviceKey=qCwQYxNXeK%2FaB1Ngf9oNZDttjmjQ6ku1OdR6%2Fd0Jj5EIdqOxMXolplih%2BYjTqB4uxCuK636co3tf9T5%2Fr9OLvw%3D%3D';
+
             fetch(url)
                 .then(resolve => resolve.json())
                 .then(result => {
@@ -47,7 +57,7 @@
             function transferToControl(args) {
                 console.log(args)
                 let jsonStr = JSON.stringify(args);
-                fetch('http://localhost:8081/HelloApp/createCenterInfo.do', {
+                fetch('createCenterInfo.do', {
                         method: 'post',
                         headers: {
                             'Content-Type': 'application/json'

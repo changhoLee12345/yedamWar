@@ -20,7 +20,7 @@ public class MemberForm implements Command {
 
 		request.setAttribute("member", vo);
 
-		return "member/memberForm.tiles";
+		return "admin/memberForm.tiles";
 	}
 
 }

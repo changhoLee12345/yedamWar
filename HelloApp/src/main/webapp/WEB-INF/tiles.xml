@@ -16,7 +16,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"></put-attribute>
 	</definition>
 
-	<definition name="WILDCARD:member/*" extends="myapp.admin">
+	<definition name="myapp.member" template="/WEB-INF/layout/member/template.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="nav" value="/WEB-INF/layout/member/nav.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layout/member/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/layout/member/section.jsp" />
+		<put-attribute name="about" value="/WEB-INF/layout/member/about.jsp" />
+		<put-attribute name="contact" value="/WEB-INF/layout/member/contact.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/member/footer.jsp" />
+	</definition>
+	<definition name="WILDCARD:member/*" extends="myapp.member">
 		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp"></put-attribute>
 	</definition>
 
@@ -24,6 +33,18 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/layout/admin/jqueryfooter.jsp" />
 	</definition>
+
+	<definition name="myapp.book" template="/WEB-INF/layout/book/template.jsp">
+		<put-attribute name="title" value="Notice Template" />
+		<put-attribute name="nav" value="/WEB-INF/layout/book/nav.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layout/book/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/layout/book/content.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/book/footer.jsp" />
+	</definition>
+	<definition name="WILDCARD:book/*" extends="myapp.book">
+		<put-attribute name="body" value="/WEB-INF/views/book/{1}.jsp"></put-attribute>
+	</definition>
+
 
 	<definition name="myapp.homepage" template="/WEB-INF/layout/template.jsp">
 		<put-attribute name="title" value="Tiles tutorial homepage" />
@@ -35,5 +56,5 @@
 	<definition name="WILDCARD:*/*" extends="myapp.homepage">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
 	</definition>
-	
+
 </tiles-definitions>

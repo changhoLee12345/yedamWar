@@ -18,12 +18,14 @@ import com.yedam.edu.book.command.BookDelJson;
 import com.yedam.edu.book.command.BookList;
 import com.yedam.edu.book.command.BookListJson;
 import com.yedam.edu.book.command.BookListVueForm;
+import com.yedam.edu.book.command.ModifyBook;
 import com.yedam.edu.book.command.BookUpload;
 import com.yedam.edu.book.command.SearchBook;
 import com.yedam.edu.book.command.SearchBookForm;
 import com.yedam.edu.common.Command;
-import com.yedam.edu.main.CreateCenterInfo;
-import com.yedam.edu.main.MainCommand;
+import com.yedam.edu.main.command.AdminMain;
+import com.yedam.edu.main.command.CreateCenterInfo;
+import com.yedam.edu.main.command.MainCommand;
 import com.yedam.edu.member.command.JquerySample;
 import com.yedam.edu.member.command.MemberDelAjax;
 import com.yedam.edu.member.command.MemberForm;
@@ -36,6 +38,7 @@ import com.yedam.edu.member.command.MemberListJquery;
 import com.yedam.edu.member.command.MemberLogin;
 import com.yedam.edu.member.command.MemberLoginForm;
 import com.yedam.edu.member.command.MemberLogout;
+import com.yedam.edu.member.command.MemberMain;
 import com.yedam.edu.notice.command.DeleteNotice;
 import com.yedam.edu.notice.command.DeleteNoticeJson;
 import com.yedam.edu.notice.command.NoticeList;
@@ -60,26 +63,30 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
+		// 도서정보관련.
 		map.put("/bookList.do", new BookList()); // 책목록보기
 		map.put("/searchBookForm.do", new SearchBookForm());
 		map.put("/searchBook.do", new SearchBook());
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
 		map.put("/bookUpload.do", new BookUpload());
+		map.put("/modifyBook.do", new ModifyBook());
 		// json
 		map.put("/bookListVueForm.do", new BookListVueForm());
 		map.put("/bookListJson.do", new BookListJson());
 		map.put("/deleteBookJson.do", new BookDelJson());
 		map.put("/addBookJson.do", new BookAddJson());
 
-		map.put("/noticeList.do", new NoticeList());
-		map.put("/noticeListJsonForm.do", new NoticeListJsonForm());
+		// 공지사항관련.
+		map.put("/noticeList.do", new NoticeList()); //공지사항목록.
+		map.put("/noticeListJsonForm.do", new NoticeListJsonForm()); //공지사항등록폼(json)
 		map.put("/noticeListJson.do", new NoticeListJson());
 		map.put("/deleteNoticeJson.do", new DeleteNoticeJson());
 		map.put("/getNotice.do", new NoticeSearch());
 		map.put("/updateNotice.do", new UpdateNotice());
 		map.put("/deleteNotice.do", new DeleteNotice());
 
+		// 회원관련.
 		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); // 멤버로그인처리
 		map.put("/memberLogout.do", new MemberLogout()); // 멤버로그인처리
@@ -88,15 +95,20 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
 
+		map.put("/memberMain.do", new MemberMain());
+
 		map.put("/memberListAjax.do", new MemberListAjax());
 		map.put("/memberJoinAjax.do", new MemberJoinAjax()); // 회원가입
 		map.put("/memberDelAjax.do", new MemberDelAjax());
 		map.put("/memberListJquery.do", new MemberListJquery());
 
-		map.put("/createCenterInfo.do", new CreateCenterInfo());
+		// 기타 (스트림 연습).
+		map.put("/createCenterInfo.do", new CreateCenterInfo()); // json 포맷을 활용하도록.
 
+		// 기타 (스타일연습).
 		// admin.
 		map.put("/jquerySample.do", new JquerySample());
+		map.put("/admin.do", new AdminMain());
 
 //		// ajax를 사용해보기 위해 만든 컨트롤. 2022.11.23
 //		map.put("/ajaxPage.do", new AjaxJquery()); // ajax페이지.
@@ -117,6 +129,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("====> " + page);
 
 		Command command = map.get(page); // init 메소드에서 수행할 명령을 가져온다.
+
 		String viewPage = command.exec(request, response); // 명령을 수행하고 결과를 돌려받음
 
 		// viewResolve 파트
@@ -138,6 +151,10 @@ public class FrontController extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else {
+
+			if (viewPage == null) {
+				viewPage = "main.do";
+			}
 			response.sendRedirect(viewPage); // *.do 로 들어올때 돌아가는 곳
 
 		}

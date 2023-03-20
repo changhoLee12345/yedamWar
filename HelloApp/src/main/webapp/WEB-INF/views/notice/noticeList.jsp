@@ -91,5 +91,5 @@
 </div>
 
 <script>
-	console.log(decodeURI('https://archive.org/download/2020_20210726/%ED%95%9C%EC%BB%B4%EC%98%A4%ED%94%BC%EC%8A%A4%EA%B5%90%EC%9C%A1%EA%B8%B0%EA%B4%80%EC%9A%A9%202020.zip'))
+	//console.log(decodeURI('https://archive.org/download/2020_20210726/%ED%95%9C%EC%BB%B4%EC%98%A4%ED%94%BC%EC%8A%A4%EA%B5%90%EC%9C%A1%EA%B8%B0%EA%B4%80%EC%9A%A9%202020.zip'))
 </script>
