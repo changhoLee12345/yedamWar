@@ -25,7 +25,7 @@
 		<tbody>
 			<c:forEach var="book" items="${bookList }">
 				<tr>
-					<td><a href="searchBook.do?code=${book.bookCode }">${book.bookCode }</a></td>
+					<td><a href="searchBook.do?code=${book.bookCode }&from=list">${book.bookCode }</a></td>
 					<td>${book.bookAuthor }</td>
 					<td>${book.bookTitle }</td>
 					<td>${book.bookPress }</td>

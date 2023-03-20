@@ -25,7 +25,9 @@
 			<td><input type="number" name="price1" id="price1"> ~ <input type="number" name="price2" id="price2"></td>
 		</tr>
 		<tr>
-			<td align="center" colspan=2><input class="btn btn-primary" type="submit" value="조회"> <input class="btn btn-danger" type="reset" value="취소"></td>
+			<td align="center" colspan=2><input class="btn btn-primary" type="submit" value="조회"> 
+			                             <input class="btn btn-danger" type="reset" value="취소">
+			</td>
 		</tr>
 		
 	</table>

@@ -20,7 +20,15 @@ public class SearchBook implements Command {
 		BookVO vo = service.selectBook(code);
 		request.setAttribute("vo", vo);
 
-		return "book/bookDetail.tiles";
+		String from = request.getParameter("from");
+		// 수정화면으로 갈지 조회화면으로 갈지 구분하기 위해서.
+		if (from.equals("list")) {
+			return "book/searchBook.tiles";
+		} else if (from.equals("search")) {
+			return "book/bookDetail.tiles";
+		}
+
+		return "book/searchBook.tiles";
 	}
 
 }
