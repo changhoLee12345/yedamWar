@@ -65,8 +65,8 @@ public class FrontController extends HttpServlet {
 
 		// 도서정보관련.
 		map.put("/bookList.do", new BookList()); // 책목록보기
-		map.put("/searchBookForm.do", new SearchBookForm());
-		map.put("/searchBook.do", new SearchBook());
+		map.put("/searchBookForm.do", new SearchBookForm()); // 책 검색.
+		map.put("/searchBook.do", new SearchBook()); // 책 조회 결과 페이지. 1.조회, 2.수정 페이지로 이동.
 		map.put("/addBookForm.do", new AddBookForm());
 		map.put("/addBook.do", new AddBook());
 		map.put("/bookUpload.do", new BookUpload());

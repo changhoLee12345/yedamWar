@@ -25,7 +25,7 @@
 		<tbody>
 			<c:forEach var="book" items="${bookList }">
 				<tr>
-					<td><a href="searchBook.do?code=${book.bookCode }">${book.bookCode }</a></td>
+					<td><a href="searchBook.do?code=${book.bookCode }&from=list">${book.bookCode }</a></td>
 					<td>${book.bookAuthor }</td>
 					<td>${book.bookTitle }</td>
 					<td>${book.bookPress }</td>
@@ -36,7 +36,7 @@
 	</table>
 	<div class="center" style="text-align: center">
 		<button onclick="location.href='addBookForm.do'" class="btn btn-primary">등록화면</button>
-		<button class="btn btn-danger">조회화면</button>
+		<button class="btn btn-danger" onclick="location.href='searchBookForm.do'">조회화면</button>
 	</div>
 </div>
 
