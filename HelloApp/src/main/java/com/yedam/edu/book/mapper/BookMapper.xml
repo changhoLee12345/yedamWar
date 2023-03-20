@@ -2,31 +2,46 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.yedam.edu.book.mapper.BookMapper">
 
 	<select id="selectBooks" resultType="BookVO">
 		select * from book_info
 		<where>
-		    1 = 1
+			1 = 1
 			<if test="bookCode != null">
 				book_code like '%'||#{bookCode}||'%'
 			</if>
 			<if test="bookTitle != null">
 				and book_title like '%'||#{bookTitle}||'%'
 			</if>
+			<if test="bookAuthor != null">
+				and book_author like '%'||#{bookAuthor}||'%'
+			</if>
+			<if test="bookPress != null">
+				and book_press like '%'||#{bookPress}||'%'
+			</if>
+			<if test="price1 != null">
+				and book_price >= #{price1}
+			</if>
+			<if test="price2 != null">
+			<![CDATA[
+				and book_price <= #{price2}
+			]]>
+			</if>
 			<choose>
-			    <when test="orderBy == 'code'">
-			        order by book_code
-			    </when>
-			    <when test="orderBy == 'name'">
-			        order by book_author
-			    </when>
-			    <when test="orderBy == 'price'">
-			        order by book_price
-			    </when>
+				<when test="orderBy == 'code'">
+					order by book_code
+				</when>
+				<when test="orderBy == 'name'">
+					order by book_author
+				</when>
+				<when test="orderBy == 'price'">
+					order by book_price
+				</when>
 				<otherwise>
-				    order by book_code
-				</otherwise>			    
+					order by book_code
+				</otherwise>
 			</choose>
 		</where>
 
@@ -40,10 +55,10 @@
 					book_title like '%'||#{bookTitle}||'%'
 				</when>
 				<when test="bookAuthor">
-				    book_author like '%'||#{bookAuthor}||'%'
+					book_author like '%'||#{bookAuthor}||'%'
 				</when>
 				<otherwise>
-				
+
 				</otherwise>
 			</choose>
 
@@ -52,7 +67,7 @@
 	</select>
 
 	<select id="selectBook" resultType="BookVO">
-		select * from book_info 
+		select * from book_info
 		where book_code = #{bookCode}
 	</select>
 
@@ -60,29 +75,31 @@
 		select * from book_info
 		where ${column} = #{value}
 	</select>
-	
+
 	<insert id="insertBook">
-		insert into book_info (book_code, book_title, book_author, book_press, book_price, book_desc)
-		values (#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice}, #{bookDesc} )
+		insert into book_info (book_code, book_title,
+		book_author, book_press, book_price, book_desc)
+		values (#{bookCode},
+		#{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookPrice}, #{bookDesc} )
 	</insert>
-	
+
 	<select id="bookList" resultType="BookVO">
-	  select * from book_info
-	  order by book_code
+		select * from book_info
+		order by book_code
 	</select>
-	
+
 	<delete id="deleteBook" parameterType="string">
-	  delete from book_info where book_code = #{bcode}
+		delete from book_info where book_code = #{bcode}
 	</delete>
-	
+
 	<update id="updateBook" parameterType="BookVO">
-      update book_info
-      set book_title=#{bookTitle}
-         ,book_author=#{bookAuthor}
-         ,book_press=#{bookPress}
-         ,book_price=#{bookPrice}
-         ,book_desc=#{bookDesc}
-      where book_code=#{bookCode}
+		update book_info
+		set book_title=#{bookTitle}
+		,book_author=#{bookAuthor}
+		,book_press=#{bookPress}
+		,book_price=#{bookPrice}
+		,book_desc=#{bookDesc}
+		where book_code=#{bookCode}
 	</update>
 
 </mapper>

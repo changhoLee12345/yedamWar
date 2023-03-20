@@ -27,6 +27,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<BookVO> selectBooks(BookVO vo) {
+		System.out.println(vo);
 		return session.selectList("com.yedam.edu.book.mapper.BookMapper.selectBooks", vo);
 //		return mapper.selectBooks(vo);
 	}
