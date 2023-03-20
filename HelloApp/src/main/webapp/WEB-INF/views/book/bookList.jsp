@@ -36,7 +36,7 @@
 	</table>
 	<div class="center" style="text-align: center">
 		<button onclick="location.href='addBookForm.do'" class="btn btn-primary">등록화면</button>
-		<button class="btn btn-danger">조회화면</button>
+		<button class="btn btn-danger" onclick="location.href='searchBookForm.do'">조회화면</button>
 	</div>
 </div>
 

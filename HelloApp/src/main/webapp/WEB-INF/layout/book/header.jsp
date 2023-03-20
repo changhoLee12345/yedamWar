@@ -57,7 +57,7 @@
 
 
       <!-- Swiper -->
-      <div class="swiper">
+      <div class="swiper" style="height: 300px;">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="./resources/images/book1.png"></div>
           <div class="swiper-slide"><img src="./resources/images/book2.png"></div>
