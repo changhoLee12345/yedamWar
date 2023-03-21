@@ -27,6 +27,10 @@ public class BookList implements Command {
 		String orderBy = request.getParameter("orderBy");
 
 		BookVO vo = new BookVO();
+
+		if (price2 == null || price2.equals(""))
+			vo.setPrice2(Integer.MAX_VALUE);
+
 		vo.setOrderBy(orderBy);
 
 		BookService service = new BookServiceImpl();
