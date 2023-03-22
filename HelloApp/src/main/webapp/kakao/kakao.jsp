@@ -30,20 +30,17 @@
     <p id="token-result"></p>
     <button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
 
-    <form action="noticeList.do" method="post">
-
+    <form name="loginFrm" action="memberLogin.do" method="post">
+        <input type="hidden" name="userId">
+        <input type="hidden" name="userPw">
     </form>
+
     <script>
         function loginWithKakao() {
             // Kakao.Auth.authorize({
             //     redirectUri: 'http://localhost:8080/HelloApp/SomeResourceServ',
             //     state: 'userme',
             // })
-
-            // fetch('https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=708649bd2a5f285a82328c026a3c29a4&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ')
-            // .then(resolve=>resolve.text())
-            // .then(result=>console.log(result))
-            // .catch(reject=>console.log(reject));
 
             let url =
                 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=03e7165cea2c22d9a74a7f000ea64d0e&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ'
@@ -55,15 +52,16 @@
                     url: '/v2/user/me',
                 })
                 .then(function (res) {
-                    alert(JSON.stringify(res));
-                    console.log(res);
+                    //alert(JSON.stringify(res));
+                    console.log(res, ', ', res.kakao_account.email, ', ', res.id);
                     // page 이동.
-
+                    let loginFrm = document.querySelector('form[name="loginFrm"]');
+                    loginFrm.userId.value = res.kakao_account.email;
+                    loginFrm.userPw.value = res.id;
+                    loginFrm.submit();
                 })
                 .catch(function (err) {
-                    alert(
-                        'failed to request user information: ' + JSON.stringify(err)
-                    );
+                    alert('failed to request user information: ' + JSON.stringify(err));
                 });
         }
 

@@ -27,7 +27,6 @@ public class MemberLogin implements Command {
 
 		MemberService service = new MemberServiceMybatis();
 		MemberVO vo = service.loginCheck(svo);
-		System.out.println(vo);
 
 		if (vo == null) {
 			message = "로그인 정보를 확인하세요.";
@@ -48,7 +47,6 @@ public class MemberLogin implements Command {
 				page = "admin/home.tiles";
 			}
 
-			System.out.println(vo.getId());
 		}
 		session.setAttribute("message", message);
 
