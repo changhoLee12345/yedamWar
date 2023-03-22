@@ -1,9 +1,6 @@
 package com.yedam.edu.notice.vo;
 
-import java.sql.Date;
-
-import com.yedam.edu.common.Criteria;
-import com.yedam.edu.common.SearchVO;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;

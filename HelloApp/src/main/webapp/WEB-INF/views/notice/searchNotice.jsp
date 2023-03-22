@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <form name="myFrm" action="updateNotice.do" method="get">
 	<input type="hidden" name="pageNum" value="${criInfo.pageNum }">
@@ -22,6 +23,10 @@
             <td><input class="col-sm-5" type="text" name="title" value="${vo.noticeTitle }"></td>
         </tr>
         <tr>
+            <th>시간</th>
+            <td><input class="col-sm-5" type="text" name="ndate" value="<fmt:formatDate value="${vo.noticeDate }" pattern="yyyy-MM-dd hh:mm:ss" />"></td>
+        </tr>
+        <tr>
             <th>글내용</th>
             <td><textarea class="col-sm-5" rows="5" name="subject">${vo.noticeSubject }</textarea></td>
         </tr>
@@ -31,6 +36,7 @@
         </tr>
     </table>
 </form>
+
 <script>
 	function delFunc() {
 		myFrm.action = "deleteNotice.do";

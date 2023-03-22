@@ -63,6 +63,9 @@
 	<update id="updateNotice" parameterType="NoticeVO">
 		update tbl_notice
 		<set>
+			<if test="noticeDate != null">
+				notice_date = #{noticeDate, jdbcType=DATE},
+			</if>
 			<if test="noticeWriter != null">
 				notice_writer = #{noticeWriter},
 			</if>
