@@ -1,5 +1,8 @@
 package com.yedam.edu.notice.command;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +24,18 @@ public class UpdateNotice implements Command {
 		String keyword = request.getParameter("keyword");
 		String pageNum = request.getParameter("pageNum");
 		String cntPage = request.getParameter("amount");
+		String nDate = request.getParameter("ndate");
+		if(nDate == null || nDate.equals("")) {
+			nDate = "2023-05-05 13:34:33";
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date noticeDate = null;
+		try {
+			noticeDate = sdf.parse(nDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int pageNumInt = Integer.parseInt(pageNum);
 		int cntPageInt = Integer.parseInt(cntPage);
 
@@ -39,6 +54,9 @@ public class UpdateNotice implements Command {
 		vo.setNoticeWriter(writer);
 		vo.setNoticeTitle(title);
 		vo.setNoticeSubject(subject);
+		vo.setNoticeDate(noticeDate);
+
+		System.out.println(vo);
 
 		NoticeService service = new NoticeServiceImpl();
 		service.updateNotice(vo);

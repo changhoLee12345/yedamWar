@@ -33,8 +33,9 @@ public class SomeResourceServ extends HttpServlet {
 		conn.setRequestMethod("GET");
 		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 		String line;
-		while ((line = br.readLine()) != null)
-			System.out.println(line);
+		while ((line = br.readLine()) != null) {
+			System.out.println(line); // 참고로 출력해봄.
+		}
 
 		String reqUrl = "https://kauth.kakao.com/oauth/token?client_id=708649bd2a5f285a82328c026a3c29a4&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ&code="
 				+ auth_key + "&grant_type=authorization_code";
@@ -56,7 +57,7 @@ public class SomeResourceServ extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		request.setAttribute("token", line);
-		request.getRequestDispatcher("kakao.jsp").forward(request, response);
+		request.getRequestDispatcher("kakao/kakao.jsp").forward(request, response);
 
 	}
 

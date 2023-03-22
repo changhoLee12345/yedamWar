@@ -44,7 +44,7 @@
             // .catch(reject=>console.log(reject));
 
             let url =
-                'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=708649bd2a5f285a82328c026a3c29a4&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ'
+                'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=03e7165cea2c22d9a74a7f000ea64d0e&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ'
             location.href = url;
         }
 
