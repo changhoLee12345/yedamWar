@@ -30,7 +30,9 @@
     <p id="token-result"></p>
     <button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
 
+    <form action="noticeList.do" method="post">
 
+    </form>
     <script>
         function loginWithKakao() {
             // Kakao.Auth.authorize({
@@ -55,6 +57,8 @@
                 .then(function (res) {
                     alert(JSON.stringify(res));
                     console.log(res);
+                    // page 이동.
+
                 })
                 .catch(function (err) {
                     alert(
@@ -79,6 +83,9 @@
                 Kakao.Auth.setAccessToken(token);
                 document.querySelector('#token-result').innerText = 'login success, ready to request API';
                 document.querySelector('button.api-btn').style.visibility = 'visible';
+                // token이 생성되었으면 로그인 작업을 처리하고 main.do로 이동한다.
+
+                requestUserInfo();
             }
         }
 

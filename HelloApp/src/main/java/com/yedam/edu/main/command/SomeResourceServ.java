@@ -37,6 +37,7 @@ public class SomeResourceServ extends HttpServlet {
 			System.out.println(line); // 참고로 출력해봄.
 		}
 
+		// 인증키를 활용해서 토큰을 생성함.
 		String reqUrl = "https://kauth.kakao.com/oauth/token?client_id=708649bd2a5f285a82328c026a3c29a4&redirect_uri=http://localhost:8080/HelloApp/SomeResourceServ&code="
 				+ auth_key + "&grant_type=authorization_code";
 
@@ -55,6 +56,7 @@ public class SomeResourceServ extends HttpServlet {
 //		response.setContentType("text/json;charset=utf-8");
 //		response.getWriter().print(line);
 
+		// 세션에 토큰값을 담아서 사용할 페이지로 재지정.
 		HttpSession session = request.getSession();
 		request.setAttribute("token", line);
 		request.getRequestDispatcher("kakao/kakao.jsp").forward(request, response);
