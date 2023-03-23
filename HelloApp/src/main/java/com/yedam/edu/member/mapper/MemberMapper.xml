@@ -32,4 +32,29 @@
 		</foreach>
 	</update>
 	
+	<select id="createSalesNo" resultType="string">
+	    select nvl(max(sales_no), 10000)+1 from sales
+	</select>
+	
+	<insert id="createSalesLines" parameterType="com.yedam.edu.member.vo.SalesParamVO">
+	    insert into sale_orders
+	    select orders_seq.nextval, #{salesNo}, p.pd_id, c.qty
+	    from cart c
+	    join product p
+	    on c.product_nm = p.pd_name
+	    <where>
+	    <foreach collection="cartNos" item="item" open="no in (" separator="," close=")">
+	      #{item}
+	    </foreach>
+	    </where>
+	</insert>
+	
+	<insert id="createSalesInfo" parameterType="string">
+	    insert into sales values(#{salesNo}, 'total sales', 23000)
+	</insert>
+	
+	<select id="selectSales" parameterType="string" resultType="com.yedam.edu.member.vo.SaleOrderInfo">
+	    select * from sale_orders where sales_no = #{salesNo}
+	</select>
+	
 </mapper>
