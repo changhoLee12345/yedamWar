@@ -33,7 +33,7 @@
 	</update>
 	
 	<select id="createSalesNo" resultType="string">
-	    select max(sales_no)+1 from sales
+	    select nvl(max(sales_no), 10000)+1 from sales
 	</select>
 	
 	<insert id="createSalesLines" parameterType="com.yedam.edu.member.vo.SalesParamVO">
@@ -43,7 +43,7 @@
 	    join product p
 	    on c.product_nm = p.pd_name
 	    <where>
-	    <foreach collection="list" item="item" open="no in (" separator="," close=")">
+	    <foreach collection="cartNos" item="item" open="no in (" separator="," close=")">
 	      #{item}
 	    </foreach>
 	    </where>

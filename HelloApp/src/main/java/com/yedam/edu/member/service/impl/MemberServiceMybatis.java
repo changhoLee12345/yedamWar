@@ -9,6 +9,7 @@ import com.yedam.edu.common.DataSource;
 import com.yedam.edu.member.mapper.MemberMapper;
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.vo.MemberVO;
+import com.yedam.edu.member.vo.SalesParamVO;
 
 public class MemberServiceMybatis implements MemberService {
 	// mybatis 활용.
@@ -44,10 +45,24 @@ public class MemberServiceMybatis implements MemberService {
 	public int deleteMember(String id) {
 		return dao.deleteMember(id);
 	}
-	
+
 	@Override
-	public String createSalesInfo(String[] carts) {
+	public String createSalesInfo(List<String> carts) {
+		String salesNo = dao.createSalesNo();
+		System.out.println("salesNo: " + salesNo);
+
+		int cnt = dao.createSalesInfo(salesNo);
+		System.out.println("cnt: " + cnt);
+
+		SalesParamVO vo = new SalesParamVO();
+		vo.setSalesNo(salesNo);
+		vo.setCartNos(carts);
 		
-		return null;
+		System.out.println(vo);
+
+		int cnt2 = dao.createSalesLines(vo);
+		System.out.println("cnt2: " + cnt2);
+
+		return salesNo;
 	}
 }

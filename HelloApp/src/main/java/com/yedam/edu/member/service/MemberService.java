@@ -17,5 +17,5 @@ public interface MemberService {
 	
 	// 주문정보생성. String createSalesInfo(String[] carts)
 	// 주문번호 생성 -> 주문상세&주문합계 -> 주문번호 반환.
-	public String createSalesInfo(String[] carts);
+	public String createSalesInfo(List<String> carts);
 }

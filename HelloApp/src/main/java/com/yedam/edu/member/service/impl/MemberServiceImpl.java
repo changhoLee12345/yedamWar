@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String createSalesInfo(String[] carts) {
+	public String createSalesInfo(List<String> carts) {
 		// TODO Auto-generated method stub
 		return null;
 	}
