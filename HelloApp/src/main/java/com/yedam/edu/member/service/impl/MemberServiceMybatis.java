@@ -44,4 +44,10 @@ public class MemberServiceMybatis implements MemberService {
 	public int deleteMember(String id) {
 		return dao.deleteMember(id);
 	}
+	
+	@Override
+	public String createSalesInfo(String[] carts) {
+		
+		return null;
+	}
 }

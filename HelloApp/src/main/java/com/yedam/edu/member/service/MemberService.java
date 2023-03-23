@@ -14,4 +14,8 @@ public interface MemberService {
 	
 	// center info 반복등록.
 	public int insertCenterInfo(List<Map<String, Object>> list);
+	
+	// 주문정보생성. String createSalesInfo(String[] carts)
+	// 주문번호 생성 -> 주문상세&주문합계 -> 주문번호 반환.
+	public String createSalesInfo(String[] carts);
 }
