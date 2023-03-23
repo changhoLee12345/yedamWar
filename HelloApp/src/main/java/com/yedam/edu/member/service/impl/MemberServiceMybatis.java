@@ -9,6 +9,7 @@ import com.yedam.edu.common.DataSource;
 import com.yedam.edu.member.mapper.MemberMapper;
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.vo.MemberVO;
+import com.yedam.edu.member.vo.SaleOrderInfo;
 import com.yedam.edu.member.vo.SalesParamVO;
 
 public class MemberServiceMybatis implements MemberService {
@@ -57,12 +58,17 @@ public class MemberServiceMybatis implements MemberService {
 		SalesParamVO vo = new SalesParamVO();
 		vo.setSalesNo(salesNo);
 		vo.setCartNos(carts);
-		
+
 		System.out.println(vo);
 
 		int cnt2 = dao.createSalesLines(vo);
 		System.out.println("cnt2: " + cnt2);
 
 		return salesNo;
+	}
+
+	@Override
+	public List<SaleOrderInfo> getSaleInfos(String saleNo) {
+		return dao.selectSales(saleNo);
 	}
 }

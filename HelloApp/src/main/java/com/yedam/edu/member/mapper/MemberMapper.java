@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.yedam.edu.member.vo.MemberVO;
+import com.yedam.edu.member.vo.SaleOrderInfo;
 import com.yedam.edu.member.vo.SalesParamVO;
 
 public interface MemberMapper {
@@ -28,4 +29,7 @@ public interface MemberMapper {
 
 	// 주문합계 생성.
 	public int createSalesInfo(String salesNo);
+
+	// 주문상세 정보.
+	public List<SaleOrderInfo> selectSales(String salesNo);
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.yedam.edu.member.dao.MemberDAO;
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.vo.MemberVO;
+import com.yedam.edu.member.vo.SaleOrderInfo;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -49,6 +50,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String createSalesInfo(List<String> carts) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SaleOrderInfo> getSaleInfos(String saleNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -53,4 +53,8 @@
 	    insert into sales values(#{salesNo}, 'total sales', 23000)
 	</insert>
 	
+	<select id="selectSales" parameterType="string" resultType="com.yedam.edu.member.vo.SaleOrderInfo">
+	    select * from sale_orders where sales_no = #{salesNo}
+	</select>
+	
 </mapper>

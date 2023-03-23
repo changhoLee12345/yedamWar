@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.yedam.edu.member.service.MemberService;
 import com.yedam.edu.member.service.impl.MemberServiceMybatis;
-import com.yedam.edu.member.vo.MemberVO;
+import com.yedam.edu.member.vo.SaleOrderInfo;
 
 public class MainExe {
 	public static void main(String[] args) {
@@ -13,18 +13,16 @@ public class MainExe {
 		List<String> slist = new ArrayList<>();
 
 		MemberService service = new MemberServiceMybatis();
-//		List<MemberVO> list = service.memberList();
-
-//		for (MemberVO vo : list) {
-//			System.out.println(vo);
-//			slist.add(vo.getId());
-//		}
 
 		slist.add("1");
 		slist.add("3");
 		slist.add("5");
 
-		service.createSalesInfo(slist);
+		String saleNo = service.createSalesInfo(slist);
+
+		for (SaleOrderInfo info : service.getSaleInfos(saleNo)) {
+			System.out.println(info);
+		}
 
 	}
 }
