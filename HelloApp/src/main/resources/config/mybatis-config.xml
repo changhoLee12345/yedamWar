@@ -5,8 +5,7 @@
 
 <configuration>
 
-	<properties resource="config/db.properties">
-	</properties>
+	<properties resource="config/db.properties" />
 
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />
@@ -38,4 +37,5 @@
 		<mapper class="com.yedam.edu.member.mapper.MemberMapper" />
 		<mapper class="com.yedam.edu.notice.mapper.NoticeMapper" />
 	</mappers>
+
 </configuration>
