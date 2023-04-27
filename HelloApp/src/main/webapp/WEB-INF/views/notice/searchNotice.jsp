@@ -25,7 +25,7 @@
         <tr>
             <th>시간</th>
             <td>
-                <input class="col-sm-5" type="text" name="ndate" value="<fmt:formatDate value=" ${vo.noticeDate }" pattern="yyyy-MM-dd hh:mm:ss" />">
+                <input class="col-sm-5" type="text" name="ndate" value="<fmt:formatDate value="${vo.noticeDate }" pattern="yyyy-MM-dd hh:mm:ss" />">
             </td>
         </tr>
         <tr>
