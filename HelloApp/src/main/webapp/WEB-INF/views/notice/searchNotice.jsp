@@ -4,11 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <form name="myFrm" action="updateNotice.do" method="get">
-	<input type="hidden" name="pageNum" value="${criInfo.pageNum }">
-	<input type="hidden" name="amount" value="${criInfo.amount }">
-	<input type="hidden" name="searchCondition" value="${criInfo.searchCondition }">
-	<input type="hidden" name="keyword" value="${criInfo.keyWord }">
-	<input type="hidden" name="num" value="${vo.noticeId }">
+    <input type="hidden" name="pageNum" value="${criInfo.pageNum }">
+    <input type="hidden" name="amount" value="${criInfo.amount }">
+    <input type="hidden" name="searchCondition" value="${criInfo.searchCondition }">
+    <input type="hidden" name="keyword" value="${criInfo.keyWord }">
+    <input type="hidden" name="num" value="${vo.noticeId }">
     <table class="table">
         <tr>
             <th>게시글번호</th>
@@ -24,7 +24,9 @@
         </tr>
         <tr>
             <th>시간</th>
-            <td><input class="col-sm-5" type="text" name="ndate" value="<fmt:formatDate value="${vo.noticeDate }" pattern="yyyy-MM-dd hh:mm:ss" />"></td>
+            <td>
+                <input class="col-sm-5" type="text" name="ndate" value="<fmt:formatDate value="${vo.noticeDate }" pattern="yyyy-MM-dd hh:mm:ss" />">
+            </td>
         </tr>
         <tr>
             <th>글내용</th>
@@ -38,9 +40,8 @@
 </form>
 
 <script>
-	function delFunc() {
-		myFrm.action = "deleteNotice.do";
-		myFrm.submit();
-	}
-
+    function delFunc() {
+        myFrm.action = "deleteNotice.do";
+        myFrm.submit();
+    }
 </script>

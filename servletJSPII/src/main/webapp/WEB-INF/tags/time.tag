@@ -1,4 +1,4 @@
-<%@tag import="java.util.Calendar"%>
+<%@ tag import="java.util.Calendar"%>
 <%@ tag body-content="empty" pageEncoding="UTF-8"%>
 
 <%
