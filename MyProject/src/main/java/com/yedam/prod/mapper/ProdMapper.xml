@@ -18,5 +18,10 @@
         where rownum <= 4
 		]]>
 	</select>
+	
+	<insert id="insertProduct" parameterType="prod">
+		insert into tbl_product(prod_code, prod_name, prod_desc, price, sale_price, like_it, prod_image)
+		values (#{prodCode}, #{prodName}, #{prodDesc}, #{price}, #{salePrice}, #{likeIt}, #{prodImage})
+	</insert>
 
 </mapper>

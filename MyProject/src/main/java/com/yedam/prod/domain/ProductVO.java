@@ -8,7 +8,7 @@ public class ProductVO {
 	private String prodName;
 	private String prodDesc;
 	private int price;
-	private int sale_price;
-	private int like_it;
+	private int salePrice;
+	private int likeIt;
 	private String prodImage;
 }

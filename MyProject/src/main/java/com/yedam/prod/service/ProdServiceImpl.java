@@ -9,7 +9,7 @@ import com.yedam.prod.domain.ProductVO;
 import com.yedam.prod.mapper.ProdMapper;
 
 public class ProdServiceImpl implements ProdService {
-	SqlSession session = DataSource.getInstance().openSession();
+	SqlSession session = DataSource.getInstance().openSession(true);
 	ProdMapper mapper = session.getMapper(ProdMapper.class);
 
 	@Override
@@ -25,6 +25,11 @@ public class ProdServiceImpl implements ProdService {
 	@Override
 	public List<ProductVO> relatedProduct() {
 		return mapper.relatedProduct();
+	}
+
+	@Override
+	public boolean addProduct(ProductVO vo) {
+		return mapper.insertProduct(vo) == 1;
 	}
 
 }
