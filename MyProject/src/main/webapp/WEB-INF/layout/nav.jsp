@@ -20,7 +20,7 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="productList.do">All Products</a></li>
 						<li><hr class="dropdown-divider" /></li>
-						<li><a class="dropdown-item" href="#!">Popular Items</a></li>
+						<li><a class="dropdown-item" href="productAdd.do">Popular Items</a></li>
 						<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
 					</ul></li>
 			</ul>

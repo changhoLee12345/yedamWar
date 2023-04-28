@@ -40,7 +40,9 @@
                             Sale
                         </div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="images/${prod.prodImage }" alt="..." />
+                        <a href="productMain.do?pcode=${prod.prodCode }">
+                            <img class="card-img-top" src="images/${prod.prodImage }" alt="..." />
+                        </a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

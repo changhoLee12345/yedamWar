@@ -20,16 +20,20 @@ public class ProductUploadControl implements Control {
 		String savePath = req.getServletContext().getRealPath("images");
 		String fileName = "";
 		String fileUrl = "";
-		MultipartRequest multi = new MultipartRequest(req, savePath, 1024 * 1024 * 10, "utf-8",
+
+		MultipartRequest multi = new MultipartRequest(req, savePath, //
+				1024 * 1024 * 10, "utf-8", //
 				new DefaultFileRenamePolicy());
 
-		Enumeration<?> files = multi.getFileNames();
+		Enumeration<?> files = multi.getFileNames(); // 업로드된 파일.
 		while (files.hasMoreElements()) {
 			String file = (String) files.nextElement();
+			System.out.println("file: " + file);
 			fileName = multi.getFilesystemName(file);
 		}
 		fileUrl = req.getContextPath() + "/images/" + fileName;
 
+		// ckeditor 정보를 확인. 에디터부분 출력.
 		JsonObject json = new JsonObject();
 		json.addProperty("uploaded", 1);
 		json.addProperty("fileName", fileName);

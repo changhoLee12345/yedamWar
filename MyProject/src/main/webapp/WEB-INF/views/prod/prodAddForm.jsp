@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="//cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -9,10 +8,7 @@
         });
     })
 </script>
-<p>등록화면</p>
-<c:if test="${msg ne null }">
-    <p>MSG: ${msg }</p>
-</c:if>
+<p>등록화면(prodAddForm.jsp)</p>
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">

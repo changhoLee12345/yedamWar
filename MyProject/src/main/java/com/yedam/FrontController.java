@@ -33,7 +33,9 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/productList.do", new ProductListControl());
 		map.put("/productMain.do", new ProductMainControl());
+		// ckeditor 관련.
 		map.put("/productAdd.do", new ProductAddControl());
+		// ckeditor 이미지 업로드 처리.
 		map.put("/prodUpload.do", new ProductUploadControl());
 	}
 
