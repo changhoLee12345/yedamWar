@@ -8,4 +8,5 @@ public interface ProdMapper {
 	public List<ProductVO> prodList();
 	public ProductVO selectProduct(String prodCode);
 	public List<ProductVO> relatedProduct();
+	public int insertProduct(ProductVO vo);
 }
