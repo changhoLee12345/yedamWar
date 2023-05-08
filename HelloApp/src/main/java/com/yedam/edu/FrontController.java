@@ -61,10 +61,9 @@ public class FrontController extends HttpServlet {
 
 	// 요청한 것을 실행하는 명령을 모아 두는 곳
 	public void init(ServletConfig config) throws ServletException {
-		
+
 		config.getInitParameter("");
-		
-		
+
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
 		// 도서정보관련.
