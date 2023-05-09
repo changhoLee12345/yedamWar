@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Command;
+import com.yedam.web.GitControl;
 import com.yedam.web.MainCommand;
 
 /**
@@ -32,6 +33,7 @@ public class FrontController extends HttpServlet {
 		config.getInitParameter("");
 
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
+		map.put("/git.do", new GitControl());
 
 	}
 
