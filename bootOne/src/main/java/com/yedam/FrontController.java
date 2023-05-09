@@ -33,7 +33,6 @@ public class FrontController extends HttpServlet {
 		config.getInitParameter("");
 
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
-		map.put("/git.do", new GitControl());
 
 	}
 
