@@ -1,2 +1,5 @@
 /Dev/
 /target/
+.classpath
+/.settings/
+.project
