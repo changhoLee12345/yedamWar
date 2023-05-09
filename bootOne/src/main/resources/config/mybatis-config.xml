@@ -14,9 +14,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias alias="BookVO" type="com.yedam.edu.book.vo.BookVO" />
-		<typeAlias alias="MemberVO" type="com.yedam.edu.member.vo.MemberVO" />
-		<typeAlias alias="NoticeVO" type="com.yedam.edu.notice.vo.NoticeVO" />
+		<typeAlias alias="emp" type="com.yedam.domain.EmpVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -34,9 +32,9 @@
 
 	<mappers>
 		<!-- <mapper class="com.yedam.edu.book.mapper.BookMapper" /> -->
-		<mapper resource="com/yedam/edu/book/mapper/BookMapper.xml" />
-		<mapper class="com.yedam.edu.member.mapper.MemberMapper" />
-		<mapper class="com.yedam.edu.notice.mapper.NoticeMapper" />
+		<mapper resource="com/yedam/mapper/EmpMapper.xml" />
+		<!-- <mapper class="com.yedam.edu.member.mapper.MemberMapper" /> -->
+		<!-- <mapper class="com.yedam.edu.notice.mapper.NoticeMapper" /> -->
 	</mappers>
 
 </configuration>
