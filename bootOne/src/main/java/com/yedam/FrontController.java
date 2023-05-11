@@ -16,12 +16,12 @@ import com.yedam.web.GitControl;
 import com.yedam.web.MainCommand;
 
 /**
- * 모든요청을 받아들이는 컨트롤러
+ * 모든요청을 받아들이는 컨트롤러 @WebServlet("*.do")
  */
-@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
+	private String enc;
 
 	public FrontController() {
 		super();
@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet {
 	// 요청한 것을 실행하는 명령을 모아 두는 곳
 	public void init(ServletConfig config) throws ServletException {
 
-		config.getInitParameter("");
+		enc = config.getInitParameter("charset");
 
 		map.put("/main.do", new MainCommand()); // 처음 보여줄 페이지 명령
 
@@ -40,7 +40,8 @@ public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("utf-8"); // 한글깨짐방지
+		request.setCharacterEncoding(enc); // 한글깨짐방지
+
 		String uri = request.getRequestURI(); // 요청한 uri를 구함
 		String contextPath = request.getContextPath(); // 루트를 구함,context path
 		String page = uri.substring(contextPath.length()); // 실제 수행할 요청을 구함
