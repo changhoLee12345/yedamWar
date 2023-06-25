@@ -19,7 +19,8 @@ public class MemberServiceMybatis implements MemberService {
 
 	@Override
 	public List<MemberVO> memberList() {
-		return dao.memberList();
+		return session.selectList("com.yedam.edu.member.mapper.MemberMapper.memberList");
+//		return dao.memberList();
 	}
 
 	@Override
