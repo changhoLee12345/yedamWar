@@ -60,4 +60,9 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
+	@Override
+	public int modifyMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -49,6 +49,11 @@ public class MemberServiceMybatis implements MemberService {
 	}
 
 	@Override
+	public int modifyMember(MemberVO vo) {
+		return dao.updateMember(vo);
+	}
+
+	@Override
 	public String createSalesInfo(List<String> carts) {
 		String salesNo = dao.createSalesNo();
 		System.out.println("salesNo: " + salesNo);

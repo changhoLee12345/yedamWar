@@ -10,14 +10,11 @@ import com.yedam.edu.member.vo.SalesParamVO;
 public interface MemberMapper {
 
 	public List<MemberVO> memberList();
-
 	public MemberVO loginCheck(MemberVO vo);
-
 	public MemberVO searchMember(String id);
-
 	public int insertMember(MemberVO vo);
-
 	public int deleteMember(String id);
+	public int updateMember(MemberVO vo);
 
 	public int insertCenterInfo(List<Map<String, Object>> list);
 

@@ -24,7 +24,7 @@
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="./images/${member.pfilename }" alt="..." />
+                        <img class="img-fluid" src="resources/images/${member.pfilename }" alt="..." />
                     </div>
                 </div>
             </c:forEach>
@@ -53,7 +53,7 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="./images/${member.pfilename }" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="resources/images/${member.pfilename }" alt="..." />
                             <!-- Portfolio Modal - Text-->
                             <p class="mb-4">Name: ${member.name }<br>Email: ${member.email }<br>Addr: ${member.addr }</p>
                             <button class="btn btn-primary" data-bs-dismiss="modal">

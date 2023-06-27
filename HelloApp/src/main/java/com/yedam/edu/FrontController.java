@@ -26,6 +26,7 @@ import com.yedam.edu.common.Command;
 import com.yedam.edu.main.command.AdminMain;
 import com.yedam.edu.main.command.CreateCenterInfo;
 import com.yedam.edu.main.command.MainCommand;
+import com.yedam.edu.member.command.ImageUpload;
 import com.yedam.edu.member.command.JquerySample;
 import com.yedam.edu.member.command.MemberDelAjax;
 import com.yedam.edu.member.command.MemberForm;
@@ -97,6 +98,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
 		map.put("/memberList.do", new MemberList()); // 멤버목록보기
 		map.put("/memberForm.do", new MemberForm()); // 멤버목록보기
+		map.put("/imageUpload.do", new ImageUpload());
 
 		map.put("/memberMain.do", new MemberMain());
 
