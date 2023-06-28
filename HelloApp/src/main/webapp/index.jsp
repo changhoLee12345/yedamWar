@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <h3>Hello</h3>
     <form action="searchBook.do" method="get">
 
@@ -38,6 +39,11 @@
     <button id="btn">Json</button>
 
     <script>
+        let param = "${param.id}";
+        console.log(param);
+        console.log(decodeURI('홍길동'))
+        console.log(encodeURI('홍길동'))
+
         document.getElementById('btn').addEventListener('click', transferData);
 
         function transferData() {
