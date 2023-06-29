@@ -38,7 +38,26 @@
     <p>mapper 를 사용한 반복처리 작업</p>
     <button id="btn">Json</button>
 
+    <p><img id="myImg" src="img/item1.PNG"></p>
+
     <script>
+        const request = new Request('img/cart.PNG'); // new Request("https://www.mozilla.org/favicon.ico");
+        console.log(request)
+
+        const url = request.url;
+        const method = request.method;
+        const credentials = request.credentials;
+        console.log(url, method, credentials);
+
+        fetch('img/cart.PNG')
+            .then(response => response.blobs())
+            .then(response => {
+                setTimeout(function () {
+                    document.querySelector('#myImg').src = URL.createObjectURL(response);
+                }, 1000)
+            })
+            .catch(console.error)
+
         let param = "${param.id}";
         console.log(param);
         console.log(decodeURI('홍길동'))
