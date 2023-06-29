@@ -37,7 +37,7 @@ public class CreateCenterInfo implements Command {
 			for (Map<String, Object> map : list) {
 				Set<String> set = map.keySet();
 				for (String key : set) {
-//					System.out.println(key + " : " + map.get(key));
+					System.out.println(key + " : " + map.get(key));
 				}
 				System.out.println("=====================");
 			}
