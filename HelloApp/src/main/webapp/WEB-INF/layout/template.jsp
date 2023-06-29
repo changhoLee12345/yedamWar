@@ -13,6 +13,7 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="resources/css/styles.css" rel="stylesheet" />
 </head>
 

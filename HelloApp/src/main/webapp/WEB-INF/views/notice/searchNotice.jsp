@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<style>
+    .border {
+        border-radius: 5px;;
+    }
+</style>
 <form name="myFrm" action="updateNotice.do" method="get">
     <input type="hidden" name="pageNum" value="${criInfo.pageNum }">
     <input type="hidden" name="amount" value="${criInfo.amount }">
@@ -38,6 +42,33 @@
         </tr>
     </table>
 </form>
+<!-- 댓글부분. -->
+<div class="row" style="width: 80%; margin: 5px auto 5px; border: 1px solid gray; border-radius: 5px;">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading" style="padding-bottom: 20px; height: 30px;">
+				<i class="fa fa-comments fa-fw"></i>Reply
+				<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+			</div>
+			<div class="panel-body">
+				<ul class="chat">
+					<li class="left clearfix" data-rno="12">
+						<div>
+							<div class="header">
+								<strong class="primary-font">user00</strong>
+								<small class="pull-right text-muted">2023-03-05 13:13</small>
+							</div>
+							<p>Good job!</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="panel-footer">
+
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
     function delFunc() {
