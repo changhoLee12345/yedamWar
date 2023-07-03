@@ -50,7 +50,7 @@
         console.log(url, method, credentials);
 
         fetch('img/cart.PNG')
-            .then(response => response.blobs())
+            .then(response => response.blob())
             .then(response => {
                 setTimeout(function () {
                     document.querySelector('#myImg').src = URL.createObjectURL(response);
