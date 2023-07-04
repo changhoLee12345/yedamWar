@@ -167,7 +167,7 @@
             replyDate.timeFormat();
 
             document.querySelector('#myModal input[name="reply"]').value = reply;
-            document.querySelector('#myModal input[name="replyer"]').value = replyer;
+            document.querySelector('#myModal input[name="replyer"]').value = replyer;r
             document.querySelector('#myModal input[name="replyDate"]').value = replyDate.timeFormat();
 
         })
