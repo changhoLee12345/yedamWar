@@ -48,7 +48,8 @@
                     </div>
                     <div class="num">
                         <div class="updown">
-                            <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2" onkeyup="javascript:basket.changePNum(1);">
+                            <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2"
+                                onkeyup="javascript:basket.changePNum(1);">
                             <span onclick="javascript:basket.changePNum(1);">
                                 <i class="fas fa-arrow-alt-circle-up up"></i> </span>
                             <span onclick="javascript:basket.changePNum(1);">
@@ -100,7 +101,8 @@
                 </div>
                 <div class="num">
                     <div class="updown">
-                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2" onkeyup="javascript:changePNum(1);">
+                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2"
+                            onkeyup="javascript:changePNum(1);">
                         <span onclick="javascript:changePNum(1);">
                             <i class="fas fa-arrow-alt-circle-up up"></i></span>
                         <span onclick="javascript:changePNum(1);">
