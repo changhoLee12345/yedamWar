@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        async function init() {
+            const resolve = await fetch('mock.json');
+            const json = await resolve.json();
+            //console.log(json);
+
+            return function get() {
+                return json;
+            }
+        }
+        let proData = init();
+        let cdata = proData.then(txt => {
+            return txt;
+        })
+        //console.log(cdata)
+
+        function initFnc() {
+
+            let data = {
+                name: "hong"
+            }
+
+            return function () {
+                return data;
+            }
+        }
+        let data = initFnc();
+        //console.log(data());
+    </script>
+</body>
+
+</html>

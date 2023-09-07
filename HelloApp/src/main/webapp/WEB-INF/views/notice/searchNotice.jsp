@@ -167,7 +167,8 @@
             replyDate.timeFormat();
 
             document.querySelector('#myModal input[name="reply"]').value = reply;
-            document.querySelector('#myModal input[name="replyer"]').value = replyer;r
+            document.querySelector('#myModal input[name="replyer"]').value = replyer;
+
             document.querySelector('#myModal input[name="replyDate"]').value = replyDate.timeFormat();
 
         })
@@ -176,5 +177,59 @@
     function delFunc() {
         myFrm.action = "deleteNotice.do";
         myFrm.submit();
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+
+    class Reply {
+        replyList() {
+
+        }
+    }
+
+    let reply = new Reply();
+
+    let allData = [];
+    let listPos = documement.querySelector('');
+    let pagePos = documement.querySelector('');
+    let currentPage = -1;
+
+
+
+    function showPageList(page = 1) {
+        // page를 재계산.
+        reply.replyList(1, function (data) {
+            allData = data;
+        });
+
+        let totalCount = allData.length;
+        // page계산.
+        let endPage = Math.ceil(totalCount / 5);
+        let startPage = 1;
+        for (let i = startPage; i <= endPage; i++) {
+            let atag = document.createElement('a')
+            atag.addEventListener('click', function (e) {
+                e.preventDefault();
+                showPageList(i);
+            })
+            atag.innerText = i;
+            atag.setAttribute('href', i);
+            pagePos.appendChild(atag);
+        }
+
+        // list 계산.
+        let start = (page - 1) * 5;
+        let end = page * 5;
+        for (let i = start; i < end; i++) {
+            listPos.append(makeTr(''));
+        }
+    }
+
+    function makeTr(reply) {
+
+        let tr = document.createElement('tr');
+        return tr;
     }
 </script>
