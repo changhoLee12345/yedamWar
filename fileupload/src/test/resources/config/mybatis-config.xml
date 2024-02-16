@@ -14,6 +14,7 @@
 
 	<typeAliases>
 		<typeAlias type="co.yedam.vo.Employee" />
+		<typeAlias type="co.yedam.vo.Board" />
 		<typeAlias alias="search" type="co.yedam.vo.SearchVO" />
 	</typeAliases>
 
@@ -31,6 +32,7 @@
 
 	<mappers>
 		<mapper resource="co/yedam/mapper/EmpMapper.xml" />
+		<mapper class="co.yedam.mapper.BoardMapper" />
 	</mappers>
 
 </configuration>
