@@ -14,7 +14,7 @@
 		      ,create_date
 		      ,update_date
 		from (select /*+ INDEX(b board_pk)*/
-		      rownum rn, b.* 
+		      rownum rn, b.*
 		      from tbl_board b
 		      <where>
 		        <if test="writer != null">
