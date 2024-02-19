@@ -8,4 +8,7 @@ public class SearchVO {
 	private int page = 1;
 	private String writer;
 	private String title;
+	private String type; // T or W or TW
+	private String keyword; //
+	private int bno;
 }

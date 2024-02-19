@@ -7,4 +7,7 @@ import co.yedam.vo.SearchVO;
 
 public interface BoardService {
 	List<Board> boardList(SearchVO search);
+	int totalCnt(SearchVO search);
+	
+	Board getBoard(SearchVO search);
 }

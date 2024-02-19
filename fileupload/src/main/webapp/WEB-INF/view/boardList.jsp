@@ -43,13 +43,14 @@
     <div class="row">
       <div class="col-sm-4">
         <select name="searchCondition" class="form-control">
-          <option value="T">제목</option>
-          <option value="C">내용</option>
-          <option value="TC">제목 & 내용</option>
+          <option value="">선택하세요.</option>
+          <option value="T" ${type == 'T' ? 'selected' : '' }>제목</option>
+          <option value="W" ${type == 'W' ? 'selected' : '' }>작성자</option>
+          <option value="TW" ${type == 'TW' ? 'selected' : '' }>제목 & 작성자</option>
         </select>
       </div>
       <div class="col-sm-6">
-        <input type="text" name="keyword" class="form-control">
+        <input type="text" name="keyword" class="form-control" value="${keyword }">
       </div>
       <div class="col-sm-2">
         <input type="submit" value="조회" class="btn btn-primary">
@@ -72,7 +73,7 @@
     <c:forEach var="board" items="${boardList }">
       <tr>
         <td>${board.boardNo }</td>
-        <td>${board.title }</td>
+        <td><a href="board.do?bno=${board.boardNo }&page=${paging.page }&searchCondition=${type }&keyword=${keyword }">${board.title }</a></td>
         <td>${board.writer }</td>
         <td>${board.viewCnt }</td>
         <td>${board.createDate }</td>
@@ -81,17 +82,24 @@
   </tbody>
 </table>
 
+<p>${paging }</p>
+
 <div class="center">
   <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#" class="active">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
+  <c:if test="${paging.prev }">
+    <a href="boardList.do?page=${paging.startPage - 1 }&searchCondition=${type}&keyword=${keyword}">&laquo;</a>
+  </c:if>
+  <c:forEach var="page" begin="${paging.startPage }" end="${paging.endPage }">
+    <a href="boardList.do?page=${page }&searchCondition=${type}&keyword=${keyword}" class="${page == paging.page ? 'active' : '' }">${page }</a>
+  </c:forEach>
+  <c:if test="${paging.next }">
+    <a href="boardList.do?page=${paging.endPage + 1 }&searchCondition=${type}&keyword=${keyword}">&raquo;</a>
+  </c:if>
   </div>
 </div>
 <hr>
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+<script>
+  //var type = '${type}';
+  //document.querySelector('select[name="searchCondition"]').value = type; 
+</script>

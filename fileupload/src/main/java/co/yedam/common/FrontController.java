@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.control.BoardControl;
 import co.yedam.control.BoardListControl;
 import co.yedam.control.EmpListControl;
 import co.yedam.control.FileUploadControl;
@@ -33,6 +34,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/fileUpload.do", new FileUploadControl());
 		
 		controls.put("/boardList.do", new BoardListControl());
+		controls.put("/board.do", new BoardControl());
 	}
 
 	@Override
