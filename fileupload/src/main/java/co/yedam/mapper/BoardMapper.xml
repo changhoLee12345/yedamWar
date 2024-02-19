@@ -37,7 +37,7 @@
 		      ,view_cnt
 		      ,create_date
 		      ,update_date
-		from (select /*+ INDEX(b board_pk)*/
+		from (select /*+ INDEX_DESC(b board_pk)*/
 		      rownum rn, b.*
 		      from tbl_board b
 		      <where>
@@ -83,5 +83,29 @@
 	    from tbl_board
 	    where board_no = #{bno}
 	</select>
+	
+	<update id="updateBoardCnt">
+		update tbl_board
+		set   view_cnt = view_cnt + 1
+		where board_no = #{bno}
+	</update>
+	
+	<select id="selectMember" parameterType="search">
+	    select *
+	    from tbl_member
+	    where id = #{id}
+	    and   pw = #{pw}
+	</select>
+	
+	<insert id="insertBoard" parameterType="board">
+		insert into tbl_board (board_no
+		                      ,title
+		                      ,content
+		                      ,writer)
+		values(board_seq.nextval
+		      ,#{title}
+		      ,#{content}
+		      ,#{writer})
+	</insert>
 
 </mapper>

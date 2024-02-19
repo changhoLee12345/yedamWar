@@ -75,7 +75,7 @@
         <td>${board.boardNo }</td>
         <td><a href="board.do?bno=${board.boardNo }&page=${paging.page }&searchCondition=${type }&keyword=${keyword }">${board.title }</a></td>
         <td>${board.writer }</td>
-        <td>${board.viewCnt }</td>
+        <td align="center">${board.viewCnt }</td>
         <td>${board.createDate }</td>
       </tr>
     </c:forEach>

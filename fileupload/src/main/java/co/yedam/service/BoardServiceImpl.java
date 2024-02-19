@@ -7,12 +7,13 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import co.yedam.common.DataSource;
 import co.yedam.mapper.BoardMapper;
 import co.yedam.vo.Board;
+import co.yedam.vo.Member;
 import co.yedam.vo.SearchVO;
 
 public class BoardServiceImpl implements BoardService {
 	SqlSessionFactory sessionFactory = DataSource.getInstance();
 
-	BoardMapper mapper = sessionFactory.openSession(false).getMapper(BoardMapper.class);
+	BoardMapper mapper = sessionFactory.openSession(true).getMapper(BoardMapper.class);
 
 	@Override
 	public List<Board> boardList(SearchVO search) {
@@ -26,7 +27,18 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Board getBoard(SearchVO search) {
+		mapper.updateBoardCnt(search.getBno());
 		return mapper.selectBoard(search);
+	}
+
+	@Override
+	public Member login(SearchVO search) {
+		return mapper.selectMember(search);
+	}
+
+	@Override
+	public boolean addBoard(Board board) {
+		return mapper.insertBoard(board) == 1;
 	}
 
 }

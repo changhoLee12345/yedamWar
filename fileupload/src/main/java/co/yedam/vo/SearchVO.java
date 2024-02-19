@@ -11,4 +11,6 @@ public class SearchVO {
 	private String type; // T or W or TW
 	private String keyword; //
 	private int bno;
+	private String id;
+	private String pw;
 }
