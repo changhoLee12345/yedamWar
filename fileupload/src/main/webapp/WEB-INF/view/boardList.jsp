@@ -46,7 +46,7 @@
           <option value="">선택하세요.</option>
           <option value="T" ${type == 'T' ? 'selected' : '' }>제목</option>
           <option value="W" ${type == 'W' ? 'selected' : '' }>작성자</option>
-          <option value="TW" ${type == 'TW' ? 'selected' : '' }>제목 & 작성자</option>
+          <option value="TW" ${type == 'TW' ? 'selected' : '' }>제목 작성자</option>
         </select>
       </div>
       <div class="col-sm-6">
