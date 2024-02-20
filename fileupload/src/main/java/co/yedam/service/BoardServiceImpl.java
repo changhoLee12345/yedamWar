@@ -32,11 +32,6 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Member login(SearchVO search) {
-		return mapper.selectMember(search);
-	}
-
-	@Override
 	public boolean addBoard(Board board) {
 		return mapper.insertBoard(board) == 1;
 	}

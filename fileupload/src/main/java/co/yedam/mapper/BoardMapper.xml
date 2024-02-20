@@ -90,13 +90,6 @@
 		where board_no = #{bno}
 	</update>
 	
-	<select id="selectMember" parameterType="search">
-	    select *
-	    from tbl_member
-	    where id = #{id}
-	    and   pw = #{pw}
-	</select>
-	
 	<insert id="insertBoard" parameterType="board">
 		insert into tbl_board (board_no
 		                      ,title

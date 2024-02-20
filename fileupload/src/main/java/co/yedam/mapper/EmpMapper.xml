@@ -43,4 +43,12 @@
 		where rn > (#{page}-1)*5
 	</select>
 
+	<select id="selectMember" parameterType="search">
+	    select *
+	    from tbl_member
+	    where id = #{id}
+	    and   pw = #{pw}
+	</select>
+	
+
 </mapper>

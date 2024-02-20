@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import co.yedam.common.Control;
 import co.yedam.common.Https;
-import co.yedam.service.BoardService;
-import co.yedam.service.BoardServiceImpl;
+import co.yedam.service.EmpService;
+import co.yedam.service.EmpServiceImpl;
 import co.yedam.vo.Member;
 import co.yedam.vo.SearchVO;
 
@@ -26,7 +26,7 @@ public class LoginControl implements Control {
 		search.setId(id);
 		search.setPw(pw);
 
-		BoardService svc = new BoardServiceImpl();
+		EmpService svc = new EmpServiceImpl();
 		Member member = svc.login(search);
 
 		if (member != null) {
@@ -41,7 +41,6 @@ public class LoginControl implements Control {
 			String path = "WEB-INF/view/logForm.jsp";
 			Https.forward(path, request, response);
 		}
-
 	}
 
 }

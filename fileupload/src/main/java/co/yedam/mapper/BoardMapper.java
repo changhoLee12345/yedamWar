@@ -17,6 +17,4 @@ public interface BoardMapper {
 	
 	int insertBoard(Board board);
 
-	// 로그인/로그아웃...
-	Member selectMember(SearchVO search);
 }

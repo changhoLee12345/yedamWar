@@ -14,5 +14,4 @@ public interface BoardService {
 	
 	boolean addBoard(Board board);
 	
-	Member login(SearchVO search);
 }

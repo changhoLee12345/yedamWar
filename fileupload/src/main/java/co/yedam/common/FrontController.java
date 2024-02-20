@@ -51,7 +51,6 @@ public class FrontController extends HttpServlet {
 
 		controls.put("/loginForm.do", new LoginForm());
 		controls.put("/login.do", new LoginControl());
-		
 		controls.put("/logout.do", new LogoutControl());
 
 	}
