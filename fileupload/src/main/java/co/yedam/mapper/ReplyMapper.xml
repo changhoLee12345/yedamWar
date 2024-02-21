@@ -22,5 +22,11 @@
 		      ) a
 		where a.rn > (#{rpage} - 1) * 5
 	</select>
+	
+	<select id="replyCount" resultType="int">
+	    select count(*)
+	    from tbl_reply
+	    where board_no = #{bno}
+	</select>
 
 </mapper>

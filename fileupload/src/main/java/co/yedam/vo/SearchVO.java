@@ -13,4 +13,5 @@ public class SearchVO {
 	private int bno;
 	private String id;
 	private String pw;
+	private int rpage = 1;
 }

@@ -59,14 +59,24 @@
     <input class="col-sm-8" type="text" name="reply" id="reply">
     <button class="col-sm-3" class="addReply">댓글등록</button>
   </div>
+
   <div class="content">
     <ul>
-      <li><span class="col-sm-2">글번호</span><span class="col-sm-6">댓글내용</span><span class="col-sm-2">작성자</span><span class="col-sm-2">삭제</span></li>
-      <li><hr></li>
-      <li><span class="col-sm-2">12</span><span class="col-sm-6">댓글 1 </span><span class="col-sm-2">user01</span><button class="col-sm-2">삭제</button></li>
-      <li><span class="col-sm-2">17</span><span class="col-sm-6">댓글 2 </span><span class="col-sm-2">user02</span><button class="col-sm-2">삭제</button></li>
-      <li><span class="col-sm-2">25</span><span class="col-sm-6">댓글 3 </span><span class="col-sm-2">user03</span><button class="col-sm-2">삭제</button></li>
+      <li><span class="col-sm-2">글번호</span><span class="col-sm-6">댓글내용</span><span class="col-sm-2">작성자</span><span
+          class="col-sm-2">삭제</span></li>
+      <li>
+        <hr>
+      </li>
+      <li style="display: none;"><span class="col-sm-2">12</span><span class="col-sm-6">댓글 1 </span><span
+          class="col-sm-2">user01</span><button class="col-sm-2">삭제</button></li>
     </ul>
+  </div>
+
+  <div class="footer">
+    <div class="center">
+      <div class="pagination">
+      </div>
+    </div>
   </div>
 </div>
 
@@ -74,3 +84,5 @@
     href="boardList.do?page=${search.page }&searchCondition=${search.type }&keyword=${search.keyword }">목록으로</a></div>
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+
+<script src="static/js/boardService.js"></script>

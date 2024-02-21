@@ -23,6 +23,7 @@ import co.yedam.control.LoginControl;
 import co.yedam.control.LoginForm;
 import co.yedam.control.LogoutControl;
 import co.yedam.control.MainControl;
+import co.yedam.control.ReplyListControl;
 
 public class FrontController extends HttpServlet {
 
@@ -52,6 +53,9 @@ public class FrontController extends HttpServlet {
 		controls.put("/loginForm.do", new LoginForm());
 		controls.put("/login.do", new LoginControl());
 		controls.put("/logout.do", new LogoutControl());
+		
+		// 댓글관련.
+		controls.put("/replyList.do", new ReplyListControl());
 
 	}
 
