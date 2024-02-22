@@ -1,4 +1,4 @@
-package co.yedam.control;
+package co.yedam.control.reply;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ReplyListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		response.setContentType("text/json;charset=utf-8");
 
 		String rpage = request.getParameter("rpage");
@@ -40,7 +40,6 @@ public class ReplyListControl implements Control {
 			response.getWriter().print(json);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

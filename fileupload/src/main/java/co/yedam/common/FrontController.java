@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.control.BoardAddControl;
-import co.yedam.control.BoardAddForm;
-import co.yedam.control.BoardControl;
-import co.yedam.control.BoardEditControl;
-import co.yedam.control.BoardEditForm;
-import co.yedam.control.BoardListControl;
-import co.yedam.control.EmpListControl;
 import co.yedam.control.FileUploadControl;
 import co.yedam.control.FileUploadForm;
-import co.yedam.control.LoginControl;
-import co.yedam.control.LoginForm;
-import co.yedam.control.LogoutControl;
 import co.yedam.control.MainControl;
-import co.yedam.control.ReplyListControl;
+import co.yedam.control.board.BoardAddControl;
+import co.yedam.control.board.BoardAddForm;
+import co.yedam.control.board.BoardControl;
+import co.yedam.control.board.BoardEditControl;
+import co.yedam.control.board.BoardEditForm;
+import co.yedam.control.board.BoardListControl;
+import co.yedam.control.emp.EmpListControl;
+import co.yedam.control.emp.LoginControl;
+import co.yedam.control.emp.LoginForm;
+import co.yedam.control.emp.LogoutControl;
+import co.yedam.control.reply.ReplyCountControl;
+import co.yedam.control.reply.ReplyListControl;
 
 public class FrontController extends HttpServlet {
 
@@ -56,6 +57,7 @@ public class FrontController extends HttpServlet {
 		
 		// 댓글관련.
 		controls.put("/replyList.do", new ReplyListControl());
+		controls.put("/replyCount.do", new ReplyCountControl());
 
 	}
 

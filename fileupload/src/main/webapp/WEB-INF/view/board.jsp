@@ -21,6 +21,37 @@
     padding-bottom: 1px;
   }
 </style>
+<style>
+  .center {
+    text-align: center;
+    margin: auto;
+    width: 55%;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    /* transition: background-color .3s; */
+    /* border: 1px solid #ddd; */
+    /* margin: 0 4px; */
+  }
+
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+</style>
 
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <jsp:include page="../includes/menu.jsp"></jsp:include>
@@ -84,5 +115,7 @@
     href="boardList.do?page=${search.page }&searchCondition=${search.type }&keyword=${search.keyword }">목록으로</a></div>
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>
-
+<script>
+  const bno = "${board.boardNo }";
+</script>
 <script src="static/js/boardService.js"></script>

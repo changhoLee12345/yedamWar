@@ -1,23 +1,24 @@
-package co.yedam.control;
+package co.yedam.control.board;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.yedam.common.Control;
+import co.yedam.common.Https;
+import co.yedam.vo.Board;
 
-public class LogoutControl implements Control {
+public class BoardAddForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		session.invalidate();
 
-		response.sendRedirect("main.do");
+		String path = "WEB-INF/view/addBoard.jsp";
+		Https.forward(path, request, response);
+
 	}
 
 }

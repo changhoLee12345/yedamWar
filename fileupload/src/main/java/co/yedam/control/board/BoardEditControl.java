@@ -1,4 +1,4 @@
-package co.yedam.control;
+package co.yedam.control.board;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
 
-public class BoardEditForm implements Control {
+public class BoardEditControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
