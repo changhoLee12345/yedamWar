@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.member.mapper.MemberMapper">
+  <select id="selectMember" parameterType="member">
+    select id
+          ,pw
+          ,name
+          ,auth
+    from tbl_member
+    where id = #{id}
+    and   pw = #{pw}
+  </select>
+  
+  <insert id="insertMember" parameterType="member">
+    insert into tbl_member (id, pw, name, auth, image)
+    values (#{id}, #{pw}, #{name}, 'user', #{image})
+  </insert>
+  
+  <insert id="insertCenter">
+    insert into tbl_center (id, center_name, sido) 
+    <foreach item="item" index="index" collection="list"
+        open="select " separator="from dual union all select " close=" from dual ">
+          #{item.id}, #{item.centerName}, #{item.sido}
+    </foreach>
+  </insert>
+  <!--   select 1, 'cente1', 'seoul' from dual
+    union all
+    select 2, 'cente2', 'seoul' from dual
+    union all
+    select 3, 'cente3', 'seoul' from dual
+   -->
+  <insert id="insertCenterAry">
+    insert into tbl_center (id, center_name, sido) 
+    <foreach collection="array" item="center" 
+      open="select " separator="from dual union all select " close=" from dual ">
+      #{center.id}, #{center.centerName}, #{center.sido}
+    </foreach>
+  </insert>
+   
+  <delete id="deleteCenter">
+    delete from tbl_center
+    where id in 
+    <foreach collection="list" item="center" index="idx"
+      open="( " separator=", " close=")">
+      #{center.id}
+    </foreach>
+  </delete>
+
+  <delete id="deleteCenterAry">
+    delete from tbl_center
+    where id in 
+    <foreach collection="array" item="center" index="idx"
+      open="( " separator=", " close=")">
+      #{center.id}
+    </foreach>
+  </delete>
+
+</mapper>
