@@ -81,6 +81,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/getTotal.do", new ReplyTotalCount());
 
 		controls.put("/registerCenter.do", new RegisterCenter());
+		
+		controls.put("/dataTable.do", new DataTableControl());
 	}
 
 	// service. 요청때마다 실행.

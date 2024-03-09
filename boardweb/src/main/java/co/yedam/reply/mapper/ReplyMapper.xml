@@ -14,10 +14,15 @@
     from (select /*+ INDEX_DESC(r reply_pk) */ rownum rn, r.*
           from tbl_reply r
           where board_no = #{bno}
+          <if test="rpage != 0">
           <![CDATA[
-          and   rownum <= (#{rpage} * 5) ) b
+          and   rownum <= (#{rpage} * 5) 
           ]]>
+          </if>
+         ) b
+    <if test="rpage != 0">
     where b.rn > (#{rpage} - 1) * 5
+    </if>
   </select>
   
   <insert id="insertReply" parameterType="reply">
@@ -36,7 +41,7 @@
           ,#{boardNo}
           ,#{reply}
           ,#{replyer}
-          ,sysdate)
+          ,#{replyDate})
   </insert>
   
   <delete id="deleteReply" parameterType="int">
