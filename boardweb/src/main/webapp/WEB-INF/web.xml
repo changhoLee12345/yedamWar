@@ -18,7 +18,6 @@
 		<url-pattern>*.tiles</url-pattern>
 	</servlet-mapping>
 
-	<!-- welcome.do 요청 -> co.yedam.WelcomeSerlvet실행. -->
 	<servlet>
 		<servlet-name>front</servlet-name>
 		<servlet-class>co.yedam.common.FrontController</servlet-class>
