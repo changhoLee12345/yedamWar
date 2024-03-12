@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <script>
+    let cnt = Math.ceil(Math.random() * 10);
+    const p1 = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        if (cnt > 3) {
+          resolve(cnt);
+        } else {
+          reject(cnt);
+        }
+      }, 1000)
+    });
+
+    const p2 = p1.then(function (result) {
+      console.log(result);
+      return new Promise(function (resolve, reject) {
+        if (result % 2 == 0) {
+          resolve('success');
+        } else {
+          reject('fail');
+        }
+      })
+    });
+
+    p2.then(result => console.log(result))
+      .catch(err => console.error(err))
+  </script>
+</body>
+
+</html>
