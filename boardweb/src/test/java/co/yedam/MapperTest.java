@@ -3,28 +3,22 @@ package co.yedam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.yedam.common.Center;
 import co.yedam.common.DataSource;
-import co.yedam.member.mapper.MemberMapper;
+import co.yedam.common.SearchVO;
+import co.yedam.reply.mapper.ReplyMapper;
 
 public class MapperTest {
 	public static void main(String[] args) {
 		SqlSession session = DataSource.getInstance().openSession(true);
-		MemberMapper mapper = session.getMapper(MemberMapper.class);
-
-		List<Center> list = new ArrayList<>();
-		list.add(new Center(1, "center1", "seoul"));
-		list.add(new Center(2, "center2", "seoul"));
-		list.add(new Center(3, "center3", "seoul"));
-
-		System.out.println(mapper.insertCenter(list));
-//		System.out.println(mapper.deleteCenter(list));
-		System.out.println("end");
+		ReplyMapper mapper = session.getMapper(ReplyMapper.class);
+		SearchVO search = new SearchVO();
+		search.setBno(521);
+		mapper.selectList(search).forEach(reply -> {
+			System.out.println(reply);
+		});
 
 	}
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
+
 <style>
   div.reply div {
     margin: auto;
@@ -112,26 +112,13 @@
     </ul>
   </div>
   <div class="footer">
-    <!-- datatable start. -->
-    <table id="example" class="display" style="width:100%">
-      <thead>
-        <tr>
-          <th>replyNo</th>
-          <th>reply</th>
-          <th>replyer</th>
-          <th>replyDate</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <th>replyNo</th>
-          <th>reply</th>
-          <th>replyer</th>
-          <th>replyDate</th>
-        </tr>
-      </tfoot>
-    </table>
-    <!-- datatable end. -->
+    <div class="center">
+      <div class="pagination">
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="" class="active">3</a>
+      </div>
+    </div>
   </div>
 </div> <!-- div.container.reply -->
 
@@ -149,8 +136,5 @@
 </script>
 <!-- <script src="static/js/boardService.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-<script src="static/js/datatable.js"></script>
-
-<!-- <script src="static/js/boardAjax.js"></script> -->
-<!-- <script src="static/js/boardService3.js"></script> -->
+<script src="static/js/boardAjax.js"></script>
+<script src="static/js/boardService3.js"></script>
