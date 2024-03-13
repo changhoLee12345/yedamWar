@@ -84,6 +84,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/getSidoInfo.do", new SidoInfoControl());
 		
 		controls.put("/dataTable.do", new DataTableControl());
+		
+		controls.put("/upload.do", new UploadControl());
 	}
 
 	// service. 요청때마다 실행.
