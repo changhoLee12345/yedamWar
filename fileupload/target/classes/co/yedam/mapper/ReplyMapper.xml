@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.mapper.ReplyMapper">
+
+	<select id="selectList" resultType="reply">
+		select rn
+		      ,reply_no
+		      ,reply
+		      ,replyer
+		      ,reply_date
+		      ,board_no
+		from (select /*+ INDEX(r reply_pk)*/rownum rn
+		            ,r.*
+		      from tbl_reply r
+		      where board_no = #{bno}
+		      <![CDATA[
+		      and   rownum <= #{rpage} * 5
+		      ]]>
+		      ) a
+		where a.rn > (#{rpage} - 1) * 5
+	</select>
+	
+	<select id="replyCount" resultType="int">
+	    select count(*)
+	    from tbl_reply
+	    where board_no = #{bno}
+	</select>
+
+</mapper>
