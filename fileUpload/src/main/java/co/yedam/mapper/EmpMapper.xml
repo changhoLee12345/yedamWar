@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.mapper.EmpMapper">
+
+	<select id="selectList" resultType="Employee">
+		select * 
+		from employee
+		<where>
+			<if test="department != null and department != '' ">
+				department = #{department}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectListPaging" resultType="Employee" parameterType="search">
+		select rn 
+	          ,emp_no
+	          ,emp_name
+	          ,email
+	          ,phone
+	          ,hire_date
+	          ,salary
+	          ,department
+		from (select /*+ INDEX_DESC(e SYS_C008368) */
+		             rownum rn, e.*
+		      from employee e
+
+		      <where>
+		        <if test="department != null and department != '' ">
+		          department = #{department}
+		        </if>
+		        <if test="page > 0">
+	  			<![CDATA[
+		          and rownum <= #{page}*5
+	  			]]>
+		        </if>
+		      </where>
+
+		      ) a
+		where rn > (#{page}-1)*5
+	</select>
+
+	<select id="selectMember" parameterType="search">
+	    select *
+	    from tbl_member
+	    where id = #{id}
+	    and   pw = #{pw}
+	</select>
+	
+
+</mapper>
