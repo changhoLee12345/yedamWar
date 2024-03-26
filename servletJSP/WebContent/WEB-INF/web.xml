@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+
+	<display-name>servletJSP</display-name>
+
+	<context-param>
+		<param-name>contextConfig</param-name>
+		<param-value>/WEB-INF/context.xml</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/persistent.xml</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Location to store uploaded file</description>
+		<param-name>file-upload</param-name>
+		<param-value>C:\Dev\apache-tomcat-9.0.63\webapps\data\</param-value>
+	</context-param>
+
+	<filter>
+		<filter-name>flow1</filter-name>
+		<filter-class>com.edu.test.filter.FlowFilterOne</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>flow1</filter-name>
+		<url-pattern>/second</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>flow2</filter-name>
+		<filter-class>com.edu.test.filter.FlowFilterTwo</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>flow2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>com.edu.test.listener.TestRequestListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>com.edu.test.listener.TestSessionListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>com.edu.test.listener.TestSessionAttributeListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>first</servlet-name>
+		<servlet-class>com.edu.test.FirstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>first</servlet-name>
+		<url-pattern>/first</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>addInfo</servlet-name>
+		<servlet-class>com.edu.test.AdditionalInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addInfo</servlet-name>
+		<url-pattern>/addInfo/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>initParam</servlet-name>
+		<servlet-class>com.edu.test.servletconfig.InitParamServlet</servlet-class>
+		<init-param>
+			<param-name>id</param-name>
+			<param-value>guest</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>1234</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>initParam</servlet-name>
+		<url-pattern>/initParam</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>servletConfigTest</servlet-name>
+		<servlet-class>com.edu.test.servletconfig.ServletConfigTestServlet</servlet-class>
+		<init-param>
+			<param-name>charset</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletConfigTest</servlet-name>
+		<url-pattern>/servletConfig</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>front</servlet-name>
+		<servlet-class>com.dev.controller.FrontController</servlet-class>
+		<init-param>
+			<param-name>charset</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>front</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<resource-ref>
+		<description>Oracle Datasource Sample</description>
+		<res-ref-name>jdbc/myoracle</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://myTags.com</taglib-uri>
+			<taglib-location>/WEB-INF/myTag.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 
+	<error-page>
+		<error-code>405</error-code>
+		<location>/errorHandle</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/errorHandle</location>
+	</error-page>
+	 -->
+</web-app>

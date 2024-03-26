@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <form action="hello" method="get">
+        <input type='text' name='id' value='hong'>
+        <input type="text" name="name" id="" value="홍길동">
+        <input type="submit" value="Send">
+    </form>
+    <script>
+        console.log(encodeURI('홍길동'));
+        console.log(decodeURI('%ED%99%8D%EA%B8%B8%EB%8F%99'));
+    </script>
+</body>
+
+</html>

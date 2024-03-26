@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.odd {
+	background-color: yellow;
+	color: blue;
+}
+
+.even {
+	color: green;
+	background-color: rgb(243, 171, 171);
+}
