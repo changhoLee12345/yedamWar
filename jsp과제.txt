@@ -1,0 +1,31 @@
+1일차.
+게시판 삭제 기능을 구현하세요.
+-> removeBoard.do
+   BoardService.removeBoard(int bno);
+   BoardMapper.deleteBoard(int bno);
+   
+2일차.
+-> 회원등록화면 작성하기.
+  addMemberForm.do -> addMemberForm.jsp 작성하기.
+  
+  addMember.do -> memberList.do 로 목록 보여주기.
+  MemberService.addMember(MemberVO mvo);
+  MemberMapper.insertMember(MemberVO mvo);
+
+3일차.
+-> 
+
+
+4일차.
+-> tiles.xml 작성하기.
+   sb admin 템플릿을 적용하는  타일즈 구현.
+
+
+5일차.
+-> productList.do -> productList.jsp 작성하기.
+   ProductService.prodList();
+   ProductMapper.selectList();
+   
+
+
+
