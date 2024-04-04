@@ -56,6 +56,7 @@
       </div>
     </form>
   </div>
+  
   <h3>게시글 목록</h3>
   <table class="table">
     <thead>
