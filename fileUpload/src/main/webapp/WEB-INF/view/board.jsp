@@ -93,13 +93,19 @@
 
   <div class="content">
     <ul>
-      <li><span class="col-sm-2">글번호</span><span class="col-sm-6">댓글내용</span><span class="col-sm-2">작성자</span><span
-          class="col-sm-2">삭제</span></li>
+      <li>
+        <span class="col-sm-2">글번호</span>
+        <span class="col-sm-6">댓글내용</span>
+        <span class="col-sm-2">작성자</span>
+        <span class="col-sm-2">삭제</span></li>
       <li>
         <hr>
       </li>
-      <li style="display: none;"><span class="col-sm-2">12</span><span class="col-sm-6">댓글 1 </span><span
-          class="col-sm-2">user01</span><button class="col-sm-2">삭제</button></li>
+      <li style="display: none;">
+        <span class="col-sm-2">12</span>
+        <span class="col-sm-6">댓글 1 </span>
+        <span class="col-sm-2">user01</span>
+        <button class="col-sm-2">삭제</button></li>
     </ul>
   </div>
 
@@ -111,10 +117,12 @@
   </div>
 </div>
 
-<div style="text-align: center;"><a
-    href="boardList.do?page=${search.page }&searchCondition=${search.type }&keyword=${search.keyword }">목록으로</a></div>
+<div style="text-align: center;">
+  <a href="boardList.do?page=${search.page }&searchCondition=${search.type }&keyword=${search.keyword }">목록으로</a>
+</div>
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+
 <script>
   const bno = "${board.boardNo }";
 </script>
