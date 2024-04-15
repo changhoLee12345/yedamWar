@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.control.CartListControl;
 import co.yedam.control.FileUploadControl;
 import co.yedam.control.FileUploadForm;
 import co.yedam.control.MainControl;
@@ -54,10 +55,12 @@ public class FrontController extends HttpServlet {
 		controls.put("/loginForm.do", new LoginForm());
 		controls.put("/login.do", new LoginControl());
 		controls.put("/logout.do", new LogoutControl());
-		
+
 		// 댓글관련.
 		controls.put("/replyList.do", new ReplyListControl());
 		controls.put("/replyCount.do", new ReplyCountControl());
+
+		controls.put("/cartList.do", new CartListControl());
 
 	}
 
