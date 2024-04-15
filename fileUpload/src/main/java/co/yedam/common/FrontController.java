@@ -19,6 +19,7 @@ import co.yedam.control.board.BoardControl;
 import co.yedam.control.board.BoardEditControl;
 import co.yedam.control.board.BoardEditForm;
 import co.yedam.control.board.BoardListControl;
+import co.yedam.control.emp.CartListControl;
 import co.yedam.control.emp.EmpListControl;
 import co.yedam.control.emp.LoginControl;
 import co.yedam.control.emp.LoginForm;
@@ -54,10 +55,12 @@ public class FrontController extends HttpServlet {
 		controls.put("/loginForm.do", new LoginForm());
 		controls.put("/login.do", new LoginControl());
 		controls.put("/logout.do", new LogoutControl());
-		
+
 		// 댓글관련.
 		controls.put("/replyList.do", new ReplyListControl());
 		controls.put("/replyCount.do", new ReplyCountControl());
+
+		controls.put("/cartList.do", new CartListControl());
 
 	}
 

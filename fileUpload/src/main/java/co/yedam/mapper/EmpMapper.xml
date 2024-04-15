@@ -50,5 +50,9 @@
 	    and   pw = #{pw}
 	</select>
 	
+	<select id="cartList" resultType="co.yedam.vo.CartVO">
+	  select *
+	  from tbl_cart
+	</select>
 
 </mapper>
