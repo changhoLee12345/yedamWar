@@ -42,11 +42,12 @@ let basket = {
 
 			let rowDiv = cartTemplate.childNodes[1].cloneNode(true);
 			rowDiv.setAttribute('data-id', result[i].no);
-			rowDiv.querySelector('div.pname span').textContent = result[i].product_nm;
+			rowDiv.querySelector('div.pname span').textContent = result[i].productNm;
 			rowDiv.querySelector('div.basketprice input[name="p_price"]').value = result[i].price;
 			rowDiv.querySelector('div.basketprice').childNodes[2].textContent = (result[i].price).formatNumber();
 			rowDiv.querySelector('div.num input').value = result[i].qty;
 			rowDiv.querySelector('div.sum').textContent = (result[i].qty * result[i].price).formatNumber();
+			rowDiv.querySelector('div.img img').setAttribute('src', '../img/' + result[i].productNm + '.jpg')
 			// rowDiv.querySelector('div.basketcmd>a').href = 'javascript:void(0)';
 			rowDiv.querySelector('div.num>div.updown>input:nth-of-type(1)').setAttribute('id', 'p_num' + result[i].no);
 			rowDiv.querySelector('div.num>div.updown>input:nth-of-type(1)').setAttribute('name', 'p_num' + result[i].no);
@@ -62,6 +63,7 @@ let basket = {
 		console.log('delItem:', e);
 		let no = e.target.parentNode.parentNode.parentNode.dataset.id;
 		let url = "../cartDelete?no=" + no;
+
 		fetch(url)
 			.then(result => {
 				console.log(result);

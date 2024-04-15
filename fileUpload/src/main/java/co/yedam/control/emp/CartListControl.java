@@ -1,4 +1,4 @@
-package co.yedam.control;
+package co.yedam.control.emp;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.yedam.common.Control;
+import co.yedam.service.EmpService;
+import co.yedam.service.EmpServiceImpl;
 import co.yedam.vo.CartVO;
 
 public class CartListControl implements Control {
@@ -21,16 +23,8 @@ public class CartListControl implements Control {
 		// TODO Auto-generated method stub
 		response.setContentType("text/json;charset=utf-8");
 
-		List<CartVO> list = new ArrayList<>();
-		for (int i = 0; i < 5; i++) {
-			CartVO vo = new CartVO();
-			vo.setNo(i + 1);
-			vo.setPrice(1000 * (i + 1));
-			vo.setProduct_nm("상품" + (i + 1));
-			vo.setQty(2);
-
-			list.add(vo);
-		}
+		EmpService svc = new EmpServiceImpl();
+		List<CartVO> list = svc.cartList();
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
