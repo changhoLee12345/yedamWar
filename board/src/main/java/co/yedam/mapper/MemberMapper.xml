@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="co.yedam.mapper.MemberMapper">
+
+  <select id="selectMember" parameterType="co.yedam.vo.MemberVO"
+    resultType="co.yedam.vo.MemberVO">
+    select *
+    from tbl_member
+    where member_id = #{memberId}
+    and   member_pw = #{memberPw}
+  </select>
+  
+  <insert id="insertMember" parameterType="co.yedam.vo.MemberVO">
+    insert into tbl_member (member_id, member_pw, member_nm, phone)
+    values (#{memberId},#{memberPw},#{memberNm},#{phone})
+  </insert>
+  
+  <select id="selectMembers">
+    select *
+    from tbl_member
+    order by member_id
+  </select>
+  
+  <delete id="deleteMember" parameterType="string">
+    delete from tbl_member
+    where member_id = #{mid}
+  </delete>
+  
+  <select id="selectList" resultType="co.yedam.vo.CartVO">
+    select *
+    from tbl_cart
+    order by 1
+  </select>
+  
+  <update id="updateCart" parameterType="co.yedam.vo.CartVO">
+    update tbl_cart
+    set qty = qty + #{qty}
+    where no = #{no}
+  </update>
+  
+  <delete id="deleteCart" parameterType="int">
+    delete from tbl_cart
+    where no = #{no}
+  </delete>
+  
+</mapper>

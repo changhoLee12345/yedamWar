@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="bookService.js"></script>
+</head>
+<body>
+  <!-- webapp/jquery/bookList.html -->
+  <div class="register">
+    <table border="1">
+      <tr>
+        <th>도서코드</th>
+        <td><input id="bookCode" value="B001"></td>
+      </tr>
+      <tr>
+        <th>도서명</th>
+        <td><input id="bookName" value="홍길동전"></td>
+      </tr>
+      <tr>
+        <th>저자</th>
+        <td><input id="bookAuthor" value="홍길동"></td>
+      </tr>
+      <tr>
+        <th>가격</th>
+        <td><input id="bookPrice" value="10000"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button>등록</button>
+          <button>선택삭제</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="list">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>도서코드</th>
+          <th>도서명</th>
+          <th>저자</th>
+          <th>가격</th>
+          <th>삭제</th>
+          <th><input type="checkbox"></th>
+        </tr>
+      </thead>
+      <tbody id="list"></tbody>
+    </table>
+  </div>
+</body>
+</html>

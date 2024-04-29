@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$.post() </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th>Id</th><td><input name="id"></td></tr>
+    <tr>
+      <th>이름</th><td><input name="name"></td></tr>
+    <tr>
+      <th>연락처</th><td><input name="phone"></td></tr>
+    <tr>
+      <th>비번</th><td><input name="password"></td></tr>
+    <tr>
+      <td colspan="2">
+      <button>등록</button>
+      </td></tr>
+  </table>
+  <script>
+    $('button').on('click', function() {
+    	let id = $('input[name="id"]').val();
+    	let nm = $('input[name="name"]').val();
+    	let ph = $('input[name="phone"]').val();
+    	let pw = $('input[name="password"]').val();
+    	
+    	// ajax 호출.
+    	$.post('../addMemberAjax.do',
+    		   {mid: id, name: nm, phone: ph, pass: pw},
+    		   function(data) { // {"retCode": "Success"}
+    			 let result = JSON.parse(data);
+    		     if(result.retCode == "Success") {
+    		    	 alert('처리성공!!');
+    		     } else if (result.retCode == "Fail") {
+    		    	 alert('처리중 에외!!');
+    		     } else {
+    		    	 alert('알수없는 코드');
+    		     }
+    	       });
+    });
+  
+  </script>
+</body>
+</html>
