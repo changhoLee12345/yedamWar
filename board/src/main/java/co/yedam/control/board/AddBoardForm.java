@@ -16,6 +16,8 @@ public class AddBoardForm implements Control {
 		req.getRequestDispatcher("board/boardForm.tiles")//
 				.forward(req, resp);
 
+		System.out.println(req.getAttribute("msg"));
+
 	}
 
 }

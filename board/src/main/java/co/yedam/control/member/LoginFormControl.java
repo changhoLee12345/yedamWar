@@ -15,6 +15,8 @@ public class LoginFormControl implements Control {
 		// TODO Auto-generated method stub
 		req.getRequestDispatcher("board/loginForm.tiles")//
 				.forward(req, resp);
+
+		System.out.println(req.getAttribute("msg"));
 	}
 
 }
