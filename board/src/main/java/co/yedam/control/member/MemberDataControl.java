@@ -1,4 +1,4 @@
-package co.yedam.control;
+package co.yedam.control.member;
 
 import java.io.IOException;
 import java.util.List;

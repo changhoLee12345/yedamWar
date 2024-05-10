@@ -1,4 +1,4 @@
-package co.yedam.control;
+package co.yedam.control.reply;
 
 import java.io.IOException;
 
@@ -10,19 +10,22 @@ import co.yedam.common.Control;
 import co.yedam.service.ReplyService;
 import co.yedam.service.ReplyServiceImpl;
 
-public class ReplyCount implements Control {
+public class RemoveReply implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String bno = req.getParameter("bno");
+		String rno = req.getParameter("rno");
 
 		ReplyService svc = new ReplyServiceImpl();
-		int totalCount = svc.getReplyCount(Integer.parseInt(bno));
-
-		// json포맷. {"totalCount": 24}
-		resp.getWriter().print("{\"totalCount\": " + totalCount + "}");
-
+		// removeReply - deleteReply
+		if (svc.removeReply(Integer.parseInt(rno))) {
+			// {"retCode": "Success"}
+			resp.getWriter().print("{\"retCode\": \"Success\"}");
+		} else {
+			// {"retCode": "Fail"}
+			resp.getWriter().print("{\"retCode\": \"Fail\"}");
+		}
 	}
 
 }

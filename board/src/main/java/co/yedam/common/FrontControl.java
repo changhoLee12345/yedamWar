@@ -10,14 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.control.AddBoard;
-import co.yedam.control.AddBoardForm;
-import co.yedam.control.AddMemberAjax;
-import co.yedam.control.AddMemberControl;
-import co.yedam.control.AddMemberForm;
-import co.yedam.control.AddReply;
-import co.yedam.control.BoardControl;
-import co.yedam.control.BoardListControl;
 import co.yedam.control.CartList;
 import co.yedam.control.ChartForm;
 import co.yedam.control.ChartJson;
@@ -26,21 +18,29 @@ import co.yedam.control.DataTable;
 import co.yedam.control.DelCart;
 import co.yedam.control.DomForm;
 import co.yedam.control.EditCart;
-import co.yedam.control.LoginControl;
-import co.yedam.control.LoginFormControl;
-import co.yedam.control.LogoutControl;
-import co.yedam.control.MemberAjax;
-import co.yedam.control.MemberDataControl;
-import co.yedam.control.MemberForm;
-import co.yedam.control.MemberListControl;
-import co.yedam.control.ModifyBoard;
-import co.yedam.control.ModifyBoardForm;
-import co.yedam.control.RemoveBoard;
-import co.yedam.control.RemoveBoardForm;
-import co.yedam.control.RemoveMemberControl;
-import co.yedam.control.RemoveReply;
-import co.yedam.control.ReplyCount;
-import co.yedam.control.ReplyList;
+import co.yedam.control.board.AddBoard;
+import co.yedam.control.board.AddBoardForm;
+import co.yedam.control.board.BoardControl;
+import co.yedam.control.board.BoardListControl;
+import co.yedam.control.board.ModifyBoard;
+import co.yedam.control.board.ModifyBoardForm;
+import co.yedam.control.board.RemoveBoard;
+import co.yedam.control.board.RemoveBoardForm;
+import co.yedam.control.member.AddMemberAjax;
+import co.yedam.control.member.AddMemberControl;
+import co.yedam.control.member.AddMemberForm;
+import co.yedam.control.member.LoginControl;
+import co.yedam.control.member.LoginFormControl;
+import co.yedam.control.member.LogoutControl;
+import co.yedam.control.member.MemberAjax;
+import co.yedam.control.member.MemberDataControl;
+import co.yedam.control.member.MemberForm;
+import co.yedam.control.member.MemberListControl;
+import co.yedam.control.reply.AddReply;
+import co.yedam.control.reply.RemoveMemberControl;
+import co.yedam.control.reply.RemoveReply;
+import co.yedam.control.reply.ReplyCount;
+import co.yedam.control.reply.ReplyList;
 
 // init -> service -> destroy
 public class FrontControl extends HttpServlet {
@@ -54,9 +54,6 @@ public class FrontControl extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/main.do", new MainControl());
-		map.put("/second.do", null);
-		map.put("/resume.do", new ResumeControl());
 
 		// 게시글목록.
 		map.put("/boardList.do", new BoardListControl());
@@ -98,7 +95,7 @@ public class FrontControl extends HttpServlet {
 
 		// datatable.
 		map.put("/datatable.do", new DataTable());
-		
+
 		// 카트목록.
 		map.put("/cartList.do", new CartList());
 		// 수량변경.
