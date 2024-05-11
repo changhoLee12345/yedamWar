@@ -58,7 +58,7 @@ public class FrontControl extends HttpServlet {
 		// 게시글목록.
 		map.put("/boardList.do", new BoardListControl());
 		map.put("/getboard.do", new BoardControl());
-		map.put("/addForm.do", new AddBoardForm());// 등록화면.
+		map.put("/addBoardForm.do", new AddBoardForm());// 등록화면.
 		map.put("/addBoard.do", new AddBoard());// 등록기능.
 		map.put("/modifyForm.do", new ModifyBoardForm());
 		map.put("/modifyBoard.do", new ModifyBoard());
