@@ -10,6 +10,15 @@
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
 	</listener>
 
+	<!-- filter setting. -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>co.yedam.common.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>enc</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
 	<filter>
 		<filter-name>response check</filter-name>
 		<filter-class>co.yedam.common.CheckResponseFilter</filter-class>
@@ -19,6 +28,7 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
+	<!-- servlet setting. -->
 	<servlet>
 		<servlet-name>first</servlet-name>
 		<servlet-class>co.yedam.FirstServlet</servlet-class>
