@@ -25,19 +25,21 @@ public class CartList implements Control {
 		
 		System.out.println(req.getRemoteAddr());
 
-		HttpSession session = req.getSession();
-		Object info = session.getAttribute("logId");
-		if (info == null) {
-			return;
-		}
-		if (!req.getRemoteAddr().equals("0:0:0:0:0:0:0:1")) {
-			return;
-		}
+//		HttpSession session = req.getSession();
+//		Object info = session.getAttribute("logId");
+//		if (info == null) {
+//			return;
+//		}
+//		if (!req.getRemoteAddr().equals("0:0:0:0:0:0:0:1")) {
+//			return;
+//		}
 		MemberService svc = new MemberServiceImpl();
 		List<CartVO> list = svc.cartList();
+		System.out.println(list);
 
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
+		System.out.println(json);
 
 		resp.getWriter().print(json);
 

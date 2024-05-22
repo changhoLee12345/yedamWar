@@ -32,10 +32,11 @@ const basket = {
 				rowDiv.find('img').attr('src', 'image/' + cart.productNm + '.jpg');
 				rowDiv.find('div.pname span').text(cart.productNm);
 				rowDiv.find('div.basketprice').text(cart.price.numberFormat() + "원");
-				rowDiv.find('div.basketprice').prepend($('<input />')
-					.attr({ 'type': 'hidden', 'name': 'p_price', 'id': 'p_price' + cart.no })
-					.addClass("p_price")
-					.val(cart.price));
+				rowDiv.find('div.basketprice').prepend(//
+					$('<input />')
+						.attr({ 'type': 'hidden', 'name': 'p_price', 'id': 'p_price' + cart.no })
+						.addClass("p_price")
+						.val(cart.price));
 				rowDiv.find('div.basketprice input[name="p_price"]').val(cart.price); // 가격부분.
 				rowDiv.find('div.basketprice input[name="p_price"]').attr('id', 'p_price' + cart.no);
 
@@ -101,7 +102,7 @@ const basket = {
 	/////////////////////////////
 	changePNum: function(no) {
 
-		if (!no) return;
+		if (!no) return; // no의 값이 0일 경우는 html에 있는 이벤트이며 이거는 제외하려고 했음. 왜 안되는지는 모르겠다..ㅠㅠ
 
 		let qty = -1;
 		let price = $(event.currentTarget).parentsUntil('div.row').find('input.p_price').val();
