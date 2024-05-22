@@ -174,11 +174,3 @@ document.getElementById('addReply').addEventListener('click', function(e) {
 	});
 	document.getElementById('reply').value = ''; // 초기화.
 });
-
-
-
-
-
-
-
-

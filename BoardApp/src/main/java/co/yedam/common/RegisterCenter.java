@@ -2,6 +2,8 @@ package co.yedam.common;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -25,14 +27,15 @@ public class RegisterCenter implements Control {
 		String json = StreamUtils.copyToString(sis, StandardCharsets.UTF_8);
 
 		ObjectMapper mapper = new ObjectMapper();
-		Center[] list = mapper.readValue(json, Center[].class);
+//		Center[] list = mapper.readValue(json, Center[].class);
+		List<Center> list = mapper.readValue(json, new ArrayList<Center>().getClass());
 
-		ReplyService svc = new ReplyServiceImpl();
-		int cnt = svc.addCenter(list);
-		System.out.println(cnt);
+//		ReplyService svc = new ReplyServiceImpl();
+//		int cnt = svc.addCenter(list);
+//		System.out.println(cnt);
 
 		// 처리된 건수.
-		resp.getWriter().print(cnt);
+//		resp.getWriter().print(cnt);
 	}
 
 }
