@@ -15,9 +15,9 @@ public class MainCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		EmpService service = new EmpServiceImpl();
-		List<EmpVO> list = service.empList();
-		System.out.println(list);
+//		EmpService service = new EmpServiceImpl();
+//		List<EmpVO> list = service.empList();
+//		System.out.println(list);
 
 		return "main.jsp";
 	}
