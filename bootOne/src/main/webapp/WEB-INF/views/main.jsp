@@ -12,19 +12,11 @@
 <body>
     <h3>Main Page</h3>
 
-    <div id="app">{{ message }}</div>
+    <div id="app">
+        <p>{{count}}</p>
+        <button v-on:click="count++">Up</button>
+    </div>
 
-    <script>
-        const { createApp } = Vue
-
-        createApp({
-            data() {
-                return {
-                    message: 'Hello Vue!'
-                }
-            }
-        }).mount('#app')
-    </script>
     <script src="js/main.js"></script>
 </body>
 
