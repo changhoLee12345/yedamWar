@@ -161,6 +161,7 @@
 		</dependency>
 		<!-- -->
 	</dependencies>
+
 	<build>
 		<finalName>HelloApp</finalName>
 		<resources>
@@ -171,12 +172,13 @@
 				</excludes>
 			</resource>
 		</resources>
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>11</release>
+					<release>17</release>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
