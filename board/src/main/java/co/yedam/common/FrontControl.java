@@ -21,6 +21,7 @@ import co.yedam.control.EditCart;
 import co.yedam.control.board.AddBoard;
 import co.yedam.control.board.AddBoardForm;
 import co.yedam.control.board.BoardControl;
+import co.yedam.control.board.BoardDoControl;
 import co.yedam.control.board.BoardListControl;
 import co.yedam.control.board.ModifyBoard;
 import co.yedam.control.board.ModifyBoardForm;
@@ -64,6 +65,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/modifyBoard.do", new ModifyBoard());
 		map.put("/removeForm.do", new RemoveBoardForm());
 		map.put("/removeBoard.do", new RemoveBoard());
+		map.put("/board.do", new BoardDoControl());
 
 		// member관련.
 		map.put("/loginForm.do", new LoginFormControl());
