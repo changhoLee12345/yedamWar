@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control2;
+import co.yedam.control.MainControl;
 import co.yedam.control.MenuBoard;
 import co.yedam.control.MenuMember;
 import co.yedam.control.MenuReply;
@@ -35,7 +36,7 @@ public class FrontControlMap extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		// url patter과 실행하는 컨트롤의 메소드와 매칭하기.
-//		map.put("/main.do", new MainControl()); // example...
+		map.put("/main.do", new MainControl()); // example...
 
 		Map<String, Control2> map1 = MenuBoard.getInstance().menuMap();
 		Map<String, Control2> map2 = MenuMember.getInstance().menuMap();
@@ -55,10 +56,10 @@ public class FrontControlMap extends HttpServlet {
 
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
-		String path = uri.substring(context.length());
-		System.out.println("uri: " + uri + ", contxt: " + context + ", path: " + path);
+		String servletPath = uri.substring(context.length());
+		System.out.println(servletPath);
 
-		Control2 control = map.get(path);
-		control.exec(req, resp, path);
+		Control2 control = map.get(servletPath);
+		control.exec(req, resp, servletPath);
 	}
 }

@@ -3,7 +3,6 @@ package co.yedam.control;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +29,7 @@ public class MainBoardControl implements Control2 {
 	String modulePath = "board";
 	String tiles = ".tiles";
 
+	// path => /boardList.do
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
@@ -39,12 +39,12 @@ public class MainBoardControl implements Control2 {
 		try {
 			Class<?> cls = Class.forName(this.getClass().getName());
 			// 실행할 메소드 정의.
-			Method method = cls.getDeclaredMethod(methodName, // 메소드명.
-					HttpServletRequest.class, // 파라미터1.
-					HttpServletResponse.class, // 파라미터2.
-					String.class// 파라미터3.
+			Method method = cls.getDeclaredMethod(methodName // 메소드명.
+					, HttpServletRequest.class // 파라미터1.
+					, HttpServletResponse.class // 파라미터2.
+			// ,String.class// 파라미터3.
 			);
-			method.invoke(this, req, resp, modulePath + path.replaceAll(".do", tiles)); // 메소드 실행.
+			method.invoke(this, req, resp); // 메소드 실행.
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,8 +55,7 @@ public class MainBoardControl implements Control2 {
 //	public void urlMethod(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException { }
 
 	// 삭제처리.
-	public void removeBoard(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void removeBoard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String bno = req.getParameter("bno");
 
@@ -71,18 +70,16 @@ public class MainBoardControl implements Control2 {
 	}
 
 	// 삭제화면.
-	public void removeForm(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void removeForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String bno = req.getParameter("bno");
 		req.setAttribute("bno", bno);
 
-		HttpUtils.forward(req, resp, path);
+		req.getRequestDispatcher("board/removeForm.tiles").forward(req, resp);
 	}
 
 	// 수정처리.
-	public void modifyBoard(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void modifyBoard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// boardNo, title, content
 		String bno = req.getParameter("boardNo");
@@ -111,8 +108,7 @@ public class MainBoardControl implements Control2 {
 	}
 
 	// 수정화면.
-	public void modifyForm(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void modifyForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String bno = req.getParameter("bno");
 		// 추가파리미터.
 		String page = req.getParameter("page");
@@ -127,19 +123,17 @@ public class MainBoardControl implements Control2 {
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
 
-		HttpUtils.forward(req, resp, path);
+		req.getRequestDispatcher("board/modifyForm.tiles").forward(req, resp);
 	}
 
 	// 글등록 페이지.
-	public void addBoardForm(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void addBoardForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpUtils.forward(req, resp, path);
+		req.getRequestDispatcher("board/addBoardForm.tiles").forward(req, resp);
 	}
 
 	// 글등록 기능.
-	public void addBoard(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void addBoard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 생성자 매개값 1.요청정보, 2.저장경로 3.최대크기, 4.인코딩 5.리네임정책.
 		String savePath = req.getServletContext().getRealPath("upload");
 		int maxSize = 1024 * 1024 * 5;
@@ -170,9 +164,7 @@ public class MainBoardControl implements Control2 {
 	}
 
 	// 상세페이지.
-	public void getboard(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
-		System.out.println(path);
+	public void getboard(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String bno = req.getParameter("bno");
 		// 추가파리미터.
@@ -189,14 +181,12 @@ public class MainBoardControl implements Control2 {
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
 
-		HttpUtils.forward(req, resp, path);
+		req.getRequestDispatcher("board/getboard.tiles").forward(req, resp);
 	}
 
 	// 게시글 목록.
-	public void boardList(HttpServletRequest req, HttpServletResponse resp, String path)
-			throws ServletException, IOException {
+	public void boardList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// board/boardList.tiles
-		System.out.println(path);
 
 		// db정보 조회 후 -> boardList.jsp 출력.
 		String sc = req.getParameter("searchCondition");
@@ -219,7 +209,7 @@ public class MainBoardControl implements Control2 {
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
 
-		HttpUtils.forward(req, resp, path);
+		req.getRequestDispatcher("board/boardList.tiles").forward(req, resp);
 
 	}
 
