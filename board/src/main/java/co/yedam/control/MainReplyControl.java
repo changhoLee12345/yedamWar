@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control2;
 
-public class MemberMainControl implements Control2 {
+public class MainReplyControl implements Control2 {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp, String path)

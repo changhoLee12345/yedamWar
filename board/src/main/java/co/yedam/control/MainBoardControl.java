@@ -23,7 +23,7 @@ import co.yedam.vo.BoardVO;
 /*
  * url pattern과 메소드의 이름을 같아지도록 매핑해야함.
  */
-public class BoardMainControl implements Control2 {
+public class MainBoardControl implements Control2 {
 
 	BoardService svc = new BoardServiceImpl();
 

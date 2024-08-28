@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
-import co.yedam.control.BoardMainControl;
+import co.yedam.control.MainBoardControl;
 import co.yedam.control.api.CartList;
 import co.yedam.control.api.ChartForm;
 import co.yedam.control.api.ChartJson;
