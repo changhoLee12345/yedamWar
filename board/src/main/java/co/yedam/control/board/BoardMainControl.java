@@ -9,19 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
 
-public class BoardDoControl implements Control {
+public class BoardMainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "boardForm.do";
+		String uri = req.getRequestURI();
+		String context = req.getContextPath();
+		String url = uri.substring(context.length());
+
 		String methodName = url.substring(0, url.length() - 3);
 
-		Object obj = new BoardDoControl();
+//		Object obj = new BoardDoControl();
 		try {
-			Class<?> cls = Class.forName(obj.getClass().getName());
+			Class<?> cls = Class.forName(this.getClass().getName());
+			// 실행할 메소드 정의.
 			Method method = cls.getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-			method.invoke(obj, req, resp);
+			method.invoke(this, req, resp);
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -9,4 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp)//
 			throws ServletException, IOException;
+
+//	public void exec(HttpServletRequest req, HttpServletResponse resp, String path)
+//			throws ServletException, IOException;
 }

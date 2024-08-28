@@ -1,4 +1,4 @@
-package co.yedam.common;
+package co.yedam;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.common.Control;
 import co.yedam.control.CartList;
 import co.yedam.control.ChartForm;
 import co.yedam.control.ChartJson;
@@ -21,7 +22,7 @@ import co.yedam.control.EditCart;
 import co.yedam.control.board.AddBoard;
 import co.yedam.control.board.AddBoardForm;
 import co.yedam.control.board.BoardControl;
-import co.yedam.control.board.BoardDoControl;
+import co.yedam.control.board.BoardMainControl;
 import co.yedam.control.board.BoardListControl;
 import co.yedam.control.board.ModifyBoard;
 import co.yedam.control.board.ModifyBoardForm;
@@ -44,6 +45,10 @@ import co.yedam.control.reply.ReplyCount;
 import co.yedam.control.reply.ReplyList;
 
 // init -> service -> destroy
+/*
+ * FrontController의 기존 방식으로 작성한 서블릿. 
+ * 깃을 사용할 경우 충돌되는 문제로 인해 FrontControlMap으로 변경함.
+ */
 public class FrontControl extends HttpServlet {
 
 	// url pattern - 실행서블릿. 관리.
@@ -65,7 +70,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/modifyBoard.do", new ModifyBoard());
 		map.put("/removeForm.do", new RemoveBoardForm());
 		map.put("/removeBoard.do", new RemoveBoard());
-		map.put("/board.do", new BoardDoControl());
+		map.put("/board.do", new BoardMainControl());
 
 		// member관련.
 		map.put("/loginForm.do", new LoginFormControl());
