@@ -31,7 +31,6 @@ public class MenuBoard {
 		menu.put("/modifyBoard.do", new BoardMainControl());
 		menu.put("/removeForm.do", new BoardMainControl());
 		menu.put("/removeBoard.do", new BoardMainControl());
-//		menu.put("/board.do", new BoardDoControl());
 
 		return menu;
 	}

@@ -54,53 +54,77 @@ public class BoardMainControl implements Control2 {
 
 	}
 
-	// 게시글 목록.
-	public void boardList(HttpServletRequest req, HttpServletResponse resp, String path)
+//	public void urlMethod(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException { }
+
+	// 삭제처리.
+	public void removeBoard(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
-		// board/boardList.tiles
-		System.out.println(path);
 
-		// db정보 조회 후 -> boardList.jsp 출력.
-		String sc = req.getParameter("searchCondition");
-		String kw = req.getParameter("keyword");
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page; // page파라미터 없으면 기본값: 1.
+		String bno = req.getParameter("bno");
 
-		SearchVO search = new SearchVO();
-		search.setSearchCondition(sc);
-		search.setKeyword(kw);
-		search.setPage(Integer.parseInt(page));
+		if (svc.removeBoard(Integer.parseInt(bno))) {
+			resp.sendRedirect("boardList.do");
 
-		List<BoardVO> list = svc.boardList(search); // 5건씩 조회.
+		} else {
+			req.setAttribute("msg", "등록중 에러가 발생.");
+			req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req, resp);
 
-		// 페이징 계산.
-		PageDTO dto = new PageDTO(Integer.parseInt(page), svc.getCount(search));
-
-		req.setAttribute("blist", list);
-		req.setAttribute("paging", dto);
-		req.setAttribute("searchCondition", sc);
-		req.setAttribute("keyword", kw);
-
-		HttpUtils.forward(req, resp, path);
-
+		}
 	}
 
-	// 상세페이지.
-	public void getboard(HttpServletRequest req, HttpServletResponse resp, String path)
+	// 삭제화면.
+	public void removeForm(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
-		System.out.println(path);
 
+		String bno = req.getParameter("bno");
+		req.setAttribute("bno", bno);
+
+		HttpUtils.forward(req, resp, path);
+	}
+
+	// 수정처리.
+	public void modifyBoard(HttpServletRequest req, HttpServletResponse resp, String path)
+			throws ServletException, IOException {
+
+		// boardNo, title, content
+		String bno = req.getParameter("boardNo");
+		String tit = req.getParameter("title");
+		String con = req.getParameter("content");
+
+		// 추가파리미터.
+		String page = req.getParameter("page");
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
+
+		BoardVO vo = new BoardVO();
+		vo.setBoardNo(Integer.parseInt(bno));
+		vo.setTitle(tit);
+		vo.setContent(con);
+
+		BoardService svc = new BoardServiceImpl();
+		if (svc.modifyBoard(vo)) {
+			resp.sendRedirect("boardList.do?page=" + page + "&searchCondition=" + sc + "&keyword=" + kw);
+
+		} else {
+			req.setAttribute("msg", "등록중 에러가 발생.");
+			req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req, resp);
+
+		}
+	}
+
+	// 수정화면.
+	public void modifyForm(HttpServletRequest req, HttpServletResponse resp, String path)
+			throws ServletException, IOException {
 		String bno = req.getParameter("bno");
 		// 추가파리미터.
 		String page = req.getParameter("page");
 		String sc = req.getParameter("searchCondition");
 		String kw = req.getParameter("keyword");
 
-		// db조회 -> 페이지재지정.
-		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
-		svc.addViewCnt(Integer.parseInt(bno));
+		BoardService svc = new BoardServiceImpl();
+		BoardVO bvo = svc.getBoard(Integer.parseInt(bno));
 
-		req.setAttribute("bvo", vo);
+		req.setAttribute("bvo", bvo);
 		req.setAttribute("page", page);
 		req.setAttribute("searchCondition", sc);
 		req.setAttribute("keyword", kw);
@@ -111,6 +135,7 @@ public class BoardMainControl implements Control2 {
 	// 글등록 페이지.
 	public void addBoardForm(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
+
 		HttpUtils.forward(req, resp, path);
 	}
 
@@ -146,11 +171,58 @@ public class BoardMainControl implements Control2 {
 		}
 	}
 
-	public void modifyForm(HttpServletRequest req, HttpServletResponse resp, String path)
+	// 상세페이지.
+	public void getboard(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
+		System.out.println(path);
+
+		String bno = req.getParameter("bno");
+		// 추가파리미터.
+		String page = req.getParameter("page");
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
+
+		// db조회 -> 페이지재지정.
+		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
+		svc.addViewCnt(Integer.parseInt(bno));
+
+		req.setAttribute("bvo", vo);
+		req.setAttribute("page", page);
+		req.setAttribute("searchCondition", sc);
+		req.setAttribute("keyword", kw);
+
+		HttpUtils.forward(req, resp, path);
 	}
 
-//	public void urlMethod(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException { }
-//	public void urlMethod(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException { }
+	// 게시글 목록.
+	public void boardList(HttpServletRequest req, HttpServletResponse resp, String path)
+			throws ServletException, IOException {
+		// board/boardList.tiles
+		System.out.println(path);
+
+		// db정보 조회 후 -> boardList.jsp 출력.
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
+		String page = req.getParameter("page");
+		page = page == null ? "1" : page; // page파라미터 없으면 기본값: 1.
+
+		SearchVO search = new SearchVO();
+		search.setSearchCondition(sc);
+		search.setKeyword(kw);
+		search.setPage(Integer.parseInt(page));
+
+		List<BoardVO> list = svc.boardList(search); // 5건씩 조회.
+
+		// 페이징 계산.
+		PageDTO dto = new PageDTO(Integer.parseInt(page), svc.getCount(search));
+
+		req.setAttribute("blist", list);
+		req.setAttribute("paging", dto);
+		req.setAttribute("searchCondition", sc);
+		req.setAttribute("keyword", kw);
+
+		HttpUtils.forward(req, resp, path);
+
+	}
 
 }
