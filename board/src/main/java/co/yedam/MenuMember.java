@@ -28,7 +28,7 @@ public class MenuMember {
 		return instance;
 	}
 
-	public Map<String, Control2> getMenu() {
+	public Map<String, Control2> getMenuMap() {
 
 		Map<String, Control2> map = new HashMap<>();
 

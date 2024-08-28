@@ -16,7 +16,7 @@ public class MenuBoard {
 		return instance;
 	}
 
-	public Map<String, Control2> getMenu() {
+	public Map<String, Control2> getMenuMap() {
 
 		Map<String, Control2> menu = new HashMap<>();
 

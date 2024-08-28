@@ -30,9 +30,9 @@ public class FrontControlMap extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
-		Map<String, Control2> map1 = MenuBoard.getInstance().getMenu();
-		Map<String, Control2> map2 = MenuMember.getInstance().getMenu();
-		Map<String, Control2> map3 = MenuReply.getInstance().getMenu();
+		Map<String, Control2> map1 = MenuBoard.getInstance().getMenuMap();
+		Map<String, Control2> map2 = MenuMember.getInstance().getMenuMap();
+		Map<String, Control2> map3 = MenuReply.getInstance().getMenuMap();
 
 		map.putAll(map1);
 		map.putAll(map2);
