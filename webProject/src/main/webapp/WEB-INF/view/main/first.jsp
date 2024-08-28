@@ -1,3 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<h3>일반사용자...</h3>
+<h3>First Page</h3>
+<p>${content }</p>
+<a href="main.do">Main Page</a>
