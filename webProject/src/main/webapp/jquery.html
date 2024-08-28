@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='js/jquery-3.7.1.js'></script>
+</head>
+<body>
+  <!-- webapp/jquery.html -->
+  <ul id="list"></ul>
+
+  <script>
+  // DOM 제어.
+  // document.createElement('div')
+  // innerText = 'hello';
+  $('body').append($('<div />').text('hello'));
+   // <div>hello</div>
+   
+  $('#list').append($('<li>Apple</li>'),
+		            $('<li />').text('Banana'));
+  // $, _ 특수문자 변수의 명에 사용가능.
+  let $cherry = $('<li />').text('Cherry');
+  $('#list').append($cherry);
+  
+  
+  </script>  
+</body>
+</html>
