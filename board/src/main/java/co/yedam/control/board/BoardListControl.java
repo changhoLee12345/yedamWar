@@ -33,8 +33,7 @@ public class BoardListControl implements Control {
 		List<BoardVO> list = svc.boardList(search); // 5건씩 조회.
 
 		// 페이징 계산.
-		PageDTO dto = //
-				new PageDTO(Integer.parseInt(page), svc.getCount(search));
+		PageDTO dto = new PageDTO(Integer.parseInt(page), svc.getCount(search));
 
 		req.setAttribute("blist", list);
 		req.setAttribute("paging", dto);
@@ -42,8 +41,7 @@ public class BoardListControl implements Control {
 		req.setAttribute("keyword", kw);
 
 		// 페이지재지정.
-		req.getRequestDispatcher("board/boardList.tiles")//
-				.forward(req, resp);
+		req.getRequestDispatcher("board/boardList.tiles").forward(req, resp);
 	}
 
 }

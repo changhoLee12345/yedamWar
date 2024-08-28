@@ -41,7 +41,7 @@
 	<!-- frontcontrol -->
 	<servlet>
 		<servlet-name>front</servlet-name>
-		<servlet-class>co.yedam.common.FrontControlMap</servlet-class>
+		<servlet-class>co.yedam.FrontControlMap</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>front</servlet-name>

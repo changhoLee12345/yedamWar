@@ -14,7 +14,7 @@ public class AddBoardForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String jspPath = "board/boardForm.tiles";
+		String jspPath = "board/addBoardForm.tiles";
 		HttpUtils.forward(req, resp, jspPath);
 
 	}

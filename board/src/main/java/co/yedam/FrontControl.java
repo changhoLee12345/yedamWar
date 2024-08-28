@@ -11,18 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
-import co.yedam.control.CartList;
-import co.yedam.control.ChartForm;
-import co.yedam.control.ChartJson;
-import co.yedam.control.DataForm;
-import co.yedam.control.DataTable;
-import co.yedam.control.DelCart;
-import co.yedam.control.DomForm;
-import co.yedam.control.EditCart;
+import co.yedam.control.BoardMainControl;
+import co.yedam.control.api.CartList;
+import co.yedam.control.api.ChartForm;
+import co.yedam.control.api.ChartJson;
+import co.yedam.control.api.DataForm;
+import co.yedam.control.api.DataTable;
+import co.yedam.control.api.DelCart;
+import co.yedam.control.api.DomForm;
+import co.yedam.control.api.EditCart;
 import co.yedam.control.board.AddBoard;
 import co.yedam.control.board.AddBoardForm;
 import co.yedam.control.board.BoardControl;
-import co.yedam.control.board.BoardMainControl;
 import co.yedam.control.board.BoardListControl;
 import co.yedam.control.board.ModifyBoard;
 import co.yedam.control.board.ModifyBoardForm;
@@ -70,7 +70,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/modifyBoard.do", new ModifyBoard());
 		map.put("/removeForm.do", new RemoveBoardForm());
 		map.put("/removeBoard.do", new RemoveBoard());
-		map.put("/board.do", new BoardMainControl());
 
 		// member관련.
 		map.put("/loginForm.do", new LoginFormControl());
