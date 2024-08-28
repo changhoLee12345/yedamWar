@@ -15,7 +15,7 @@ public class MenuReply {
 		return instance;
 	}
 
-	public Map<String, Control2> getMenuMap() {
+	public Map<String, Control2> menuMap() {
 
 		Map<String, Control2> map = new HashMap<>();
 		map.put("/replyList.do", new MainReplyControl()); // 목록json

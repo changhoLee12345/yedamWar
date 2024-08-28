@@ -37,9 +37,9 @@ public class FrontControlMap extends HttpServlet {
 		// url patter과 실행하는 컨트롤의 메소드와 매칭하기.
 //		map.put("/main.do", new MainControl()); // example...
 
-		Map<String, Control2> map1 = MenuBoard.getInstance().getMenuMap();
-		Map<String, Control2> map2 = MenuMember.getInstance().getMenuMap();
-		Map<String, Control2> map3 = MenuReply.getInstance().getMenuMap();
+		Map<String, Control2> map1 = MenuBoard.getInstance().menuMap();
+		Map<String, Control2> map2 = MenuMember.getInstance().menuMap();
+		Map<String, Control2> map3 = MenuReply.getInstance().menuMap();
 
 		map.putAll(map1);
 		map.putAll(map2);
