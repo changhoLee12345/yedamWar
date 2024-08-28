@@ -10,6 +10,7 @@
 
 <body>
 	<h3>test filter</h3>
+	<a href="main.do">Main Control</a>
 </body>
 
 </html>

@@ -1,10 +1,9 @@
-package co.yedam;
+package co.yedam.control;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import co.yedam.common.Control2;
-import co.yedam.control.BoardMainControl;
 
 public class MenuBoard {
 	private static MenuBoard instance = new MenuBoard();

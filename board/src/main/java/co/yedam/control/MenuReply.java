@@ -1,19 +1,9 @@
-package co.yedam;
+package co.yedam.control;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import co.yedam.common.Control2;
-import co.yedam.control.ReplyMainControl;
-import co.yedam.control.api.CartList;
-import co.yedam.control.api.ChartForm;
-import co.yedam.control.api.ChartJson;
-import co.yedam.control.api.DataTable;
-import co.yedam.control.api.DelCart;
-import co.yedam.control.api.EditCart;
-import co.yedam.control.reply.AddReply;
-import co.yedam.control.reply.RemoveReply;
-import co.yedam.control.reply.ReplyCount;
 
 public class MenuReply {
 	private static MenuReply instance = new MenuReply();

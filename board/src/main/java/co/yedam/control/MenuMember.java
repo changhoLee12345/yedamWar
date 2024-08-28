@@ -1,22 +1,9 @@
-package co.yedam;
+package co.yedam.control;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import co.yedam.common.Control2;
-import co.yedam.control.MemberMainControl;
-import co.yedam.control.api.DomForm;
-import co.yedam.control.member.AddMemberAjax;
-import co.yedam.control.member.AddMemberControl;
-import co.yedam.control.member.AddMemberForm;
-import co.yedam.control.member.LoginControl;
-import co.yedam.control.member.LoginFormControl;
-import co.yedam.control.member.LogoutControl;
-import co.yedam.control.member.MemberAjax;
-import co.yedam.control.member.MemberDataControl;
-import co.yedam.control.member.MemberForm;
-import co.yedam.control.member.MemberListControl;
-import co.yedam.control.reply.RemoveMemberControl;
 
 public class MenuMember {
 	private static MenuMember instance = new MenuMember();

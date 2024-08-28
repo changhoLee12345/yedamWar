@@ -1,4 +1,4 @@
-package co.yedam;
+package co.yedam.web;
 
 import java.io.IOException;
 import java.util.HashMap;

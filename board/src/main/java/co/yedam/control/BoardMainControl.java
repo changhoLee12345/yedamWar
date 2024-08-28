@@ -3,6 +3,7 @@ package co.yedam.control;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,21 +33,18 @@ public class BoardMainControl implements Control2 {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp, String path)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String uri = req.getRequestURI();
-		String context = req.getContextPath();
-		String url = uri.substring(context.length());
 
-		String methodName = url.substring(1, url.length() - 3);
+		String methodName = path.substring(1, path.length() - 3);
 
 		try {
 			Class<?> cls = Class.forName(this.getClass().getName());
 			// 실행할 메소드 정의.
-			Method method = cls.getDeclaredMethod(methodName, //
-					HttpServletRequest.class, //
-					HttpServletResponse.class, //
-					String.class);
-			method.invoke(this, req, resp, modulePath + url.replaceAll(".do", tiles));
+			Method method = cls.getDeclaredMethod(methodName, // 메소드명.
+					HttpServletRequest.class, // 파라미터1.
+					HttpServletResponse.class, // 파라미터2.
+					String.class// 파라미터3.
+			);
+			method.invoke(this, req, resp, modulePath + path.replaceAll(".do", tiles)); // 메소드 실행.
 
 		} catch (Exception e) {
 			e.printStackTrace();

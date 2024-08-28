@@ -1,4 +1,4 @@
-package co.yedam;
+package co.yedam.web;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.common.Control;
 import co.yedam.common.Control2;
+import co.yedam.control.MenuBoard;
+import co.yedam.control.MenuMember;
+import co.yedam.control.MenuReply;
 
 // init -> service -> destroy
 /*
@@ -19,6 +21,8 @@ import co.yedam.common.Control2;
  * 깃을 사용할 경우 충돌되는 문제로 인해 FrontControlMap으로 변경함.
  */
 public class FrontControlMap extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	// url pattern - 실행서블릿. 관리.
 	Map<String, Control2> map;
@@ -29,6 +33,9 @@ public class FrontControlMap extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+
+		// url patter과 실행하는 컨트롤의 메소드와 매칭하기.
+//		map.put("/main.do", new MainControl()); // example...
 
 		Map<String, Control2> map1 = MenuBoard.getInstance().getMenuMap();
 		Map<String, Control2> map2 = MenuMember.getInstance().getMenuMap();
