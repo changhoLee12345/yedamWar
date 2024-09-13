@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
-import com.dev.service.MemberService;
+import com.dev.service.MemberServiceImpl;
 
 public class MemberLoginController implements Controller {
 
@@ -17,7 +17,7 @@ public class MemberLoginController implements Controller {
 		String id = request.getParameter("mid");
 		String pw = request.getParameter("passwd");
 
-		MemberService service = MemberService.getInstance();
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
 
 	}
 

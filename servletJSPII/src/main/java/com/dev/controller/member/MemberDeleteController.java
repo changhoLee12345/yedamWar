@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.MemberService;
+import com.dev.service.MemberServiceImpl;
 
 public class MemberDeleteController implements Controller {
 
@@ -16,8 +16,8 @@ public class MemberDeleteController implements Controller {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String id = request.getParameter("id");
 
-		MemberService service = MemberService.getInstance();
-		service.memberDelete(id);
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
+		service.removeMember(id);
 
 		HttpUtil.forward(request, response, "memberResult/memberDeleteOutput.jsp");
 	}

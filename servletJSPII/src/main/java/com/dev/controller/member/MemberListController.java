@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.dao.MemberDAO;
-import com.dev.dao.MemberMybatisDAO;
-import com.dev.service.MemberService;
+import com.dev.dao.MemberJdbc;
+import com.dev.dao.MemberMybatis;
+import com.dev.service.MemberServiceImpl;
 import com.dev.vo.MemberVO;
 
 public class MemberListController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		MemberService service = MemberService.getInstance();
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
 
 		List<MemberVO> list = service.memberList();
 		request.setAttribute("list", list);

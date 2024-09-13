@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.BoardService;
+import com.dev.service.BoardServiceImpl;
 import com.dev.vo.BoardVO;
 import com.dev.vo.ReplyVO;
 

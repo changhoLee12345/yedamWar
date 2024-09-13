@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.BoardService;
 import com.dev.service.BoardServiceImpl;
 import com.dev.vo.BoardVO;
 
 public class BoardController implements Controller {
+
+	// 인스턴스 생성.
+	BoardServiceImpl service = BoardServiceImpl.getInstance();
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -36,13 +38,11 @@ public class BoardController implements Controller {
 
 	public void board(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String bno = request.getParameter("bno");
-		BoardServiceImpl service = new BoardServiceImpl();
 		System.out.println(service.getBoard(Integer.parseInt(bno)));
 	}
 
 	public void boardList(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		BoardService service = BoardService.getInstance();
 		List<BoardVO> list = service.getBoardReplyList("user1");
 		request.setAttribute("boardReplyList", list);
 

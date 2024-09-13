@@ -13,7 +13,7 @@ public class DataSource {
 	public static SqlSessionFactory sessionFactory;
 
 	static {
-		String resource = "com/dev/mybatisdb/mybatis-config.xml";
+		String resource = "config/mybatis-config.xml";
 		InputStream inputStream = null;
 
 		try {

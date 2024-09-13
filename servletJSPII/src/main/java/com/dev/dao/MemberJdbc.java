@@ -5,23 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dev.common.DAO;
+import com.dev.common.SearchDTO;
 import com.dev.vo.MemberVO;
 
-public class MemberDAO extends DAO {
+public class MemberJdbc extends DAO implements MemberAction {
 
-	private static MemberDAO instance = new MemberDAO();
+	private static MemberJdbc instance = new MemberJdbc();
 
-	private MemberDAO() {
+	private MemberJdbc() {
 	}
 
-	public static MemberDAO getInstance() {
+	public static MemberJdbc getInstance() {
 		return instance;
 	}
 
-	// 리스트
-	public List<MemberVO> memberList() {
+	@Override
+	public List<MemberVO> selectList(SearchDTO search) {
 		conn = connect();
-		String sql = "select id, name, passwd, email from member order by 1";
+		String sql = "select id, name, passwd, email " //
+				+ "from member "//
+				+ "where 1 = 1 "//
+				+ "order by 1";
 		List<MemberVO> list = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -45,7 +49,8 @@ public class MemberDAO extends DAO {
 	}
 
 	// 조회
-	public MemberVO memberSearch(String id) {
+	@Override
+	public MemberVO selectMember(String id) {
 		conn = connect();
 		String sql = "select * from member where id = ?";
 		MemberVO member = new MemberVO();
@@ -69,7 +74,8 @@ public class MemberDAO extends DAO {
 	}
 
 	// 입력
-	public void memberInsert(MemberVO member) {
+	@Override
+	public int memberInsert(MemberVO member) {
 		connect();
 		String sql = "insert into member(id, name, passwd, mail) values(?,?,?,?)";
 
@@ -81,16 +87,18 @@ public class MemberDAO extends DAO {
 			psmt.setString(4, member.getEmail());
 
 			int r = psmt.executeUpdate();
-			System.out.println(r + " 건 입력.");
+			if (r > 0)
+				return r;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+		return 0;
 	}
 
 	// 수정
-	public void memberUpdate(MemberVO member) {
+	public int memberUpdate(MemberVO member) {
 		conn = connect();
 		String sql = "update member set passwd=?, name=?, mail=? where id=?";
 
@@ -101,17 +109,20 @@ public class MemberDAO extends DAO {
 			psmt.setString(3, member.getEmail());
 			psmt.setString(4, member.getId());
 			int r = psmt.executeUpdate();
-			System.out.println(r + "건 변경.");
+			if (r > 0)
+				return r;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+		return 0;
 	}
 
 	// 삭제
-	public void memberDelete(String id) {
+	@Override
+	public int memberDelete(String id) {
 		conn = connect();
 		String sql = "delete from member where id=?";
 
@@ -119,15 +130,14 @@ public class MemberDAO extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			int r = psmt.executeUpdate();
-			System.out.println(r + "건 삭제.");
-
+			if (r > 0)
+				return r;
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		} finally {
 			disconnect();
-
 		}
+		return 0;
 	}
 
 }

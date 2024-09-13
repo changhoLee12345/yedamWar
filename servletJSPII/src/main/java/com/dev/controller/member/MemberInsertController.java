@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.MemberService;
+import com.dev.service.MemberServiceImpl;
 import com.dev.vo.MemberVO;
 
 public class MemberInsertController implements Controller {
@@ -32,8 +32,8 @@ public class MemberInsertController implements Controller {
 		member.setPasswd(passwd);
 		member.setEmail(mail);
 
-		MemberService service = MemberService.getInstance();
-		service.memberInsert(member);
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
+		service.addMember(member);
 
 		request.setAttribute("id", id);
 		HttpUtil.forward(request, response, "member/memberInsertOutput.tiles");

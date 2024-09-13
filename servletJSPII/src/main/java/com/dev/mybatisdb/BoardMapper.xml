@@ -5,22 +5,38 @@
 <mapper namespace="com.dev.mybatisdb.boardMapper">
 
 	<select id="getBoard" parameterType="int" resultType="board">
-		SELECT * FROM tbl_board WHERE bno = #{bno}
+		SELECT *
+		FROM tbl_board
+		WHERE board_no = #{bno}
 	</select>
 
 	<select id="getBoardList" resultType="board" parameterType="string">
-		SELECT * FROM tbl_board where writer = #{writer} ORDER BY 1 DESC
+		SELECT * 
+		FROM tbl_board 
+		where writer = #{writer} 
+		ORDER BY 1 DESC
 	</select>
-	
+
 	<select id="getReplyList" resultType="reply" parameterType="int">
-		select * from tbl_reply where bno = #{bno} order by 1
+		select * 
+		from tbl_reply 
+		where bno = #{bno} 
+		order by 1
 	</select>
 
 	<select id="getReplyMapList" resultType="map" parameterType="int">
-		select b.bno bno, b.title title, b.content content, b.writer writer, to_char(b.create_date, 'rrrr-mm-dd') create_date,
-               r.rno rno, r.content reply_content, r.writer reply_writer, to_char(r.create_date, 'rrrr-mm-dd') reply_date
-		from   tbl_board b join tbl_reply r 
-		on     b.bno = r.bno
+		select b.bno bno
+		     , b.title title
+		     , b.content content
+		     , b.writer writer
+		     , to_char(b.create_date, 'rrrr-mm-dd') create_date
+		     , r.rno rno
+		     , r.content reply_content
+		     , r.writer reply_writer
+		     , to_char(r.create_date, 'rrrr-mm-dd') reply_date
+		from tbl_board b 
+		join tbl_reply r
+		on b.bno = r.bno
 		where b.bno = #{bno}
 	</select>
 

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.MemberService;
+import com.dev.service.MemberServiceImpl;
 import com.dev.vo.MemberVO;
 
 public class MemberSearchController implements Controller {
@@ -31,8 +31,8 @@ public class MemberSearchController implements Controller {
 			return;
 		}
 
-		MemberService service = MemberService.getInstance();
-		MemberVO member = service.memberSearch(id);
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
+		MemberVO member = service.getMember(id);
 		System.out.println(member);
 
 		if (member == null) {

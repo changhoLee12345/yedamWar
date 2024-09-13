@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.dev.common.DAO;
+import com.dev.common.SearchDTO;
 import com.dev.vo.BoardVO;
 import com.dev.vo.ReplyVO;
 
-public class BoardDAO extends DAO {
+public class BoardJdbc extends DAO implements BoardAction {
 
 	public List<Map<String, Object>> getReplyMapList(int bno) {
-
 		return null;
 	}
 
@@ -42,13 +42,14 @@ public class BoardDAO extends DAO {
 		return replyList;
 	}
 
-	public List<BoardVO> getBoardList(String user) {
+	@Override
+	public List<BoardVO> boardList(SearchDTO search) {
 		connect();
 		List<BoardVO> boardList = new ArrayList<>();
 		String sql = "select * from tbl_board where id=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, user);
+			psmt.setString(1, search.getWriter());
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				BoardVO vo = new BoardVO();
@@ -68,5 +69,25 @@ public class BoardDAO extends DAO {
 			disconnect();
 		}
 		return boardList;
+	}
+
+	@Override
+	public BoardVO getBoard(int bno) {
+		return null;
+	}
+
+	@Override
+	public boolean addBoard(BoardVO board) {
+		return false;
+	}
+
+	@Override
+	public boolean modifyBoard(BoardVO board) {
+		return false;
+	}
+
+	@Override
+	public boolean removeBoard(int bno) {
+		return false;
 	}
 }

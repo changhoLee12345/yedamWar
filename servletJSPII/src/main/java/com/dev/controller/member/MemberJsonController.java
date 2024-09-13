@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
-import com.dev.service.MemberService;
+import com.dev.service.MemberServiceImpl;
 import com.dev.vo.MemberVO;
 
 public class MemberJsonController implements Controller {
@@ -23,7 +23,7 @@ public class MemberJsonController implements Controller {
 
 		response.setContentType("text/html;charset=UTF-8");
 
-		MemberService service = MemberService.getInstance();
+		MemberServiceImpl service = MemberServiceImpl.getInstance();
 		List<MemberVO> list = service.memberList();
 
 		JSONArray ary = new JSONArray();

@@ -2,23 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dev.mybatisdb.memberMapper">
+<mapper namespace="com.dev.mybatisdb.MemberMapper">
 
 	<select id="login" parameterType="string" resultType="member">
 		<![CDATA[
 		select * from member where id = ${id} and passwd = ${pw}
-		]]
+		]]>
 	</select>
 
-	<select id="getMember" parameterType="string" resultType="member">
+	<select id="getMember" parameterType="string"
+		resultType="member">
 		<![CDATA[
-		SELECT * FROM member WHERE id = #{id}
+		SELECT * 
+		FROM member 
+		WHERE id = #{id}
 		]]>
 	</select>
 
 	<select id="getMemberList" resultType="member">
 		<![CDATA[
-		SELECT * FROM member ORDER BY 1 DESC
+		SELECT * 
+		FROM member 
+		ORDER BY 1 DESC
 		]]>
 	</select>
 
@@ -53,7 +58,8 @@
 		<result property="email" column="email" />
 	</resultMap>
 
-	<select id="getMemberMap" resultMap="memberMap" parameterType="string">
+	<select id="getMemberMap" resultMap="memberMap"
+		parameterType="string">
 		<![CDATA[
 		select id, name, passwd, email
 		from member
