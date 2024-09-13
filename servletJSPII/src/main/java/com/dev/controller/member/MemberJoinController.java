@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
 import java.io.IOException;
 
@@ -8,15 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
-import com.dev.common.HttpUtil;
 
-public class MemberJoinFormController implements Controller {
+public class MemberJoinController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-
-		HttpUtil.forward(request, response, "member/memberInsert.tiles");
+		ServletInputStream sis = request.getInputStream();
+		byte[] buf = new byte[100];
+		int readBuf = 0;
+		while (true) {
+			readBuf = sis.read();
+			if (readBuf == -1)
+				break;
+			System.out.println((char) readBuf);
+		}
 
 	}
 

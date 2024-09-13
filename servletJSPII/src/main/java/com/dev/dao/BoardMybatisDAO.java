@@ -6,14 +6,14 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.dev.common.SqlMapSessionFactory;
+import com.dev.common.DataSource;
 import com.dev.vo.BoardVO;
 import com.dev.vo.ReplyVO;
 
 public class BoardMybatisDAO {
 
 	// sqlSessionFactory에서 sqlSession을 생성해오기 위해 ..
-	SqlSessionFactory sessionFactory = SqlMapSessionFactory.getSqlSessionFactory();
+	SqlSessionFactory sessionFactory = DataSource.getSqlSessionFactory();
 
 	private static BoardMybatisDAO instance = new BoardMybatisDAO();
 

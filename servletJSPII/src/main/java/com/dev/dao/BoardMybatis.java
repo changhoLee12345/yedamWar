@@ -3,13 +3,13 @@ package com.dev.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.dev.common.SqlMapSessionFactory;
+import com.dev.common.DataSource;
 import com.dev.mybatisdb.BaordMapper;
 import com.dev.vo.BoardVO;
 
 public class BoardMybatis {
 	// sqlSessionFactory에서 sqlSession을 생성해오기 위해 ..
-	SqlSessionFactory sessionFactory = SqlMapSessionFactory.getSqlSessionFactory();
+	SqlSessionFactory sessionFactory = DataSource.getSqlSessionFactory();
 
 	private static BoardMybatis instance = new BoardMybatis();
 

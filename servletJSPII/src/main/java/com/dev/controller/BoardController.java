@@ -2,6 +2,7 @@ package com.dev.controller;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
 import com.dev.common.HttpUtil;
+import com.dev.service.BoardService;
+import com.dev.service.BoardServiceImpl;
+import com.dev.vo.BoardVO;
 
-public class MainController implements Controller {
+public class BoardController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -30,19 +34,18 @@ public class MainController implements Controller {
 
 	} // end of execute.
 
-	public void main(HttpServletRequest request, HttpServletResponse response) {
-		HttpUtil.forward(request, response, "main/main.tiles");
+	public void board(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String bno = request.getParameter("bno");
+		BoardServiceImpl service = new BoardServiceImpl();
+		System.out.println(service.getBoard(Integer.parseInt(bno)));
 	}
 
-	public void cart(HttpServletRequest request, HttpServletResponse response) {
-		HttpUtil.forward(request, response, "cart/cart.jsp");
-	}
+	public void boardList(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		BoardService service = BoardService.getInstance();
+		List<BoardVO> list = service.getBoardReplyList("user1");
+		request.setAttribute("boardReplyList", list);
 
-	public void spec(HttpServletRequest request, HttpServletResponse response) {
-		HttpUtil.forward(request, response, "WEB-INF/spec.jsp");
-	}
-
-	public void table(HttpServletRequest request, HttpServletResponse response) {
-		HttpUtil.forward(request, response, "main/table.tiles");
+		HttpUtil.forward(request, response, "board/boardList.tiles");
 	}
 }

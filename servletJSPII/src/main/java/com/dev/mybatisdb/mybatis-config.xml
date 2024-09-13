@@ -2,13 +2,14 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
 
 	<properties resource="com/dev/mybatisdb/database.properties" />
 
 	<settings>
-		<setting name="jdbcTypeForNull" value="NULL"/>
-		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 
 	<typeAliases>
@@ -29,12 +30,10 @@
 		</environment>
 	</environments>
 
-<!-- 	<mappers>
-		<mapper resource="com/dev/mybatisdb/memberMapper.xml" />
-		<mapper resource="com/dev/mybatisdb/boardMapper.xml" />
-	</mappers>
- -->
 	<mappers>
 		<package name="com.dev.mybatisdb" />
+	<!-- <mapper resource="com/dev/mybatisdb/memberMapper.xml" /> -->
+	<!-- <mapper resource="com/dev/mybatisdb/boardMapper.xml" /> -->
 	</mappers>
+
 </configuration>

@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dev.controller.CartController;
+import com.dev.controller.BoardController;
 import com.dev.controller.MainController;
-import com.dev.controller.MemberJoinController;
-import com.dev.controller.MemberJoinFormController;
-import com.dev.controller.MemberLoginController;
-import com.dev.controller.MemberLoginFormController;
-import com.dev.controller.SpecialController;
-import com.dev.controller.TilesTableController;
-import com.dev.controller.board.BoardController;
-import com.dev.controller.board.ReplyListController;
+import com.dev.controller.ReplyController;
 import com.dev.controller.member.MemberDeleteController;
 import com.dev.controller.member.MemberInsertController;
+import com.dev.controller.member.MemberJoinController;
+import com.dev.controller.member.MemberJoinFormController;
 import com.dev.controller.member.MemberJsonController;
 import com.dev.controller.member.MemberListController;
+import com.dev.controller.member.MemberLoginController;
+import com.dev.controller.member.MemberLoginFormController;
 import com.dev.controller.member.MemberSearchController;
 import com.dev.controller.member.MemberUpdateController;
 
@@ -39,13 +36,14 @@ public class FrontController extends HttpServlet {
 		charset = config.getInitParameter("charset");
 
 		list = new HashMap<String, Controller>();
-		list.put("/main.do", new MainController());
 
+		// 회원가입.
 		list.put("/memberJoinForm.do", new MemberJoinFormController());
 		list.put("/memberJoin.do", new MemberJoinController());
 		list.put("/memberLoginForm.do", new MemberLoginFormController());
 		list.put("/memberLogin.do", new MemberLoginController());
 
+		// 회원관련.
 		list.put("/memberDelete.do", new MemberDeleteController());
 		list.put("/memberInsert.do", new MemberInsertController());
 		list.put("/memberList.do", new MemberListController());
@@ -53,18 +51,23 @@ public class FrontController extends HttpServlet {
 		list.put("/memberUpdate.do", new MemberUpdateController());
 		list.put("/memberJson.do", new MemberJsonController());
 
+		// 게시글관련.
 		list.put("/board.do", new BoardController());
-		list.put("/replyList.do", new ReplyListController());
 
-		list.put("/spec.do", new SpecialController());
-		list.put("/table.do", new TilesTableController());
-		list.put("/cart.do", new CartController());
+		// 댓글관련.
+		list.put("/replyList.do", new ReplyController());
+
+		// 기타기능.
+		list.put("/main.do", new MainController());
+		list.put("/spec.do", new MainController());
+		list.put("/table.do", new MainController());
+		list.put("/cart.do", new MainController());
 
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding(charset);
+		req.setCharacterEncoding(charset); // 셋업된 값을 가지고 온다.
 
 		String url = req.getRequestURI();
 		String contextPath = req.getContextPath();
@@ -72,7 +75,7 @@ public class FrontController extends HttpServlet {
 		System.out.println(path);
 
 		Controller subControl = list.get(path);
-		subControl.execute(req, resp);
+		subControl.execute(req, resp); // 반환된 컨트롤객체 실행.
 
 	}
 

@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.dev.common.SqlMapSessionFactory;
+import com.dev.common.DataSource;
 import com.dev.vo.MemberVO;
 
 public class MemberMybatisDAO {
@@ -17,7 +17,7 @@ public class MemberMybatisDAO {
 	private static MemberMybatisDAO instance = new MemberMybatisDAO();
 
 	private MemberMybatisDAO() {
-		sessionFactory = SqlMapSessionFactory.getSqlSessionFactory();
+		sessionFactory = DataSource.getSqlSessionFactory();
 	}
 
 	public static MemberMybatisDAO getInstance() {
