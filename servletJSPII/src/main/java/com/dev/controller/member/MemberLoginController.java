@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dev.common.Controller;
+import com.dev.common.HttpUtil;
 import com.dev.service.MemberServiceImpl;
+import com.dev.vo.MemberVO;
 
 public class MemberLoginController implements Controller {
 
@@ -17,7 +19,15 @@ public class MemberLoginController implements Controller {
 		String id = request.getParameter("mid");
 		String pw = request.getParameter("passwd");
 
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPasswd(pw);
+
 		MemberServiceImpl service = MemberServiceImpl.getInstance();
+		vo = service.login(vo);
+		request.setAttribute("vo", vo);
+
+		HttpUtil.forward(request, response, "member/memberInsertOutput.tiles");
 
 	}
 

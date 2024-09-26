@@ -38,8 +38,9 @@ public class MemberMybatis implements MemberAction {
 
 	// 멤버리스트.
 	public List<MemberVO> memberList() {
+		System.out.println("memberList");
 		try (SqlSession session = sqlSessionFactory.openSession()) {
-			List<MemberVO> memberList = session.selectList("com.dev.mybatisdb.memberMapper.getMemberList");
+			List<MemberVO> memberList = session.selectList("com.dev.mybatisdb.MemberMapper.getMemberList");
 			return memberList;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,7 +50,12 @@ public class MemberMybatis implements MemberAction {
 
 	@Override
 	public List<MemberVO> selectList(SearchDTO search) {
-		// TODO Auto-generated method stub
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			List<MemberVO> memberList = session.selectList("com.dev.mybatisdb.MemberMapper.getMemberList");
+			return memberList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

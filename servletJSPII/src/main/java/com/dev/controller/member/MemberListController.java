@@ -16,6 +16,8 @@ public class MemberListController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("memberlist control");
+
 		MemberServiceImpl service = MemberServiceImpl.getInstance();
 
 		List<MemberVO> list = service.memberList();

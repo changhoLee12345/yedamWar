@@ -7,4 +7,4 @@
 <a href="memberView/memberUpdate.jsp">회원정보수정</a><br>
 <a href="memberView/memberDelete.jsp">회원정보삭제</a><br>
 <a href="<%=request.getContextPath()%>/memberList.do">모든회원정보보기</a><br>
-<a href="<%=request.getContextPath()%>/main.do">spec</a>
+<a href="<%=request.getContextPath()%>/main.do">main page</a>

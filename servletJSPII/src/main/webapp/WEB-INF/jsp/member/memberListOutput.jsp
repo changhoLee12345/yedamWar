@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h3>회원정보 page</h3>
+    <h3>회원목록 페이지</h3>
     <c:choose>
         <c:when test="${not empty list }">
             <table border="1">

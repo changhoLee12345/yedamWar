@@ -14,6 +14,7 @@ public class MemberServiceImpl implements MemberService {
 	private static MemberServiceImpl service = new MemberServiceImpl();
 
 	private MemberServiceImpl() {
+		System.out.println("MemberServiceImpl");
 	}
 
 	public static MemberServiceImpl getInstance() {
@@ -27,6 +28,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 리스트
 	public List<MemberVO> memberList() {
+		System.out.println("memberList()");
 		return action.selectList(null);
 	}
 
