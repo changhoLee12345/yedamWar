@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-
-<body>
+<jsp:include page="../includes/header.jsp" />
     <h3>회원정보삭제</h3>
     ${error }
 
@@ -31,6 +23,5 @@
         </c:when>
         <c:otherwise>${result }</c:otherwise>
     </c:choose>
-</body>
 
-</html>
+<jsp:include page="../includes/footer.jsp" />
