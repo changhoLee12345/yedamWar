@@ -72,8 +72,8 @@ public class MemberMybatis implements MemberAction {
 
 	// 입력.
 	public int memberInsert(MemberVO member) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
-			return session.insert("com.dev.mybatisdb.memberMapper.insertMember", member);
+		try (SqlSession session = sqlSessionFactory.openSession(true)) {
+			return session.insert("com.dev.mybatisdb.MemberMapper.insertMember", member);
 		}
 	}
 
