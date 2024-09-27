@@ -94,7 +94,12 @@ public class MemberMybatis implements MemberAction {
 
 	@Override
 	public MemberVO selectMember(String id) {
-		// TODO Auto-generated method stub
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			MemberVO member = session.selectOne("com.dev.mybatisdb.MemberMapper.getMember", id);
+			return member;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

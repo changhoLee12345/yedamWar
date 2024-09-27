@@ -19,6 +19,7 @@ MemberVO member = new MemberVO();
 // String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/" + request.getContextPath();
 
 // memberControl.jsp 를 호출하면 목록을 기본으로 보여주고 그 외에는 job에 따라서 처리한다.
+
 if (job == null) {
 	List<MemberVO> list = svc.memberList();
 	request.setAttribute("list", list);
@@ -26,10 +27,10 @@ if (job == null) {
 	request.getRequestDispatcher("./memberResult/memberListOutput.jsp").forward(request, response);
 
 } else {
-	if (job.equals("form")) {
+	if (job.equals("form")) { // 등록화면.
 		response.sendRedirect("./memberView/memberInsert.jsp");
 
-	} else if (job.equals("insert")) {
+	} else if (job.equals("insert")) { // 등록.
 
 		member.setId(id);
 		member.setPasswd(pw);
@@ -38,15 +39,15 @@ if (job == null) {
 
 		svc.addMember(member);
 
-		response.sendRedirect("./memberControl/memberControl.jsp");
+		response.sendRedirect(request.getContextPath() + "/member/memberControl.jsp"); // 목록으로 이동하기.
 
-	} else if (job.equals("search")) {
+	} else if (job.equals("search")) { // 조회.
 		member = svc.getMember(id);
 		request.setAttribute("member", member);
 
 		request.getRequestDispatcher("./memberResult/memberInfoOutput.jsp").forward(request, response);
 
-	} else {
+	} else { // 목록.
 		List<MemberVO> list = svc.memberList();
 		request.setAttribute("list", list);
 

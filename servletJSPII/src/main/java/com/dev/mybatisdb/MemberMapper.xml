@@ -10,8 +10,7 @@
 		]]>
 	</select>
 
-	<select id="getMember" parameterType="string"
-		resultType="member">
+	<select id="getMember" parameterType="string" resultType="member">
 		<![CDATA[
 		SELECT * 
 		FROM member 
@@ -58,8 +57,7 @@
 		<result property="email" column="email" />
 	</resultMap>
 
-	<select id="getMemberMap" resultMap="memberMap"
-		parameterType="string">
+	<select id="getMemberMap" resultMap="memberMap" parameterType="string">
 		<![CDATA[
 		select id, name, passwd, email
 		from member

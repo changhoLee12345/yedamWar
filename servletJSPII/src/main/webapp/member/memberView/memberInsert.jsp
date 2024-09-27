@@ -4,7 +4,8 @@
 <jsp:include page="../includes/header.jsp" />
 
 <h3>회원가입</h3>
-<form action="<%=request.getContextPath() %>/memberControl/memberControl.jsp?job=insert">
+<p><%=request.getContextPath() %></p>
+<form action="<%=request.getContextPath() %>/member/memberControl.jsp?job=insert">
 <input type="hidden" name="job" value="insert">
     <table class="table">
         <tr>
