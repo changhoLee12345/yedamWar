@@ -1,4 +1,4 @@
-package com.yedam;
+package co.yedam;
 
 import org.apache.ibatis.session.SqlSession;
 
