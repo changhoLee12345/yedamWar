@@ -1,4 +1,4 @@
-package co.yedam.common;
+package co.yedam.common.control;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -14,8 +14,8 @@ import org.springframework.util.StreamUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import co.yedam.reply.service.ReplyService;
-import co.yedam.reply.service.ReplyServiceImpl;
+import co.yedam.common.Center;
+import co.yedam.common.Control;
 
 public class RegisterCenter implements Control {
 

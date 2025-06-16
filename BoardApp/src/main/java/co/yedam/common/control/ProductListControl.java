@@ -1,10 +1,12 @@
-package co.yedam.common;
+package co.yedam.common.control;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import co.yedam.common.Control;
 
 public class ProductListControl implements Control {
 
