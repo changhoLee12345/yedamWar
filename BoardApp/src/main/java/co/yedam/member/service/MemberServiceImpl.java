@@ -6,8 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSource;
-import co.yedam.member.Member;
 import co.yedam.member.mapper.MemberMapper;
+import co.yedam.member.vo.Member;
 
 public class MemberServiceImpl implements MemberService {
 

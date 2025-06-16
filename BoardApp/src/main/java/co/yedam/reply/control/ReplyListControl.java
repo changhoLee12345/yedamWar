@@ -12,9 +12,9 @@ import com.google.gson.GsonBuilder;
 
 import co.yedam.common.Control;
 import co.yedam.common.SearchVO;
-import co.yedam.reply.Reply;
 import co.yedam.reply.service.ReplyService;
 import co.yedam.reply.service.ReplyServiceImpl;
+import co.yedam.reply.vo.Reply;
 
 public class ReplyListControl implements Control {
 	@Override

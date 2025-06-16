@@ -3,7 +3,7 @@ package co.yedam.member.mapper;
 import java.util.List;
 import java.util.Map;
 
-import co.yedam.member.Member;
+import co.yedam.member.vo.Member;
 
 public interface MemberMapper {
 	Member selectMember(Member member);

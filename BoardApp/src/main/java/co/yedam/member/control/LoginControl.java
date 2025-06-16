@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.yedam.common.Control;
-import co.yedam.member.Member;
 import co.yedam.member.service.MemberService;
 import co.yedam.member.service.MemberServiceImpl;
+import co.yedam.member.vo.Member;
 
 public class LoginControl implements Control {
 

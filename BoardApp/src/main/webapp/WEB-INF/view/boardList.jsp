@@ -1,5 +1,5 @@
 <%@page import="co.yedam.common.PageDTO"%>
-<%@page import="co.yedam.board.Board"%>
+<%@page import="co.yedam.board.vo.Board"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

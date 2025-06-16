@@ -2,8 +2,8 @@ package co.yedam.board.mapper;
 
 import java.util.List;
 
-import co.yedam.board.Board;
-import co.yedam.board.Book;
+import co.yedam.board.vo.Board;
+import co.yedam.board.vo.Book;
 import co.yedam.common.SearchVO;
 
 public interface BoardMapper {

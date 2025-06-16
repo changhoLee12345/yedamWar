@@ -3,7 +3,7 @@ package co.yedam.member.service;
 import java.util.List;
 import java.util.Map;
 
-import co.yedam.member.Member;
+import co.yedam.member.vo.Member;
 
 public interface MemberService {
 	Member loginCheck(Member member);

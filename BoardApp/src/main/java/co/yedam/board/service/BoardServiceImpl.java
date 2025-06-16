@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import co.yedam.board.Board;
-import co.yedam.board.Book;
 import co.yedam.board.mapper.BoardMapper;
+import co.yedam.board.vo.Board;
+import co.yedam.board.vo.Book;
 import co.yedam.common.DataSource;
 import co.yedam.common.SearchVO;
 

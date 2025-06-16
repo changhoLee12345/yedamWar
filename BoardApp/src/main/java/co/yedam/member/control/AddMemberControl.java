@@ -10,9 +10,9 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.common.Control;
-import co.yedam.member.Member;
 import co.yedam.member.service.MemberService;
 import co.yedam.member.service.MemberServiceImpl;
+import co.yedam.member.vo.Member;
 
 public class AddMemberControl implements Control {
 	@Override

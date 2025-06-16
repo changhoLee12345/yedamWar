@@ -1,4 +1,4 @@
-package co.yedam.reply;
+package co.yedam.reply.vo;
 
 import java.util.Date;
 

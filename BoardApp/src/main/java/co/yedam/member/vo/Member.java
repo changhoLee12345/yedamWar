@@ -1,4 +1,4 @@
-package co.yedam.member;
+package co.yedam.member.vo;
 
 import lombok.Data;
 

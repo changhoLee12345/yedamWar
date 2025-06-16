@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import co.yedam.common.Center;
 import co.yedam.common.DataSource;
 import co.yedam.common.SearchVO;
-import co.yedam.reply.Reply;
 import co.yedam.reply.mapper.ReplyMapper;
+import co.yedam.reply.vo.Reply;
 
 public class ReplyServiceImpl implements ReplyService {
 

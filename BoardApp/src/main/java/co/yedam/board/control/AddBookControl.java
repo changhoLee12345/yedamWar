@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.board.Book;
 import co.yedam.board.service.BoardService;
 import co.yedam.board.service.BoardServiceImpl;
+import co.yedam.board.vo.Book;
 import co.yedam.common.Control;
 
 public class AddBookControl implements Control {

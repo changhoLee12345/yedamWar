@@ -1,4 +1,4 @@
-<%@page import="co.yedam.board.Board"%>
+<%@page import="co.yedam.board.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%

@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import co.yedam.reply.Reply;
 import co.yedam.reply.service.ReplyService;
 import co.yedam.reply.service.ReplyServiceImpl;
+import co.yedam.reply.vo.Reply;
 
 public class DataTableControl implements Control {
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import co.yedam.common.Center;
 import co.yedam.common.SearchVO;
-import co.yedam.reply.Reply;
+import co.yedam.reply.vo.Reply;
 
 public interface ReplyService {
 	List<Reply> replyList(SearchVO search);

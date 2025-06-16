@@ -3,8 +3,8 @@ package co.yedam;
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSource;
-import co.yedam.reply.Reply;
 import co.yedam.reply.mapper.ReplyMapper;
+import co.yedam.reply.vo.Reply;
 
 public class MapperTest {
 	public static void main(String[] args) {
